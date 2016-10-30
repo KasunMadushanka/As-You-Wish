@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tour" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isTitleNewPage="true" uuid="cd94796c-9116-4406-903e-415fa39041ef">
+	<property name="ireport.zoom" value="0.7513148009015799"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     accom.`accId` AS accom_accId,
+     accom.`accName` AS accom_accName,
+     place.`plId` AS place_plId,
+     place.`plName` AS place_plName,
+     ztest.`PId` AS ztest_PId,
+     ztest.`Adults` AS ztest_Adults,
+     ztest.`Children` AS ztest_Children,
+     ztest.`fName` AS ztest_fName,
+     ztest.`lName` AS ztest_lName,
+     ztest.`Duration` AS ztest_Duration,
+     zday.`pId` AS zday_pId,
+     zday.`DayNo` AS zday_DayNo,
+     zday.`plId` AS zday_plId,
+     zselectedplaces.`Pid` AS zselectedplaces_Pid,
+     zselectedplaces.`dayNo` AS zselectedplaces_dayNo,
+     zselectedplaces.`place` AS zselectedplaces_place,
+     zplace.`placeId` AS zplace_placeId,
+     zplace.`Name` AS zplace_Name,
+     zplace.`desc` AS zplace_desc,
+     zdayacco.`pId` AS zdayacco_pId,
+     zdayacco.`AccoId` AS zdayacco_AccoId,
+     zdayacco.`double` AS zdayacco_double,
+     zdayacco.`single` AS zdayacco_single,
+     zdayacco.`nonVeg` AS zdayacco_nonVeg,
+     zdayacco.`Veg` AS zdayacco_Veg,
+     zdayacco.`dayNo` AS zdayacco_dayNo
+FROM
+     `zday` zday INNER JOIN `ztest` ztest ON zday.`pId` = ztest.`PId`
+     INNER JOIN `place` place ON zday.`plId` = place.`plId`
+     INNER JOIN `zselectedplaces` zselectedplaces ON zday.`pId` = zselectedplaces.`Pid`
+     AND zselectedplaces.`dayNo` = zday.`DayNo`
+     INNER JOIN `zdayacco` zdayacco ON zday.`DayNo` = zdayacco.`dayNo`
+     AND zdayacco.`pId` = zday.`pId`
+     INNER JOIN `accom` accom ON zdayacco.`AccoId` = accom.`accId`
+     INNER JOIN `zplace` zplace ON zselectedplaces.`place` = zplace.`placeId`
+WHERE
+    ztest. PId  =$P{parameter1}]]>
+	</queryString>
+	<field name="accom_accId" class="java.lang.String"/>
+	<field name="accom_accName" class="java.lang.String"/>
+	<field name="place_plId" class="java.lang.String"/>
+	<field name="place_plName" class="java.lang.String"/>
+	<field name="ztest_PId" class="java.lang.String"/>
+	<field name="ztest_Adults" class="java.lang.Integer"/>
+	<field name="ztest_Children" class="java.lang.Integer"/>
+	<field name="ztest_fName" class="java.lang.String"/>
+	<field name="ztest_lName" class="java.lang.String"/>
+	<field name="ztest_Duration" class="java.lang.String"/>
+	<field name="zday_pId" class="java.lang.String"/>
+	<field name="zday_DayNo" class="java.lang.Integer"/>
+	<field name="zday_plId" class="java.lang.String"/>
+	<field name="zselectedplaces_Pid" class="java.lang.String"/>
+	<field name="zselectedplaces_dayNo" class="java.lang.Integer"/>
+	<field name="zselectedplaces_place" class="java.lang.String"/>
+	<field name="zplace_placeId" class="java.lang.String"/>
+	<field name="zplace_Name" class="java.lang.String"/>
+	<field name="zplace_desc" class="java.lang.String"/>
+	<field name="zdayacco_pId" class="java.lang.String"/>
+	<field name="zdayacco_AccoId" class="java.lang.String"/>
+	<field name="zdayacco_double" class="java.lang.Integer"/>
+	<field name="zdayacco_single" class="java.lang.Integer"/>
+	<field name="zdayacco_nonVeg" class="java.lang.Integer"/>
+	<field name="zdayacco_Veg" class="java.lang.Integer"/>
+	<field name="zdayacco_dayNo" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="785" splitType="Stretch">
+			<line>
+				<reportElement x="5" y="674" width="555" height="1" uuid="6dd1dccc-5320-4ec8-a96f-86932b8a04c6"/>
+			</line>
+			<staticText>
+				<reportElement x="15" y="699" width="267" height="20" uuid="de4b4bc7-376e-4551-907b-52a752d71c00"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[545/1, Numgamugoda, Kalaniya, Sri Lnaka]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="719" width="266" height="20" uuid="38f1de37-f251-4f80-9ee2-a51d5e469f3f"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[www.chaaliya.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="738" width="267" height="20" uuid="6611fdb7-8436-4112-9580-957eb4691a72"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[+94 11  2914323]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="758" width="267" height="20" uuid="e11d485f-6e38-4367-90a0-7dcfd65e7fed"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[info@chaaliya.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="718" width="83" height="20" uuid="b29757a6-2ca0-4079-96b0-2a3b491f1a91"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tourist Name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="378" y="718" width="168" height="20" uuid="3ebc4b83-1a0b-41ba-8e9a-d8e7d41e0f5d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ztest_fName}+" "+$F{ztest_lName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="296" y="745" width="65" height="20" uuid="21551aee-e6de-414b-a5ac-4c9384405b99"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Duration:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="361" y="745" width="137" height="20" uuid="e96b276b-ec1e-4981-8e8e-dd17280cabba"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ztest_Duration}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="-60" y="-17" width="938" height="692" uuid="85503054-adea-4338-aab5-ba3101520781"/>
+				<imageExpression><![CDATA["C:\\wamp\\www\\Chaaliya1\\reports\\wild_03-252.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="350" y="561" width="210" height="89" uuid="ab1a041d-980a-4785-9b30-207b23a3ff04"/>
+				<imageExpression><![CDATA["C:\\wamp\\www\\Chaaliya1\\admin\\assets\\img\\address-logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement x="239" y="0" width="168" height="20" uuid="45ab0dea-5272-4610-9aa6-ac3c41376a0e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ztest_fName}+" "+$F{ztest_lName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="157" y="0" width="83" height="20" uuid="5eedcd37-3f94-4dac-922f-246e3d9ed102"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tourist Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="52" width="110" height="20" uuid="1471f4e7-d419-4346-b2ee-dee87e1e1071"/>
+				<textElement>
+					<font size="12" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Number of People:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="51" width="46" height="21" uuid="0ff924aa-2f33-4e39-b30a-87008e631f53"/>
+				<textElement>
+					<font size="12" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Adults:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="50" width="55" height="21" uuid="a76af938-e2b9-4047-9a08-fcbb0d853c62"/>
+				<textElement>
+					<font size="12" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Children:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="177" y="51" width="100" height="23" uuid="93815dab-8dab-4b84-8447-78e58a26a59c"/>
+				<textElement>
+					<font size="12" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ztest_Adults}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="49" width="100" height="23" uuid="cb1379c3-4962-415b-a5f2-3894c500d2d6"/>
+				<textElement>
+					<font size="12" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ztest_Children}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="30" width="137" height="20" uuid="e283c8bc-9b9d-41b6-a98b-a131984662c6"/>
+				<textElement>
+					<font size="12" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ztest_Duration}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="18" y="30" width="54" height="20" uuid="848537b3-3765-49d1-aadb-7f0358c0af35"/>
+				<textElement>
+					<font size="12" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Duration:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="314" splitType="Stretch">
+			<textField>
+				<reportElement x="33" y="128" width="188" height="21" uuid="26d3e9fc-78a6-459f-a1a1-ca84cce65827"/>
+				<textFieldExpression><![CDATA[$F{zplace_Name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="71" y="156" width="450" height="150" uuid="f0653f0a-e7eb-47f3-917e-3c545879962e"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isPdfEmbedded="true"/>
+					<paragraph tabStopWidth="40"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{zplace_desc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="39" width="36" height="30" uuid="f0d92cca-b897-4554-882b-8d6e3e565105"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Day]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="51" y="39" width="227" height="30" uuid="151bff5a-b374-4f43-855a-6c573e428c0d"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{zselectedplaces_dayNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="86" width="167" height="22" uuid="de3f9c25-dfb4-40f2-a02f-0436612cac2f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{place_plName}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="8" y="63" width="64" height="1" uuid="85f8197f-15c6-4487-a3e6-cd4040cd2d3a"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="148" splitType="Stretch">
+			<textField>
+				<reportElement x="213" y="122" width="283" height="20" uuid="e2430c30-dab1-4142-b143-e7bef0a82078"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="498" y="122" width="55" height="20" uuid="d62e0dd4-2ac3-4cdd-aba1-1418a670aaed"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="13" y="111" width="62" height="31" uuid="13d54af1-7ddc-4827-acc0-3ea63929b089"/>
+				<imageExpression><![CDATA["C:\\wamp\\www\\Chaaliya1\\admin\\assets\\img\\address-logo.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="295" y="41" width="82" height="20" uuid="255ebfd5-f665-403d-ad03-3c566082ce57"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{zdayacco_double}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="407" y="21" width="82" height="20" uuid="52a1af15-aa9c-473a-be90-ba3e4ddca5d6"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Single Rooms:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="66" y="41" width="129" height="20" uuid="3117beaa-2447-4da5-80e1-53b4ad025e75"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{accom_accName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="67" y="21" width="128" height="20" uuid="fa5c3526-f439-46dd-bd71-d8064463b9cd"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Accommodation:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="21" width="82" height="20" uuid="38db5953-95aa-457d-afad-d44537caf2f8"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Double Rooms:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="407" y="41" width="82" height="20" uuid="73bba80f-9c30-46c6-a2b9-01774783d448"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{zdayacco_single}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="77" width="44" height="20" uuid="95ca0577-a127-445b-8675-d5105d623bf8"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{zdayacco_Veg}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="211" y="77" width="82" height="20" uuid="1ad29114-7175-4d82-a41f-8478c60479e9"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Non-Vegetarian:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="293" y="77" width="44" height="20" uuid="a289956c-ca61-46cf-8c42-5b8bfa04ad20"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{zdayacco_nonVeg}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="346" y="77" width="61" height="20" uuid="b89d4ed2-f6de-4511-9144-dad5388ea3ef"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Vegetarian:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="76" width="37" height="20" uuid="ebd3be76-848b-44a7-9bae-d2aeae992592"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Meal:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="5" y="10" width="548" height="1" uuid="d6ffe7d6-70de-4b24-a209-3670075c80ba"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
