@@ -1,23 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-us">
     <head>
-
-        <title>Unity Web Player Tutorial</title>
-
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>As You Wish</title>
+        <link rel="stylesheet" href="video_data/template_data/style.css">
+        <script src="video_data/template_data/UnityProgress.js"></script>
     </head>
-
     <body>
+        <section id="dd" data-bg-img="images/bg/bg22.png">
+            <div class="template">
+                <div class="template-wrap clear">
+                    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="450px" width="750px" style="position:relative;top:50px;"></canvas>
+                    <br>
+                    <div class="logo"></div>
+                </div>
 
-        <h1> Hello Youtube </h1>
-
-        <object id="UnityObject" classid="clsid:444785F1-DE89-4295-863A-D46C3A781394"
-                width="420" height="750"
-                codebase="http://webplayer.unity3d.com/download_webplayer/UnityWebPlayer.cab#version=2,0,0,0">
-            <param name="unity3d" value="WebPlayer.unity3d" />
-            <embed id="UnityEmbed" src="C:\Users\Kasun\Desktop\New folder\video.unity3d" width="420" height="750"
-                   type="application/vnd.unity" pluginspage="http://www.unity3d.com/unity-web-player-2.x" />
-        </object>
-
+                <script type='text/javascript'>
+                    var Module = {
+                        TOTAL_MEMORY: 268435456,
+                        errorhandler: null,
+                        compatibilitycheck: null,
+                        dataUrl: "video_data/Video.data",
+                        codeUrl: "video_data/Video.js",
+                        memUrl: "video_data/Video.mem",
+                    };
+                </script>
+                <script src="video_data/UnityLoader.js"></script>
+            </div>
+        </section>
     </body>
-
 </html>
