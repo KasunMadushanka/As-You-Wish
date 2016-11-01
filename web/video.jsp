@@ -6,9 +6,10 @@
         <title>As You Wish</title>
         <link rel="stylesheet" href="video_data/template_data/style.css">
         <script src="video_data/template_data/UnityProgress.js"></script>
+
     </head>
     <body>
-        <section id="dd" data-bg-img="images/bg/bg22.png">
+        <section data-bg-img="images/bg/bg22.png">
             <div class="template">
                 <div class="template-wrap clear">
                     <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="450px" width="750px" style="position:relative;top:50px;"></canvas>
@@ -28,6 +29,6 @@
                 </script>
                 <script src="video_data/UnityLoader.js"></script>
             </div>
-        </section>
+        </section>  
     </body>
 </html>
