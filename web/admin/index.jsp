@@ -87,7 +87,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="widget widget-stats bg-purple">
                             <div class="stats-icon stats-icon-lg"><i class="fa fa-shopping-cart fa-fw"></i></div>
-                            <div class="stats-title">Orderd Times</div>
+                            <div class="stats-title">Ordered Times</div>
                             <div class="stats-number">9,900</div>
                             <div class="stats-progress progress">
                                 <div class="progress-bar" style="width: 52.3%;"></div>
@@ -114,14 +114,14 @@
 
                 <!-- begin row -->
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="widget-chart with-sidebar bg-black">
+                    <div class="col-md-6">
+                        <div class="widget-chart bg-black">
                             <div class="widget-chart-content">
                                 <h4 class="chart-title">
                                     WebSite Traffic
                                     <small></small>
                                 </h4>
-                                <div id="visitors-line-chart" class="morris-inverse" style="height: 260px;"></div>
+                                <div id="visitors-line-chart" class="morris-inverse" style="height: 250px;"></div>
                             </div>
                             <div class="widget-chart-sidebar bg-black-darker">
                                 <div class="chart-number">
@@ -136,30 +136,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="panel panel-inverse" data-sortable-id="index-1">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    Visitors Origin
-                                </h4>
-                            </div>
-                            <div id="visitors-map" class="bg-black" style="height: 181px;"></div>
-                            <div class="list-group">
-                                <a href="#" class="list-group-item list-group-item-inverse text-ellipsis">
-                                    <span class="badge badge-success">87.95%</span>
-                                    1. Sri Lanka 
-                                </a> 
-                                <a href="#" class="list-group-item list-group-item-inverse text-ellipsis">
-                                    <span class="badge badge-primary">10.12%</span>
-                                    2. India
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-inverse text-ellipsis">
-                                    <span class="badge badge-inverse">2.99%</span>
-                                    3. United State
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                  
 
                     <div class="col-md-6">
                         <!-- begin panel -->
@@ -172,9 +149,8 @@
                                 <a href="#" class="list-group-item text-ellipsis">
                                     <span class="badge badge-success">9:00 am</span> Sales Reporting
                                 </a> 
-                                <a href="#" class="list-group-item text-ellipsis">
-                                    <span class="badge badge-primary">2:45 pm</span> Have a meeting with sales team
-                                </a>
+                               
+                                
                             </div>
                         </div>
                         <!-- end panel -->

@@ -1,5 +1,3 @@
-<%@include file="../../config/sessionCheckAdmin.jsp" %>
-
 <div id="sidebar" class="sidebar">
     <!-- begin sidebar scrollbar -->
     <div data-scrollbar="true" data-height="100%">
@@ -7,11 +5,11 @@
         <ul class="nav">
             <li class="nav-profile">
                 <div class="image">
-                    <a href="javascript:;"><img src="<%= imgAdmin%>" alt="" /></a> <!-- took from sessionAdmin which is called from header -->
+                    <a href="javascript:;"><img src="<%//= imgAdmin%>" alt="" /></a> <!-- took from sessionAdmin which is called from header -->
                 </div>
                 <div class="info">
-                    <%= NameAdmin%> <!-- took from sessionAdmin which is called from header -->
-                    <small><%= PosAdmin%></small> <!-- took from sessionAdmin which is called from header -->
+                    <%//= NameAdmin%> <!-- took from sessionAdmin which is called from header -->
+                    <small><%//= PosAdmin%></small> <!-- took from sessionAdmin which is called from header -->
                 </div>
             </li>
         </ul>
@@ -67,12 +65,15 @@
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
                     <i class="fa fa-check"></i>
-                    <span>Voting System</span> 
+                    <span>Couple Contest</span> 
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="form_elements.html">Candidates</a></li>
-                    <li><a href="form_plugins.html">Results</a></li>
-                    <li><a href="form_slider_switcher.html">Report</a></li>
+                    <li><a href="couple_contest/couple_contestants.jsp">Contestants</a></li>
+                    <li><a href="couple_contest/sponsorship.jsp">Sponsorship</a></li>
+                    <li><a href="couple_contest/prizes.jsp">Prizes</a></li>
+                    <li><a href="couple_contest/results.jsp">Results</a></li>
+                    <li><a href="couple_contest/settings.jsp">Settings</a></li>
+
                 </ul>
             </li>
             <li class="has-sub">
