@@ -2,11 +2,12 @@ $(document).ready(function () {
     $('#visitor_sign_in_button').click(function ()
     {
         email = $('#visitor_sign_in_email').val();
+         password = $('#visitor_sign_in_password').val();
 
         $.ajax({
             type: "post",
             url: "controllers/visitor_sign_in.jsp",
-            data: "email=" + email,
+            data: "email=" + email+"&password="+password,
             success: function (msg) {
 
                 if (msg === "valid") {

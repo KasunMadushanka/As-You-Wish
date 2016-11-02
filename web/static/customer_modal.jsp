@@ -60,7 +60,7 @@
                                 <center><input id="image_url" type="file" class="filestyle" data-input="false" name="file" accept="image/*" onchange="loadFile4(event)"></center>
                             </form>
 
-                            <button id="Upload Images" type="button" onclick="image_upload('vendor_gallery',<%=session.getAttribute("service_id")%>)" class="btn btn-dark btn-theme-colored btn-flat mr-5">Post</button>
+                            <button id="upload_images" type="button" onclick="image_upload('vendor_gallery',<%=session.getAttribute("service_id")%>)" class="btn btn-dark btn-theme-colored btn-flat mr-5">Post</button>
 
                         </div>
                     </div>
@@ -79,8 +79,12 @@
                         <div class="modal-body">
                             <div class="form-group col-md-12">
                                 <label for="visitor_sign_in_email">Email</label>
-                                <input id="visitor_sign_in_email" name="visitor_sign_in_email" class="form-control" type="text">
-                            </div>              
+                                <input id="visitor_sign_in_email" name="visitor_sign_in_email" class="form-control" type="text">              
+                            </div>    
+                            <div class="form-group col-md-12">
+                                <label for="visitor_sign_in_password">Password</label>
+                                <input id="visitor_sign_in_password" name="visitor_sign_in_password" class="form-control" type="password">
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <div class="form-group text-center">
@@ -111,6 +115,12 @@
                                 <div class="form-group col-md-12">
                                     <label for="visitor_sign_up_email">Email</label>
                                     <input id="visitor_sign_up_email" name="visitor_sign_up_email" class="form-control" type="text">
+                                </div>   
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="visitor_sign_up_password">Password</label>
+                                    <input id="visitor_sign_up_password" name="visitor_sign_up_password" class="form-control" type="password">
                                 </div>   
                             </div>
                         </div>

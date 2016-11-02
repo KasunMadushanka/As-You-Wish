@@ -4,8 +4,9 @@
 
 <%
     String email = request.getParameter("email");
+    String password = request.getParameter("password");
 
-    ResultSet rs = getCon().createStatement().executeQuery("Select* from visitor where email='" + email + "'");
+    ResultSet rs = getCon().createStatement().executeQuery("Select* from visitor where email='" + email + "' and password='"+password+"'");
     if (rs.first()) {
         session.setAttribute("id", rs.getString("visitor_id"));
         session.setAttribute("first_name", rs.getString("first_name"));
