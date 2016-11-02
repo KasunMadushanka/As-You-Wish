@@ -15,7 +15,6 @@
                         <i class="fa fa-heart font-36 infinite animated pulse"></i>
                     </div>
                 </div>
-                <div id="disable-preloader" class="btn btn-default btn-sm">Disable Preloader</div>
             </div>
 
             <!-- Header -->
