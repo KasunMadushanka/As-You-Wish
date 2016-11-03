@@ -10,36 +10,7 @@
 <html lang="en">
 
     <head>
-        <meta charset="utf-8" />
-        <title>As You Wish | Admin Panel</title>
-        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-        <meta content="" name="description" />
-        <meta content="" name="author" />
-
-        <!-- ================== BEGIN BASE CSS STYLE ================== -->
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-        <link href="../assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
-        <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="../assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-        <link href="../assets/css/animate.min.css" rel="stylesheet" />
-        <link href="../assets/css/style.min.css" rel="stylesheet" />
-        <link href="../assets/css/style-responsive.min.css" rel="stylesheet" />
-        <link href="../assets/css/theme/default.css" rel="stylesheet" id="theme" />
-        <!-- ================== END BASE CSS STYLE ================== -->
-
-        <!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
-        <link href="../assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" />
-        <link href="../assets/plugins/bootstrap-calendar/css/bootstrap_calendar.css" rel="stylesheet" />
-        <link href="../assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
-        <link href="../assets/plugins/morris/morris.css" rel="stylesheet" />
-        <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
-
-        <!-- ================== BEGIN BASE JS ================== -->
-        <script src="../assets/plugins/pace/pace.min.js"></script>
-        <script src="../assets/sweetalert-dev.js"></script>
-        <link rel="stylesheet" href="../assets/sweetalert.css">
-        <!-- ================== END BASE JS ================== -->
-
+        <%@ include file="static/head.jsp" %>
     </head>
 
     <body>
@@ -47,11 +18,11 @@
         <!-- begin #page-container -->
         <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
             <!-- begin #header -->
-            <%@ include file="../static/header.jsp" %>
+            <%@ include file="static/header.jsp" %>
             <!-- end #header -->
 
             <!-- begin #sidebar -->
-            <%@ include file="../static/navbar.jsp" %>
+            <%@ include file="static/navbar.jsp" %>
             <!-- end #sidebar -->
 
             <!-- begin #content -->
@@ -122,19 +93,19 @@
 
         </div>
 
-        <script src="../assets/plugins/jquery/jquery-1.9.1.min.js"></script>
-        <script src="../assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
-        <script src="../assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
-        <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+        <script src="assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+        <script src="assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+        <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-        <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="../assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+        <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
 
-        <script src="../assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
-        <script src="../assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
-        <script src="../assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
-        <script src="../assets/js/table-manage-default.demo.min.js"></script>
-        <script src="../assets/js/apps.min.js"></script>
+        <script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+        <script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
+        <script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+        <script src="assets/js/table-manage-default.demo.min.js"></script>
+        <script src="assets/js/apps.min.js"></script>
 
         <script>
             $(document).ready(function () {
