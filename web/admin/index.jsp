@@ -29,8 +29,11 @@
 
         <!-- ================== BEGIN BASE JS ================== -->
         <script src="assets/plugins/pace/pace.min.js"></script>
+        <script src="assets/sweetalert-dev.js"></script>
+        <link rel="stylesheet" href="assets/sweetalert.css">
         <!-- ================== END BASE JS ================== -->
     </head>
+    
     <body>
 
         <!-- begin #page-container -->
@@ -136,7 +139,7 @@
                             </div>
                         </div>
                     </div>
-                  
+
 
                     <div class="col-md-6">
                         <!-- begin panel -->
@@ -149,8 +152,8 @@
                                 <a href="#" class="list-group-item text-ellipsis">
                                     <span class="badge badge-success">9:00 am</span> Sales Reporting
                                 </a> 
-                               
-                                
+
+
                             </div>
                         </div>
                         <!-- end panel -->
@@ -175,7 +178,7 @@
         <script src="assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
         <script src="assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
         <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-        
+
         <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
         <script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
         <!-- ================== END BASE JS ================== -->

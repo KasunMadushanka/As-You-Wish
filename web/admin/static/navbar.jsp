@@ -68,7 +68,7 @@
                     <span>Couple Contest</span> 
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="couple_contest/couple_contestants.jsp">Contestants</a></li>
+                    <li><a href="couple_contest/contestants.jsp">Contestants</a></li>
                     <li><a href="couple_contest/sponsorship.jsp">Sponsorship</a></li>
                     <li><a href="couple_contest/prizes.jsp">Prizes</a></li>
                     <li><a href="couple_contest/results.jsp">Results</a></li>
