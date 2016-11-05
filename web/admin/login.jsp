@@ -70,7 +70,7 @@
                                 </label>
                             </div>
                             <div class="login-buttons">
-                                <button type="button" id="logIn" class="btn btn-success btn-block btn-lg">Sign me in</button>
+                                <button type="button" id="logIn" class="btn btn-success btn-block btn-lg" onclick="admin_login()">Sign me in</button>
                             </div>
                             <br>
                             <div class="col-md-12 container note note-danger" id="msg">
@@ -119,9 +119,9 @@
         <!-- ================== END PAGE LEVEL JS ================== -->
 
         <script>
-            $(document).ready(function () {
-                App.init();
-            });
+                                    $(document).ready(function () {
+                                        App.init();
+                                    });
         </script>
         <script>
             (function (i, s, o, g, r, a, m) {
@@ -143,41 +143,43 @@
         <script>
             $(document).ready(function () {
                 App.init();
-                $("#msg").hide();
+            });
+            $("#msg").hide();
 
+            function admin_login() {
+                var password = $('#password').val();
+                var email = $('#email').val();
+                if ($("#rememberMe").prop('checked') == true) {
+                    var x = 1;
+                } else {
+                    var x = 0;
+                }
 
-
-                $('#logIn').click(function () {
-                    var password = $('#password').val();
-                    var email = $('#email').val();
-                    if ($("#rememberMe").prop('checked') == true) {
-                        var x = 1;
-                    } else {
-                        var x = 0;
-                    }
-
-                    $.ajax({
-                        url: "controllers/loginAdmin.jsp",
-                        method: "POST",
-                        data: {admin: true, pw: password, email: email, remMe: x},
-                        dataType: "text",
-                        success: function (html) {
-                            var status = html;
-
-                            if (status == "true") {
-                                window.location.href = 'index.jsp';
-
-                            } else {
-                                $("#msg").show();
-
-                            }
-
+                $.ajax({
+                    url: "controllers/loginAdmin.jsp",
+                    method: "POST",
+                    data: {admin: true, pw: password, email: email, remMe: x},
+                    dataType: "text",
+                    success: function (html) {
+                        var status = html;
+                        if (status == "true") {
+                            window.location.href = 'index.jsp';
+                        } else {
+                            $("#msg").show();
                         }
 
-                    });
-                });
+                    }
 
+                });
+            }
+
+            $('#password').keydown(function (e) {
+                if (e.which === 13) {
+                    admin_login();
+                    return false;
+                }
             });
+            
         </script>
 
 

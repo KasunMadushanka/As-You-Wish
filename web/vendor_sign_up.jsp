@@ -14,11 +14,30 @@
         <script src="js/bootstrap-filestyle.js"></script> 
         <script src="myjs/image_upload.js"></script>
         <script src="myjs/email.js"></script>
+
+
+        <link rel="stylesheet" href="css/clockpicker/bootstrap-clockpicker.css">
+        <link rel="stylesheet" href="css/clockpicker/bootstrap-clockpicker.min.css">      
+        <link rel="stylesheet" href="css/clockpicker/clockpicker.css">
+        <link rel="stylesheet" href="css/clockpicker/jquery-clockpicker.css">
+        <link rel="stylesheet" href="css/clockpicker/jquery-clockpicker.min.css">
+        <link rel="stylesheet" href="css/bootstrap-switch.css">
+        <link rel="stylesheet" href="css/bootstrap-switch.min.css">
+
+        <script src="js/clockpicker/bootstrap-clockpicker.js"></script>
+        <script src="js/clockpicker/bootstrap-clockpicker.min.js"></script>
+        <script src="js/clockpicker.css"></script>
+        <script src="js/clockpicker/jquery-clockpicker.js"></script>
+        <script src="js/clockpicker/jquery-clockpicker.min.js"></script>
+        <script src="js/bootstrap-switch.js"></script>
+        <script src="js/bootstrap-switch.min.js"></script>
+
+
     </head>
 
     <body class="">
         <div id="wrapper">
-           
+
             <div id="preloader">
                 <div id="spinner">
                     <div class="heart-preloader">
@@ -28,7 +47,7 @@
             </div>
 
             <!-- Header -->
-               <%@ include file="/static/visitor_header.jsp"%>
+            <%@ include file="/static/visitor_header.jsp"%>
 
             <!-- Start main-content -->
             <div class="main-content">
@@ -101,7 +120,7 @@
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label for="mobile"><b>Mobile (+94)*</b></label>
-                                                <input id="mobile" name="mobile" onkeypress="check_mobile('mobile',event)" class="form-control" type="text">
+                                                <input id="mobile" name="mobile" onkeypress="check_mobile('mobile', event)" class="form-control" type="text">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="email"><b>Email*</b></label>
@@ -157,7 +176,7 @@
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label for="company_contact_no"><b>Contact No*</b></label>
-                                                <input id="company_contact_no" name="company_contact_no" onkeypress="check_mobile('company_contact_no',event)" class="form-control" type="text">
+                                                <input id="company_contact_no" name="company_contact_no" onkeypress="check_mobile('company_contact_no', event)" class="form-control" type="text">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="company_email"><b>Email</b></label>
@@ -295,6 +314,25 @@
                                         <div class="form-group">
                                             <button id="sign_up_button" class="btn btn-dark btn-theme-colored btn-block mt-15">Sign Up</button>
                                         </div>
+                                        <div class="input-group clockpicker">
+                                            <input type="text" class="form-control" value="18:00">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-time"></span>
+                                            </span>
+                                        </div>
+                                        <script type="text/javascript">
+                                            $('.clockpicker').clockpicker({
+                                                placement: 'top',
+                                                align: 'left',
+                                                donetext: 'Done'
+                                            });
+                                        </script>
+                                       
+                                      <input type="checkbox" name="my-checkbox" checked>
+                                      <script>
+                                          $("[name='my-checkbox']").bootstrapSwitch();
+                                          </script>
+
                                     </div>
                                 </div>
                             </div>

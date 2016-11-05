@@ -1,7 +1,6 @@
 <%@page import="java.util.Calendar"%>
 <%@ include file="../config/sessionCheckAdmin.jsp" %>
-<%
-    Calendar now = Calendar.getInstance();
+<%    Calendar now = Calendar.getInstance();
     int year = now.get(Calendar.YEAR);
     int month = now.get(Calendar.MONTH) + 1;
 
@@ -15,6 +14,14 @@
 
     <head>
         <%@ include file="static/head.jsp" %>
+
+        <link rel="stylesheet" href="assets/css/switch/bootstrap-switch.css">
+        <link rel="stylesheet" href="assets/css/switch/bootstrap-switch.min.css">
+
+        <script src="assets/js/switch/bootstrap-switch.js"></script>
+        <script src="assets/js/switch/bootstrap-switch.min.js"></script>
+        
+
     </head>
 
     <body>
@@ -34,71 +41,58 @@
                 <!-- begin breadcrumb -->
                 <ol class="breadcrumb pull-right">
                     <li><a href="javascript:;">Home</a></li>
-                    <li><a href="javascript:;">Online Store</a></li>
-                    <li class="active">Checkouts</li>
+                    <li><a href="javascript:;">Couple Contest</a></li>
+                    <li class="active">Settings</li>
                 </ol>
 
-                <h1 class="page-header">Contestants<small> November 2016</small></h1>
-                <!-- end page-header -->
+                <h1 class="page-header">Configuration</h1>
 
-                <!-- begin row -->
                 <div class="row">
                     <!-- begin col-12 -->
                     <div class="col-md-12">
                         <!-- begin panel -->
                         <div class="panel panel-inverse">
-                            <div class="panel-heading">
-                                <div class="panel-heading-btn">
-                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
-                                </div>
-                                <h4 class="panel-title"> &nbsp;</h4>
-                            </div>
-                            <div class="panel-body">
+                            <input type="checkbox" name="my-checkbox" checked>
+                            <script>
+                                $("[name='my-checkbox']").bootstrapSwitch();
+                            </script>
 
-                                <table id="data-table" class="table table-striped table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 100px;">Position</th>
-                                            <th style="width: 700px;">Couple</th>
-                                            <th style="width: 100px;">Votes</th>
-                                            <th style="width: 100px;">Percentage</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <%  int i = 0;
-                                            if (rs1.first()) {
-                                                while (rs.next()) {%>
-                                        <tr class="odd gradeX">
-                                            <td><%=++i%></td>
-                                            <td><%= rs.getString("c.first_name") + " & " + rs.getString("c.partner_first_name")%></td>                                         
-                                            <td><%= rs.getString("cnt.votes")%></td>
-                                            <td><%=Math.round(Double.parseDouble(rs.getString("cnt.votes"))/Double.parseDouble(rs1.getString("total_votes"))*100)+"%"%></td>
-                                            <td>                                                                      
-                                                <button type="button" class="btn btn-primary btn-sm" > Contact </button>                                                                                          
-                                            </td>
-                                        </tr>
-                                        <%
-                                                }
-                                            }
-                                        %>
-                                    </tbody>
-                                </table>
+                            <select class="form-control" id="service1_type" name="service1_type">
+                                <option value="" disabled selected hidden>Duration</option>
+                                <option value="1" >24 Hour</option>
+                                <option value="2" >12 Hour</option>
+                                <option value="3" >6 Hour</option>                          
+                            </select>
+                            <div class="panel-body">
+                                <div class="form-group m-b-15">
+                                    <input type="text" class="form-control input-lg" placeholder="Email Address" id="email" />
+                                </div>
+                                <div class="form-group m-b-15">
+                                    <input type="password" class="form-control input-lg" placeholder="Password" id="password" />
+                                </div>
+                                <div class="checkbox m-b-30">
+                                    <label>
+                                        <input type="checkbox" id="rememberMe" /> Remember Me
+                                    </label>
+                                </div>
+                                <div class="login-buttons">
+                                    <button type="button" id="logIn" class="btn btn-success btn-block btn-lg" onclick="admin_login()">Sign me in</button>
+                                </div>
+                                <br>
                             </div>
+
                         </div>
 
                     </div>
 
                 </div>
 
-            </div>  
+            </div>
 
-            <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+        </div>  
 
-        </div>
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+
 
         <script src="assets/plugins/jquery/jquery-1.9.1.min.js"></script>
         <script src="assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
@@ -115,13 +109,13 @@
         <script src="assets/js/apps.min.js"></script>
 
         <script>
-            $(document).ready(function () {
-                App.init();
-                TableManageDefault.init();
-            });
-            $('#myModal1').modal({
-                show: true
-            });
+                                        $(document).ready(function () {
+                                            App.init();
+                                            TableManageDefault.init();
+                                        });
+                                        $('#myModal1').modal({
+                                            show: true
+                                        });
 
         </script>
         <script>

@@ -91,13 +91,13 @@
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label for="theme"><b>Theme Preferences</b></label>
-                                                <textarea id="theme" name="theme" class="form-control" rows="5" type="text"></textarea>
+                                                <textarea id="theme" name="theme" class="form-control" rows="5"></textarea>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label for="additional_details"><b>Additional Details</b></label>
-                                                <textarea id="additional_details" name="additional_details" class="form-control" rows="5" type="text"></textarea>
+                                                <textarea id="additional_details" name="additional_details" class="form-control" rows="5"></textarea>
                                             </div>
                                         </div>
 

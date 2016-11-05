@@ -72,7 +72,7 @@
                     <li><a href="sponsorship.jsp">Sponsorship</a></li>
                     <li><a href="prizes.jsp">Prizes</a></li>
                     <li><a href="results.jsp">Results</a></li>
-                    <li><a href="settings.jsp">Settings</a></li>
+                    <li><a href="contest_settings.jsp">Settings</a></li>
 
                 </ul>
             </li>

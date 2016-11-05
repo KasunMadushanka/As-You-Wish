@@ -58,7 +58,8 @@
         <script src="js/customer_modal.js"></script>	
         <script src="myjs/email.js"></script>
         <script src="myjs/voting.js"></script>	
-        <script src="js/flipclock.js"></script>	
+        <script src="js/flipclock.js"></script>
+     
         <script>
             var clock;
             $(document).ready(function () {
@@ -177,6 +178,7 @@
                                 </tr>
                                 <%}%>
                                 </tbody>
+                            
                             </table>
                         </div>
                     </div>
