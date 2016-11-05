@@ -1,5 +1,4 @@
 <%@ include file="../../config/db_connection.jsp" %>
-<%@include file="../../config/sessionCheckAdmin.jsp" %>
 
 <%@page import="java.sql.ResultSet"%>
 
@@ -90,8 +89,8 @@
 
             <li class="dropdown navbar-user">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="<%= imgAdmin %>" alt="" /> 
-                    <span class="hidden-xs"><%= NameAdmin %></span> <b class="caret"></b>
+                    <img src="<%= session.getAttribute("img")%>" alt="" /> 
+                    <span class="hidden-xs"><%=session.getAttribute("name")%></span> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu animated fadeInLeft">
                     <li class="arrow"></li>

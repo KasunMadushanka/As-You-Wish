@@ -1,4 +1,5 @@
 <%@page import="java.util.Calendar"%>
+<%@ include file="../config/sessionCheckAdmin.jsp" %>
 <%
     Calendar now = Calendar.getInstance();
     int year = now.get(Calendar.YEAR);

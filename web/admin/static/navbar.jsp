@@ -5,11 +5,11 @@
         <ul class="nav">
             <li class="nav-profile">
                 <div class="image">
-                    <a href="javascript:;"><img src="<%//= imgAdmin%>" alt="" /></a> <!-- took from sessionAdmin which is called from header -->
+                    <a href="javascript:;"><img src="<%=session.getAttribute("img")%>" alt="" /></a> 
                 </div>
                 <div class="info">
-                    <%//= NameAdmin%> <!-- took from sessionAdmin which is called from header -->
-                    <small><%//= PosAdmin%></small> <!-- took from sessionAdmin which is called from header -->
+                    <%=session.getAttribute("name")%> 
+                    <small><%= session.getAttribute("pos")%></small> 
                 </div>
             </li>
         </ul>

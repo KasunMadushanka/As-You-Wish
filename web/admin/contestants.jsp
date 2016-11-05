@@ -1,4 +1,4 @@
-
+<%@ include file="../config/sessionCheckAdmin.jsp" %>
 <%
 
     ResultSet rs = getCon().createStatement().executeQuery("Select first_name,partner_first_name,mobile,email,event_date from customer where customer_id in (Select customer_id from contest)");

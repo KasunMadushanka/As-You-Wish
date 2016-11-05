@@ -1,16 +1,12 @@
+<%@page import="java.util.Calendar"%>
 <%@ include file="../config/sessionCheckAdmin.jsp" %>
-
 <%
+    Calendar now = Calendar.getInstance();
+    int year = now.get(Calendar.YEAR);
+    int month = now.get(Calendar.MONTH) + 1;
 
-    ResultSet rs;
-    rs = getCon().createStatement().executeQuery("SELECT poders.*,supplier.*,items.itemName FROM `poders` "
-            + "inner join items on poders.itemId = items.itemId inner join supplier on items.supId = "
-            + "supplier.sId order by `date` desc");
-
-    String id = request.getParameter("txt");
-    //String 
-
-
+    ResultSet rs = getCon().createStatement().executeQuery("Select c.first_name,c.partner_first_name,cnt.votes from customer c inner join contestant cnt on c.customer_id=cnt.customer_id inner join contest cn on cnt.contest_id=cn.contest_id where cn.month='" + month + "' and cn.year='" + year + "' order by cnt.votes desc");
+    ResultSet rs1 = getCon().createStatement().executeQuery("Select sum(votes) as total_votes from contestant where contest_id=(Select contest_id from contest where month='" + month + "' and year='" + year + "')");
 %>
 
 <!DOCTYPE html>
@@ -20,6 +16,7 @@
     <head>
         <%@ include file="static/head.jsp" %>
     </head>
+
     <body>
 
         <!-- begin #page-container -->
@@ -40,9 +37,8 @@
                     <li><a href="javascript:;">Online Store</a></li>
                     <li class="active">Checkouts</li>
                 </ol>
-                <!-- end breadcrumb -->
-                <!-- begin page-header -->
-                <h1 class="page-header">All Purchase <small> Ordered by Latest</small></h1>
+
+                <h1 class="page-header">Contestants<small> November 2016</small></h1>
                 <!-- end page-header -->
 
                 <!-- begin row -->
@@ -65,77 +61,58 @@
                                 <table id="data-table" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>Purchase Order Id</th>
-                                            <th>Purchase Item</th>
-                                            <th>Supplier</th>
-                                            <th>Purchase Date</th>
-                                            <th>No of Items</th>
+                                            <th style="width: 100px;">Position</th>
+                                            <th style="width: 700px;">Couple</th>
+                                            <th style="width: 100px;">Votes</th>
+                                            <th style="width: 100px;">Percentage</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <%                                        while (rs.next()) {%>
+                                        <%  int i = 0;
+                                            if (rs1.first()) {
+                                                while (rs.next()) {%>
                                         <tr class="odd gradeX">
-                                            <td>P000<%= rs.getString("id")%></td>
-                                            <td><%= rs.getString("itemName")%></td>
-                                            <td><%= rs.getString("sName")%></td>
-                                            <td><%= rs.getString("date")%></td>
-                                            <td><%= rs.getString("qty")%> items </td>
-                                            <td> 
-                                                <form  method="get" action="purchaseReport.jsp" target="_blank">
-                                                    <input type="hidden" id="txt" name="txt" value="<%= rs.getString("id")%>">
-                                                    <button type="submit" class="btn btn-primary btn-sm" ><i class="fa fa-pencil-square-o"></i> View Invoice </button>                                                         
-                                                </form>
+                                            <td><%=++i%></td>
+                                            <td><%= rs.getString("c.first_name") + " & " + rs.getString("c.partner_first_name")%></td>                                         
+                                            <td><%= rs.getString("cnt.votes")%></td>
+                                            <td><%=Math.round(Double.parseDouble(rs.getString("cnt.votes"))/Double.parseDouble(rs1.getString("total_votes"))*100)+"%"%></td>
+                                            <td>                                                                      
+                                                <button type="button" class="btn btn-primary btn-sm" > Contact </button>                                                                                          
                                             </td>
-
                                         </tr>
-
                                         <%
+                                                }
                                             }
-
                                         %>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <!-- end panel -->
+
                     </div>
-                    <!-- end col-12 -->
+
                 </div>
-                <!-- end row -->
-            </div>
-            <!-- end #content -->
 
+            </div>  
 
-
-
-            <!-- begin scroll to top btn -->
             <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
-            <!-- end scroll to top btn -->
-        </div>
-        <!-- end page container -->
 
-        <!-- ================== BEGIN BASE JS ================== -->
+        </div>
+
         <script src="assets/plugins/jquery/jquery-1.9.1.min.js"></script>
         <script src="assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
         <script src="assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
         <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-        <!--[if lt IE 9]>
-                <script src="assets/crossbrowserjs/html5shiv.js"></script>
-                <script src="assets/crossbrowserjs/respond.min.js"></script>
-                <script src="assets/crossbrowserjs/excanvas.min.js"></script>
-        <![endif]-->
+
         <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
         <script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
-        <!-- ================== END BASE JS ================== -->
 
-        <!-- ================== BEGIN PAGE LEVEL JS ================== -->
         <script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
         <script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
         <script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
         <script src="assets/js/table-manage-default.demo.min.js"></script>
         <script src="assets/js/apps.min.js"></script>
-        <!-- ================== END PAGE LEVEL JS ================== -->
 
         <script>
             $(document).ready(function () {
@@ -165,6 +142,6 @@
         </script>
     </body>
 
-    <!-- Mirrored from seantheme.com/color-admin-v1.9/admin/html/table_manage.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2015 11:23:32 GMT -->
 </html>
+
 

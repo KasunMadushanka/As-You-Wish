@@ -1,4 +1,4 @@
-
+<%@ include file="../config/sessionCheckAdmin.jsp" %>
 <%
     ResultSet rs;
     String sql = "SELECT * FROM `chat` where user ='1'";

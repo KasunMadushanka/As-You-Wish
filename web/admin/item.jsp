@@ -1,4 +1,4 @@
-
+<%@ include file="../config/sessionCheckAdmin.jsp" %>
 <%
 
     ResultSet rs;

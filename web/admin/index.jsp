@@ -1,3 +1,5 @@
+<%@ include file="../config/sessionCheckAdmin.jsp" %>
+
 <!DOCTYPE html>
 
 <html lang="en">
