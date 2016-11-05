@@ -314,25 +314,6 @@
                                         <div class="form-group">
                                             <button id="sign_up_button" class="btn btn-dark btn-theme-colored btn-block mt-15">Sign Up</button>
                                         </div>
-                                        <div class="input-group clockpicker">
-                                            <input type="text" class="form-control" value="18:00">
-                                            <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-time"></span>
-                                            </span>
-                                        </div>
-                                        <script type="text/javascript">
-                                            $('.clockpicker').clockpicker({
-                                                placement: 'top',
-                                                align: 'left',
-                                                donetext: 'Done'
-                                            });
-                                        </script>
-                                       
-                                      <input type="checkbox" name="my-checkbox" checked>
-                                      <script>
-                                          $("[name='my-checkbox']").bootstrapSwitch();
-                                          </script>
-
                                     </div>
                                 </div>
                             </div>

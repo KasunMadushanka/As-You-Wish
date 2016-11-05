@@ -16,11 +16,11 @@
         <%@ include file="static/head.jsp" %>
 
         <link rel="stylesheet" href="assets/css/switch/bootstrap-switch.css">
-        <link rel="stylesheet" href="assets/css/switch/bootstrap-switch.min.css">
+
 
         <script src="assets/js/switch/bootstrap-switch.js"></script>
-        <script src="assets/js/switch/bootstrap-switch.min.js"></script>
-        
+
+
 
     </head>
 
@@ -52,35 +52,110 @@
                     <div class="col-md-12">
                         <!-- begin panel -->
                         <div class="panel panel-inverse">
-                            <input type="checkbox" name="my-checkbox" checked>
-                            <script>
-                                $("[name='my-checkbox']").bootstrapSwitch();
-                            </script>
 
-                            <select class="form-control" id="service1_type" name="service1_type">
-                                <option value="" disabled selected hidden>Duration</option>
-                                <option value="1" >24 Hour</option>
-                                <option value="2" >12 Hour</option>
-                                <option value="3" >6 Hour</option>                          
-                            </select>
+
+
                             <div class="panel-body">
-                                <div class="form-group m-b-15">
-                                    <input type="text" class="form-control input-lg" placeholder="Email Address" id="email" />
+                                <div class="container" style="padding-left: 100px; padding-top: 50px;">
+                                    <div class="row">
+                                        <div class="form-group col-md-1">
+                                            <label>State</label>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label><input id="mr" type="radio" name="title"> Active</label>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label><input id="miss" type="radio" name="title"> Inactive</label>
+                                        </div>   
+                                    </div>   
+                                    <div class="row">
+                                        <div class="form-group col-md-1">
+                                            <label>Scheduling:</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+
+                                            <select class="form-control" id="tradition" name="tradition">
+                                                <option value="1" >1 Month</option>
+                                                <option value="2" >2 Months</option>
+                                                <option value="3" >3 Months</option>
+                                                <option value="3" >6 Months</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label>Date:</label>
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <input class="form-control" id="votes_allowed" name="votes_allowed" type="number">
+                                        </div>
+                                    </div>   
+                                    <div class="row">
+                                        <div class="form-group col-md-1">
+                                            <label>Starting Time:</label>
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <input class="form-control" id="votes_allowed" name="votes_allowed" type="number">
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label>Closing Time:</label>
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <input class="form-control" id="votes_allowed" name="votes_allowed" type="number">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-1">
+                                            <label>Votes Allowed:</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+
+                                            <input class="form-control" id="votes_allowed" name="votes_allowed" type="number">
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label>Votes per Contestant:</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+
+                                            <input class="form-control" id="votes_allowed" name="votes_allowed" type="number">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-1">
+                                            <label>Number of Winners:</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+
+                                            <input class="form-control" id="votes_allowed" name="votes_allowed" type="number">
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label>No of Contestants:</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+
+                                            <input class="form-control" id="votes_allowed" name="votes_allowed" type="number">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-1">
+                                            <label>Display:</label>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label><input id="mr" type="radio" name="title"> Positions</label>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label><input id="miss" type="radio" name="title"> Number of Votes</label>
+                                        </div>  
+                                    </div>
                                 </div>
-                                <div class="form-group m-b-15">
-                                    <input type="password" class="form-control input-lg" placeholder="Password" id="password" />
-                                </div>
-                                <div class="checkbox m-b-30">
-                                    <label>
-                                        <input type="checkbox" id="rememberMe" /> Remember Me
-                                    </label>
-                                </div>
-                                <div class="login-buttons">
-                                    <button type="button" id="logIn" class="btn btn-success btn-block btn-lg" onclick="admin_login()">Sign me in</button>
-                                </div>
-                                <br>
                             </div>
 
+                            <div class="form-group">
+
+                            </div>
+
+                            <br>
                         </div>
 
                     </div>
@@ -89,7 +164,7 @@
 
             </div>
 
-        </div>  
+        </div>
 
         <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 
@@ -109,13 +184,13 @@
         <script src="assets/js/apps.min.js"></script>
 
         <script>
-                                        $(document).ready(function () {
-                                            App.init();
-                                            TableManageDefault.init();
-                                        });
-                                        $('#myModal1').modal({
-                                            show: true
-                                        });
+            $(document).ready(function () {
+                App.init();
+                TableManageDefault.init();
+            });
+            $('#myModal1').modal({
+                show: true
+            });
 
         </script>
         <script>
