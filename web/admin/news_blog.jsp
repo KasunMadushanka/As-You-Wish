@@ -32,10 +32,12 @@
                     <li><a href="javascript:;">News Blog</a></li>
                 </ol>
 
+                <h1 class="page-header">Timeline<small>  News Blog</small></h1>
 
-                <div style="position: relative;top:-30 px;left:400px;padding-bottom: 50px;">
+                <div style="position: relative;top:-30 px;left:975px;padding-bottom: 15px;"> 
                     <a href="#modal-dialog" class="btn btn-sm btn-success" data-toggle="modal">Write New Post</a>
                 </div>
+
                 <!-- end page-header -->
 
                 <!-- begin timeline -->
@@ -94,32 +96,44 @@
                         <h4 class="modal-title">Write New Post</h4>
                     </div>
                     <div class="modal-body">
-                        <img id="output"/>
+
+                        <img id="output" style="padding-bottom: 20px;"/>
+
                         <script>
                             var loadFile = function (event) {
                                 var output = document.getElementById('output');
+                                output.width = 570;
+                                output.height = 350;
+
+
                                 output.src = URL.createObjectURL(event.target.files[0]);
+
                             };
                         </script>
                         <div class="form-group">
-                            <label for="form_title"><b>Subject</b></label>
+                            <label for="form_title">Subject</label>
                             <input id="form_title" name="form_title" class="form-control" type="text">
                         </div>
                         <div class="form-group">
-                            <label for="form_content"><b>Content</b></label>
+                            <label for="form_content">Content</label>
                             <textarea id="form_content" name="form_content" class="form-control" rows="5"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <form id="form_upload_couple_blog">
-                            <center><input id="image_url" type="file" class="filestyle" data-input="false" name="file" accept="image/*" onchange="loadFile(event)"></center>
-                        </form>
-                        <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
-                        <a href="javascript:;" class="btn btn-sm btn-success">Post</a>
+                        <div class="col-md-4">
+                            <form id="form_upload_couple_blog">
+                                <center><input id="image_url" type="file" class="filestyle" data-input="false" name="file" accept="image/*" onchange="loadFile(event)"></center>
+                            </form>
+                        </div>
+                        <div class="col-md-8">
+                            <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+                            <a href="javascript:;" class="btn btn-sm btn-success">Post</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
 
         <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 
@@ -139,13 +153,13 @@
         <script src="assets/js/apps.min.js"></script>
 
         <script>
-                                $(document).ready(function () {
-                                    App.init();
-                                    TableManageDefault.init();
-                                });
-                                $('#myModal1').modal({
-                                    show: true
-                                });
+                                    $(document).ready(function () {
+                                        App.init();
+                                        TableManageDefault.init();
+                                    });
+                                    $('#myModal1').modal({
+                                        show: true
+                                    });
 
         </script>
         <script>
