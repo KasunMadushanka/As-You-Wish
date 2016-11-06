@@ -17,4 +17,20 @@
         <servlet-name>EmailSendingServlet</servlet-name> 
         <url-pattern>/EmailSendingServlet</url-pattern>  
     </servlet-mapping>
+    <servlet>
+        <servlet-name>BackupRestoreDatabase</servlet-name>
+        <servlet-class>AsYouWish.BackupRestoreDatabase</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BackupRestoreDatabase</servlet-name>
+        <url-pattern>/BackupRestoreDatabase</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DBBackup</servlet-name>
+        <servlet-class>AsYouWish.DBBackup</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DBBackup</servlet-name>
+        <url-pattern>/DBBackup</url-pattern>
+    </servlet-mapping>
 </web-app>

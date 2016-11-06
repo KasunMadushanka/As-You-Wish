@@ -75,22 +75,12 @@
 
                 </ul>
             </li>
-            <li class="has-sub">
-                <a href="javascript:;">
-                    <b class="caret pull-right"></b>
-                    <i class="fa fa-file"></i> 
-                    <span>Wedding Blog</span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="http://seantheme.com/color-admin-v1.9/frontend/one-page-parallax/index.html" target="_blank">Templates</a></li>
-                    <li><a href="http://seantheme.com/color-admin-v1.9/frontend/blog/index.html" target="_blank">Registered Users</a></li>
-                    <li><a href="http://seantheme.com/color-admin-v1.9/frontend/forum/index.html" target="_blank">Reports</a></li>
-                </ul>
-            </li>
 
-            <li><a href="calendar.html"><i class="fa fa-file-pdf-o"></i> <span>Reports</span></a></li>
+            <li><a href="news_blog.jsp"><i class="fa fa-file-pdf-o"></i> <span>News Blog</span></a></li>
 
-            <li><a href="calendar.html"><i class="fa fa-download"></i> <span>Backup</span></a></li>
+            <li><a href="#"><i class="fa fa-file-pdf-o"></i> <span>Reports</span></a></li>
+
+            <li><a href="backup_restore.jsp"><i class="fa fa-download"></i> <span>Backup</span></a></li>
 
 
 
