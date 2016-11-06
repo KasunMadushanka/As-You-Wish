@@ -10,13 +10,6 @@
     <head>
         <%@ include file="static/head.jsp" %>
 
-        <link rel="stylesheet" href="assets/css/switch/bootstrap-switch.css">
-
-
-        <script src="assets/js/switch/bootstrap-switch.js"></script>
-
-
-
     </head>
 
     <body>
@@ -39,12 +32,15 @@
                     <li><a href="javascript:;">News Blog</a></li>
                 </ol>
 
-                <h1 class="page-header">Timeline</h1>
+
+                <div style="position: relative;top:-30 px;left:400px;padding-bottom: 50px;">
+                    <a href="#modal-dialog" class="btn btn-sm btn-success" data-toggle="modal">Write New Post</a>
+                </div>
                 <!-- end page-header -->
 
                 <!-- begin timeline -->
                 <ul class="timeline">
-                    <%for(int i=0;i<10;i++){%>
+                    <%for (int i = 0; i < 10; i++) {%>
                     <li>
                         <!-- begin timeline-time -->
                         <div class="timeline-time">
@@ -90,6 +86,41 @@
 
         </div>
 
+        <div class="modal fade" id="modal-dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Write New Post</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img id="output"/>
+                        <script>
+                            var loadFile = function (event) {
+                                var output = document.getElementById('output');
+                                output.src = URL.createObjectURL(event.target.files[0]);
+                            };
+                        </script>
+                        <div class="form-group">
+                            <label for="form_title"><b>Subject</b></label>
+                            <input id="form_title" name="form_title" class="form-control" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="form_content"><b>Content</b></label>
+                            <textarea id="form_content" name="form_content" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <form id="form_upload_couple_blog">
+                            <center><input id="image_url" type="file" class="filestyle" data-input="false" name="file" accept="image/*" onchange="loadFile(event)"></center>
+                        </form>
+                        <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+                        <a href="javascript:;" class="btn btn-sm btn-success">Post</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 
 
@@ -108,13 +139,13 @@
         <script src="assets/js/apps.min.js"></script>
 
         <script>
-            $(document).ready(function () {
-                App.init();
-                TableManageDefault.init();
-            });
-            $('#myModal1').modal({
-                show: true
-            });
+                                $(document).ready(function () {
+                                    App.init();
+                                    TableManageDefault.init();
+                                });
+                                $('#myModal1').modal({
+                                    show: true
+                                });
 
         </script>
         <script>

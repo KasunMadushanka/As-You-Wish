@@ -19,14 +19,6 @@
 <%@page import="com.itextpdf.text.pdf.PdfPTable"%>
 <%@page import="java.io.ByteArrayOutputStream"%>
 <%@ page trimDirectiveWhitespaces="true" %>  
-<%@
-page import="java.servlet.*,
-     javax.servlet.http.*,
-     java.io.*,
-     java.util.*,
-     com.lowagie.text.pdf.*,
-     com.lowagie.text.*"
-     %>
 
 <%@ page import="java.io.*"%>
 <%@include file= "../config/db_connection.jsp" %>

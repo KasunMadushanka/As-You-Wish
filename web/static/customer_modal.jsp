@@ -36,7 +36,6 @@
                             <form id="form_upload_couple_blog">
                                 <center><input id="image_url" type="file" class="filestyle" data-input="false" name="file" accept="image/*" onchange="loadFile(event)"></center>
                             </form>
-
                             <button id="post_button" type="button" onclick="new_post('couple_blog', null)" class="btn btn-dark btn-theme-colored btn-flat mr-5">Post</button>
                             <button type="button" onclick="reset()" class="btn btn-default btn-flat btn-theme-colored">Reset</button>
 
@@ -137,7 +136,7 @@
                 </div>
 
             </div>
-            <!-- End # DIV Form -->
+          
 
         </div>
     </div>

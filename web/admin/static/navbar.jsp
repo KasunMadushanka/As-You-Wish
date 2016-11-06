@@ -77,6 +77,8 @@
             </li>
 
             <li><a href="news_blog.jsp"><i class="fa fa-file-pdf-o"></i> <span>News Blog</span></a></li>
+            
+             <li><a href="video_config.jsp"><i class="fa fa-file-pdf-o"></i> <span>Thanking Video</span></a></li>
 
             <li><a href="#"><i class="fa fa-file-pdf-o"></i> <span>Reports</span></a></li>
 

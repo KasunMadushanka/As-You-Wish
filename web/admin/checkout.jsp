@@ -91,7 +91,7 @@
 
 
                                             <td> 
-                                                <form  method="get" action="checkkoutReport.jsp" target="_blank">
+                                                <form  method="get" action="checkoutReport.jsp" target="_blank">
                                                     <input type="hidden" id="txt" name="txt" value="<%= rs.getString("id")%>">
                                                     <button type="submit" class="btn btn-primary btn-sm" ><i class="fa fa-pencil-square-o"></i> View Invoice </button>                                                         
                                                 </form>
