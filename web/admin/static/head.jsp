@@ -17,8 +17,11 @@
 <link href="assets/plugins/bootstrap-calendar/css/bootstrap_calendar.css" rel="stylesheet" />
 <link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
 <link href="assets/plugins/morris/morris.css" rel="stylesheet" />
+<link  href="assets/css/jquery-confirm.min.css" rel="stylesheet" type="text/css"/>
 
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/plugins/pace/pace.min.js"></script>
 <script src="assets/sweetalert-dev.js"></script>
+<script src="assets/js/jquery-confirm.min.js"></script>
+
 <link rel="stylesheet" href="assets/sweetalert.css">

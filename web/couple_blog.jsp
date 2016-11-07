@@ -116,7 +116,7 @@
                                                             <li><i class="pe-7s-comment"></i><%=fields[6]%></li>
                                                             <li><a id="<%=fields[0]%>" href="" onclick="update_like(<%=fields[0]%>, 'customer',<%=fields[7]%>); return false;"><i class="pe-7s-like2"></i><%=fields[7]%></a></li>
                                                         </ul>
-                                                        <a id="view<%=fields[0]%>" class="pull-right text-gray font-13" href="" onclick="view_comments(<%=fields[0]%>, 'customer'); return false;"><i class="fa fa-angle-double-right text-theme-colored"></i>View All Comments</a>
+                                                        <a id="view<%=fields[0]%>" class="pull-right text-gray font-13" href="" onclick="view_comments(<%=fields[0]%>, 'customer'); return false;"><i class="fa fa-angle-double-right text-theme-colored"></i>View Comments</a>
                                                     </div>
                                                     <input id="text<%=fields[0]%>" class="form-control" onkeypress="update_comment(<%=fields[0]%>, 'customer', event)" placeholder="Write a comment..."/>
                                                 </article>

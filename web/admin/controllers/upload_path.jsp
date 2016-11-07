@@ -16,13 +16,13 @@
 
     if (status.equals("news_blog")) {
 
-        path = "F:/Project/AsYouWish/web/admin/img/blog_images";
+        path = "F:/Group Project/Project/AsYouWish/web/admin/assets/img/blog";
         directory = new File(path);
         if (!directory.exists()) {
             directory.mkdir();
         }
         save_file = path + "/" + post_id + ".jpg";
-        image_url = save_file.substring(25);
+        image_url = save_file.substring(45);
         getCon().createStatement().executeUpdate("Update news_blog set image_url='" + image_url + "' where post_id='" + post_id + "'");
 
     }  

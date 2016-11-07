@@ -7,10 +7,10 @@
 
     ArrayList list = new ArrayList();
 
-    ResultSet rs = getCon().createStatement().executeQuery("Select nb.*,a.name from news_blog nb inner join adminac a on nb.admin_id=a.admin_id");
+    ResultSet rs = getCon().createStatement().executeQuery("Select nb.*,a.name,a.img from news_blog nb inner join adminac a on nb.admin_id=a.admin_id");
     while (rs.next()) {
 
-        String data[] = new String[9];
+        String data[] = new String[10];
 
         data[0] = rs.getString("nb.post_id");
         data[1] = rs.getString("nb.date");
@@ -18,9 +18,10 @@
         data[3] = rs.getString("nb.title");
         data[4] = rs.getString("nb.content");
         data[5] = rs.getString("nb.image_url");
-        data[6] = rs.getString("nb.comments");
-        data[7] = rs.getString("nb.likes");
+        data[6] = rs.getString("nb.likes");
+        data[7] = rs.getString("nb.comments");
         data[8] = rs.getString("a.name");
+        data[9] = rs.getString("a.img");
 
         list.add(data);
 
@@ -35,7 +36,8 @@
         <%@ include file="static/head.jsp" %>
 
         <script src="myjs/new_post.js"></script>
-         <script src="myjs/image_upload.js"></script>
+        <script src="myjs/image_upload.js"></script>
+        <script src="myjs/update_post.js"></script>
 
     </head>
 
@@ -62,7 +64,7 @@
                 <h1 class="page-header">Timeline<small>  News Blog</small></h1>
 
                 <div style="position: relative;top:-30 px;left:975px;padding-bottom: 15px;"> 
-                    <a href="#modal-dialog" class="btn btn-sm btn-success" data-toggle="modal">Write New Post</a>
+                    <a href="#modal-post" class="btn btn-sm btn-success" data-toggle="modal">Write New Post</a>
                 </div>
 
                 <!-- end page-header -->
@@ -87,7 +89,7 @@
                         <!-- begin timeline-body -->
                         <div class="timeline-body">
                             <div class="timeline-header">
-                                <span class="userimage"><img src="assets/img/user-7.jpg" alt="" /></span>
+                                <span class="userimage"><img src="<%=fields[9]%>" alt="" /></span>
                                 <span class="username"><%=fields[8]%></span>
                             </div>
                             <div class="timeline-content">
@@ -100,11 +102,11 @@
                                 <p><%=fields[4]%></p>                            
                             </div>
                             <div class="form-group" style="padding-top: 15px;">
-                                <a href="javascript:;" class="m-r-15"><i class="fa fa-thumbs-up fa-fw"></i><%=fields[6]%></a>
-                                <a href="javascript:;"><i class="fa fa-comments fa-fw"></i><%=fields[7]%></a>
-                                <a href="javascript:;"><i class="fa fa-comments fa-fw"></i> View Comments</a>
+                                <a id="<%=fields[0]%>" href="" onclick="update_like(<%=fields[0]%>,<%=fields[6]%>); return false;"><i class="fa fa-thumbs-up fa-fw"></i><%=fields[6]%></a>
+                                <a style="position: relative;left:20px;"><i class="fa fa-comments fa-fw"></i><span id="comments_count<%=fields[0]%>"><%=fields[7]%></span></a>                             
+                                <a href="" onclick="view_comments(<%=fields[0]%>); return false;" style="position: relative;left:425px;"><i class="fa fa-comments fa-fw"></i> View Comments</a>
                             </div>
-                            <input type="text" class="form-control" placeholder="Write a comment...">
+                            <input id="text<%=fields[0]%>" class="form-control" onkeypress="update_comment(<%=fields[0]%>, event)" placeholder="Write a comment..."/>
                         </div>
 
                     </li>
@@ -117,7 +119,7 @@
 
         </div>
 
-        <div class="modal fade" id="modal-dialog">
+        <div class="modal fade" id="modal-post">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -150,7 +152,7 @@
                     </div>
                     <div class="modal-footer">
                         <div class="col-md-4">
-                            <form id="form_upload_couple_blog">
+                            <form id="form_upload_news_blog">
                                 <center><input id="image_url" type="file" class="filestyle" data-input="false" name="file" accept="image/*" onchange="loadFile(event)"></center>
                             </form>
                         </div>
@@ -162,6 +164,21 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="modal-comments">
+            <div id="modal-comments" class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Comments</h4>
+                    </div>
+                    <div id="comments-form" class="modal-body">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
         <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
@@ -207,8 +224,8 @@
             ga('create', 'UA-53034621-1', 'auto');
             ga('send', 'pageview');
         </script>
-        
-         <script src="assets/js/jquery.rustaMsgBox.js"></script>
+
+        <script src="assets/js/jquery.rustaMsgBox.js"></script>
     </body>
 
 </html>

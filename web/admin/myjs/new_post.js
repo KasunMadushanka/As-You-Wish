@@ -8,7 +8,6 @@ function new_post() {
         url: "controllers/new_post.jsp",
         data: "title=" + title + "&content=" + content,
         success: function (msg) {
-              alert("s");
             get_path("news_blog", msg);
           
             reset();

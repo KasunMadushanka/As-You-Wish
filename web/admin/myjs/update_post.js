@@ -1,12 +1,13 @@
-function update_like(post_id, type, count) {
+function update_like(post_id, count) {
 
     count += 1;
+
     $.ajax({
         type: "post",
         url: "controllers/update_like.jsp",
-        data: "post_id=" + post_id + "&type=" + type + "&count=" + count,
+        data: "post_id=" + post_id + "&count=" + count,
         success: function (msg) {
-            document.getElementById(post_id).innerHTML = '<i class="pe-7s-like2"></i>' + count;
+            document.getElementById(post_id).innerHTML = '<i class="fa fa-thumbs-up fa-fw"></i>' + count;
         },
         error: function (error) {
             alert(error);
@@ -16,7 +17,7 @@ function update_like(post_id, type, count) {
 
 }
 
-function update_comment(post_id, type, event) {
+function update_comment(post_id, event) {
 
     if (event.which === 13 || event.keyCode === 13) {
 
@@ -25,13 +26,12 @@ function update_comment(post_id, type, event) {
         $.ajax({
             type: "post",
             url: "controllers/update_comment.jsp",
-            data: "post_id=" + post_id + "&type=" + type + "&comment=" + comment,
+            data: "post_id=" + post_id + "&comment=" + comment,
             success: function (msg) {
-                if (msg === "visitor") {
-                    visitor_sign_up();
-                } else {
-                    $.rustaMsgBox({'mode': 'info', 'content': 'Comment added', 'fadeOut': true});
-                }
+                $('#comments_count'+post_id).html(parseInt($('#comments_count'+post_id).html()) + 1);
+                $.rustaMsgBox({'mode': 'info', 'content': 'Comment added', 'fadeOut': true});
+
+
             },
             error: function (error) {
                 $.rustaMsgBox({'mode': 'error', 'content': 'Failed to add comment', 'fadeOut': true});
@@ -43,14 +43,20 @@ function update_comment(post_id, type, event) {
     return true;
 }
 
-function view_comments(post_id, type) {
+function view_comments(post_id) {
+
     $.ajax({
         type: "post",
         url: "controllers/view_comments.jsp",
-        data: "post_id=" + post_id + "&type=" + type,
+        data: "post_id=" + post_id,
         success: function (msg) {
-            $('#comments').html(msg);
-            load_comments();
+            if (msg != "") {
+                $('#comments-form').html(msg);
+            } else {
+                $('#comments-form').html("No Comments yet...");
+            }
+            $('#modal-comments').modal('show');
+
         },
         error: function (error) {
             $.rustaMsgBox({'mode': 'error', 'content': 'An error occured. Cannot display comments', 'fadeOut': true});

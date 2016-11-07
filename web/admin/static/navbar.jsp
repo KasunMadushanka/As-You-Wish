@@ -76,12 +76,12 @@
                 </ul>
             </li>
 
-            <li><a href="news_blog.jsp"><i class="fa fa-file-pdf-o"></i> <span>News Blog</span></a></li>
+            <li><a href="news_blog.jsp"><i class="fa fa-pencil"></i> <span>News Blog</span></a></li>
             
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
-                    <i class="fa fa-check"></i>
+                    <i class="fa fa-file-movie-o"></i>
                     <span>Thanking Video</span> 
                 </a>
                 <ul class="sub-menu">

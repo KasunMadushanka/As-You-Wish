@@ -1,11 +1,6 @@
 <%@page import="java.util.Calendar"%>
 <%@ include file="../config/sessionCheckAdmin.jsp" %>
-<%    Calendar now = Calendar.getInstance();
-    int year = now.get(Calendar.YEAR);
-    int month = now.get(Calendar.MONTH) + 1;
-
-    ResultSet rs = getCon().createStatement().executeQuery("Select c.first_name,c.partner_first_name,cnt.votes from customer c inner join contestant cnt on c.customer_id=cnt.customer_id inner join contest cn on cnt.contest_id=cn.contest_id where cn.month='" + month + "' and cn.year='" + year + "' order by cnt.votes desc");
-    ResultSet rs1 = getCon().createStatement().executeQuery("Select sum(votes) as total_votes from contestant where contest_id=(Select contest_id from contest where month='" + month + "' and year='" + year + "')");
+<%
 %>
 
 <!DOCTYPE html>
@@ -16,12 +11,24 @@
         <%@ include file="static/head.jsp" %>
 
         <link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
+
         <link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
         <link href="assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
+        <link href="assets/plugins/ionRangeSlider/css/ion.rangeSlider.css" rel="stylesheet" />
+        <link href="assets/plugins/ionRangeSlider/css/ion.rangeSlider.skinNice.css" rel="stylesheet" />
+        <link href="assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet" />
         <link href="assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+        <link href="assets/plugins/password-indicator/css/password-indicator.css" rel="stylesheet" />
+        <link href="assets/plugins/bootstrap-combobox/css/bootstrap-combobox.css" rel="stylesheet" />
+        <link href="assets/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+        <link href="assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+        <link href="assets/plugins/jquery-tag-it/css/jquery.tagit.css" rel="stylesheet" />
         <link href="assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />
+        <link href="assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
+        <link href="assets/plugins/bootstrap-eonasdan-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 
-        <script src="assets/plugins/pace/pace.min.js"></script>
+        <script src="myjs/contest.js"></script>
+
     </head>
 
     <body>
@@ -45,7 +52,7 @@
                     <li class="active">Settings</li>
                 </ol>
 
-                <h1 class="page-header">Configuration  <input type="checkbox" data-render="switchery" data-theme="default" checked style="position: relative;left:100px;" /></h1>     
+                <h1 class="page-header">Couple Contest Configuration</h1>     
 
                 <div class="panel panel-inverse">
                     <div class="panel-heading">
@@ -60,60 +67,57 @@
                     <div class="panel-body panel-form">
                         <form class="form-horizontal form-bordered">
                             <div class="form-group" style="padding-top: 30px;">                              
-                                <label class="control-label col-md-2">Selected Duration</label>
+                                <label class="control-label col-md-2">Contest Title</label>
                                 <div class="col-md-4">
-                                    <select class="form-control" id="schedule" name="schedule">
-                                        <option value="1" >1 Month</option>
-                                        <option value="2" >2 Months</option>
-                                        <option value="3" >3 Months</option>
-                                        <option value="3" >6 Months</option>
-                                    </select>
+                                    <input id="contest_title" name="contest_title" type="text" class="form-control" />
                                 </div>
-                                <label class="control-label col-md-2">Scheduled Date</label>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" id="datepicker-autoClose" placeholder="Select Date" />
+                                <label class="control-label col-md-2">Schedule</label>            
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control"  id="datetimepicker3" placeholder="Min Date" />
                                 </div>
-                            </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control"  id="datetimepicker4" placeholder="Max Date" />
+                                </div>                             
+                            </div>           
                             <div class="form-group">
-                                <label class="control-label col-md-2">Starting Time</label>
-                                <div class="col-md-4">
-                                    <div class="input-group bootstrap-timepicker">
-                                        <input id="timepicker" type="text" class="form-control" />
-                                        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                                    </div>
-                                </div>
-                                <label class="control-label col-md-2">Closing Time</label>
-                               <div class="col-md-4">
-                                    <div class="input-group bootstrap-timepicker">
-                                        <input id="timepicker2" type="text" class="form-control" />
-                                        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-2">Scheduled Date</label>
+                                <label class="control-label col-md-2">Applications Accepting</label>
                                 <div class="col-md-4">
                                     <div class="input-group input-daterange">
-                                        <input type="text" class="form-control" name="start" placeholder="Date Start" />
+                                        <input id="applications_from" name="start" type="text" class="form-control" placeholder="Date Start" />
                                         <span class="input-group-addon">to</span>
-                                        <input type="text" class="form-control" name="end" placeholder="Date End" />
+                                        <input id="applications_to" name="end" type="text" class="form-control" placeholder="Date End" />
                                     </div>
                                 </div>
                                 <label class="control-label col-md-2">Limit of Contestants</label>
                                 <div class="col-md-4">
-                                    <input type="number" value="" class="form-control"/>
+                                    <input id="limit_of_contestants" name="limit_of_contestants" type="number" value="" class="form-control"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2">Maximum No of Votes<br>(One Account)</label>
                                 <div class="col-md-4">
-                                    <input type="number" value="" class="form-control" id="colorpicker" />
+                                    <input id="max_votes" name="max_votes" type="number" value="" class="form-control"/>
                                 </div>
                                 <label class="control-label col-md-2">Votes per Contestant<br>(One Account)</label>
                                 <div class="col-md-4">
-                                    <input type="number" value="" class="form-control"/>
+                                    <input id="votes_per_contestant" name="votes_per_contestant" type="number" value="" class="form-control"/>
                                 </div>
-                            </div>
+                            </div>  
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Display Positions</label>
+                                <div class="col-md-1">
+                                    <input id="display_positions" name="display_positions" type="checkbox" data-render="switchery" data-theme="default" checked style="position: relative;left:100px;" />
+                                </div>
+                                <label class="control-label col-md-2">Display Total Votes</label>
+                                <div class="col-md-1">
+                                    <input id="display_votes" name="display_votes" type="checkbox" data-render="switchery" data-theme="default" checked style="position: relative;left:100px;" />
+                                </div>
+                                <div class="col-md-6" style="position: relative;left: 183px;">
+                                    <button type="button" class="btn btn-sm btn-success" onclick="update_contest_settings()">Apply Changes</button>
+                                    <button type="button" class="btn btn-sm btn-success" onclick="host_contest()">Host New Contest</button>
+                                    <button type="button" class="btn btn-sm btn-success" onclick="discard_contest()">Discard Contest</button>
+                                </div>
+                            </div> 
 
                         </form>
                     </div>
@@ -134,36 +138,44 @@
 
         <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
         <script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
-        
+
         <script src="assets/plugins/switchery/switchery.min.js"></script>
         <script src="assets/plugins/powerange/powerange.min.js"></script>
         <script src="assets/js/form-slider-switcher.demo.min.js"></script>
 
         <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
         <script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
-        <!-- ================== END BASE JS ================== -->
 
-        <!-- ================== BEGIN PAGE LEVEL JS ================== -->
         <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
         <script src="assets/plugins/ionRangeSlider/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
         <script src="assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
         <script src="assets/plugins/masked-input/masked-input.min.js"></script>
         <script src="assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+        <script src="assets/plugins/password-indicator/js/password-indicator.js"></script>
+        <script src="assets/plugins/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+        <script src="assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+        <script src="assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+        <script src="assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.js"></script>
+        <script src="assets/plugins/jquery-tag-it/js/tag-it.min.js"></script>
         <script src="assets/plugins/bootstrap-daterangepicker/moment.js"></script>
         <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script src="assets/plugins/select2/dist/js/select2.min.js"></script>
+        <script src="assets/plugins/bootstrap-eonasdan-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+
 
         <script src="assets/js/form-plugins.demo.min.js"></script>
         <script src="assets/js/apps.min.js"></script>
 
         <script>
-            $(document).ready(function () {
-                App.init();
-                FormSliderSwitcher.init();
-                FormPlugins.init();
-            });
-            $('#myModal1').modal({
-                show: true
-            });
+                                        $(document).ready(function () {
+                                            App.init();
+                                            FormSliderSwitcher.init();
+                                            FormPlugins.init();
+                                        });
+                                        $('#myModal1').modal({
+                                            show: true
+                                        });
 
         </script>
         <script>
@@ -182,6 +194,7 @@
             ga('create', 'UA-53034621-1', 'auto');
             ga('send', 'pageview');
         </script>
+        <script src="assets/js/jquery.rustaMsgBox.js"></script>
     </body>
 
 </html>
