@@ -1,6 +1,30 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Calendar"%>
 <%@ include file="../config/sessionCheckAdmin.jsp" %>
-<%
+<%    String id = (String) session.getAttribute("id");
+
+    session.setAttribute("page", "news_blog");
+
+    ArrayList list = new ArrayList();
+
+    ResultSet rs = getCon().createStatement().executeQuery("Select nb.*,a.name from news_blog nb inner join adminac a on nb.admin_id=a.admin_id");
+    while (rs.next()) {
+
+        String data[] = new String[9];
+
+        data[0] = rs.getString("nb.post_id");
+        data[1] = rs.getString("nb.date");
+        data[2] = rs.getString("nb.time");
+        data[3] = rs.getString("nb.title");
+        data[4] = rs.getString("nb.content");
+        data[5] = rs.getString("nb.image_url");
+        data[6] = rs.getString("nb.comments");
+        data[7] = rs.getString("nb.likes");
+        data[8] = rs.getString("a.name");
+
+        list.add(data);
+
+    }
 %>
 
 <!DOCTYPE html>
@@ -9,6 +33,9 @@
 
     <head>
         <%@ include file="static/head.jsp" %>
+
+        <script src="myjs/new_post.js"></script>
+         <script src="myjs/image_upload.js"></script>
 
     </head>
 
@@ -42,37 +69,39 @@
 
                 <!-- begin timeline -->
                 <ul class="timeline">
-                    <%for (int i = 0; i < 10; i++) {%>
+                    <%for (int i = 0; i < list.size(); i++) {
+                            String fields[] = (String[]) list.get(i);
+                    %>
                     <li>
                         <!-- begin timeline-time -->
                         <div class="timeline-time">
-                            <span class="date">10 January 2016</span>
-                            <span class="time">08:43 PM</span>
+                            <span class="date"><%=fields[1]%></span>
+                            <span class="time"><%=fields[2]%></span>
                         </div>
                         <!-- end timeline-time -->
                         <!-- begin timeline-icon -->
                         <div class="timeline-icon">
-                            <a href="javascript:;"><i class="fa fa-camera"></i></a>
+                            <a href="javascript:;"><i class="fa fa-comments"></i></a>
                         </div>
                         <!-- end timeline-icon -->
                         <!-- begin timeline-body -->
                         <div class="timeline-body">
                             <div class="timeline-header">
                                 <span class="userimage"><img src="assets/img/user-7.jpg" alt="" /></span>
-                                <span class="username">Rahal Jayawardene</span>
-                                <span class="pull-right text-muted">75 Views</span>
+                                <span class="username"><%=fields[8]%></span>
                             </div>
                             <div class="timeline-content">
                                 <h4 class="template-title">
-                                    Bridal Show 2016
+                                    <%=fields[3]%>
                                 </h4>
                                 <p class="m-t-20">
-                                    <img src="assets/img/gallery/gallery-4.jpg" alt="" />
+                                    <img src="<%=fields[5]%>" alt="" />
                                 </p>
-                                <p>Bridal Show is going to be held 15th of November 2016.</p>                            
+                                <p><%=fields[4]%></p>                            
                             </div>
                             <div class="form-group" style="padding-top: 15px;">
-                                <a href="javascript:;" class="m-r-15"><i class="fa fa-thumbs-up fa-fw"></i> Like</a>
+                                <a href="javascript:;" class="m-r-15"><i class="fa fa-thumbs-up fa-fw"></i><%=fields[6]%></a>
+                                <a href="javascript:;"><i class="fa fa-comments fa-fw"></i><%=fields[7]%></a>
                                 <a href="javascript:;"><i class="fa fa-comments fa-fw"></i> View Comments</a>
                             </div>
                             <input type="text" class="form-control" placeholder="Write a comment...">
@@ -127,7 +156,7 @@
                         </div>
                         <div class="col-md-8">
                             <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
-                            <a href="javascript:;" class="btn btn-sm btn-success">Post</a>
+                            <button type="button" class="btn btn-sm btn-success" onclick="new_post()">Post</button>
                         </div>
                     </div>
                 </div>
@@ -153,13 +182,13 @@
         <script src="assets/js/apps.min.js"></script>
 
         <script>
-                                    $(document).ready(function () {
-                                        App.init();
-                                        TableManageDefault.init();
-                                    });
-                                    $('#myModal1').modal({
-                                        show: true
-                                    });
+                                $(document).ready(function () {
+                                    App.init();
+                                    TableManageDefault.init();
+                                });
+                                $('#myModal1').modal({
+                                    show: true
+                                });
 
         </script>
         <script>
@@ -178,6 +207,8 @@
             ga('create', 'UA-53034621-1', 'auto');
             ga('send', 'pageview');
         </script>
+        
+         <script src="assets/js/jquery.rustaMsgBox.js"></script>
     </body>
 
 </html>

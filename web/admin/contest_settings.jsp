@@ -47,8 +47,6 @@
 
                 <h1 class="page-header">Configuration  <input type="checkbox" data-render="switchery" data-theme="default" checked style="position: relative;left:100px;" /></h1>     
 
-
-
                 <div class="panel panel-inverse">
                     <div class="panel-heading">
                         <div class="panel-heading-btn">

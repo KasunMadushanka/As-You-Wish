@@ -10,6 +10,7 @@
         
         ResultSet rs = getCon().createStatement().executeQuery("select * from adminAC where email='"+email+"' and pw='"+pw+"'");
         if (rs.first()) {
+            session.setAttribute("id", rs.getString("admin_id"));
             session.setAttribute("email", rs.getString("email"));
             session.setAttribute("name", rs.getString("Name"));
             session.setAttribute("img", rs.getString("img"));

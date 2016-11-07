@@ -9,11 +9,11 @@
                         <div id="side-panel-trigger" class="side-panel-trigger"><a href="#"><i class="fa fa-bars font-24 text-gray-silver"></i></a></div>
                         <ul class="menuzord-menu">
                             <li><a href="couple_blog.jsp">Our Story</a></li>
+                            <li><a href="news_blog.jsp">Admin News Blog</a></li>
                             <li><a href="customer_gallery.jsp">Gallery</a></li>
                             <li><a href="vendor_list.jsp?service_id=1&service=Reception Halls">Vendors</a></li>
                             <li><a href="budget_planning.jsp">Budget Planning</a></li>
                             <li><a href="event_list.jsp">Events</a></li>
-                            <li><a href="voting.jsp">Tick The Best</a></li>
                             <li><a href="store.jsp">Online Store</a></li>
                             <li><a href="" onclick="logout(); return false;">Logout</a></li>
                         </ul>

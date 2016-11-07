@@ -4,6 +4,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="config/db_connection.jsp"%>
 <%
+    session.setAttribute("type", "visitor");
+    
     ArrayList events = new ArrayList();
 
     ResultSet rs = getCon().createStatement().executeQuery("Select* from customer where confirmed='" + "yes" + "'");
@@ -472,7 +474,7 @@
                                                         </span>
                                                     </div>
                                                     <p class="mb-20">So while it might seem impossible to sum up your ridiculously amazing, complicated, and fantastic wedding in a neat little sentence (heck, that’s what marriage is for—you get a lifetime to figure it out), here’s a list of some of my favorite love quotes for weddings (and marriage!) to get you started.</p>
-                                                    <a class="text-theme-colored font-13" href="#">Read more <i class="fa fa-angle-double-right"></i></a>
+                                                    
                                                 </div>
                                             </div>
                                         </article>
@@ -495,7 +497,7 @@
                                                         </span>
                                                     </div>
                                                     <p class="mb-20">So while it might seem impossible to sum up your ridiculously amazing, complicated, and fantastic wedding in a neat little sentence (heck, that’s what marriage is for—you get a lifetime to figure it out), here’s a list of some of my favorite love quotes for weddings (and marriage!) to get you started.</p>
-                                                    <a class="text-theme-colored font-13" href="#">Read more <i class="fa fa-angle-double-right"></i></a>
+                                                  
                                                 </div>
                                             </div>
                                         </article>
@@ -518,11 +520,12 @@
                                                         </span>
                                                     </div>
                                                     <p class="mb-20">So while it might seem impossible to sum up your ridiculously amazing, complicated, and fantastic wedding in a neat little sentence (heck, that’s what marriage is for—you get a lifetime to figure it out), here’s a list of some of my favorite love quotes for weddings (and marriage!) to get you started.</p>
-                                                    <a class="text-theme-colored font-13" href="#">Read more <i class="fa fa-angle-double-right"></i></a>
+                                                   
                                                 </div>
                                             </div>
                                         </article>
                                     </div>
+                                     <a class="text-theme-colored font-13" href="news_blog.jsp">Read more <i class="fa fa-angle-double-right"></i></a>
                                 </div>
                             </div>
                         </div>
