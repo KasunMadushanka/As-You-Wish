@@ -532,12 +532,11 @@
                     </div>
                 </section>
 
-                <section id="contests" class="divider bg-img-center-bottom" data-bg-img="images/bg/bg25.png">
+                <section id="contests" class="divider bg-img-center-bottom" data-bg-img="">
                     <div class="container pb-30">
                         <div class="section-title">
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3 text-center wow fadeInUp animation-delay1">
-                                    <h2 class="title pattern-bottom">Tick The Best</h2>
                                     <h3 class="title pattern-bottom">Most Popular Couple September 2016</h3>
 
                                 </div>

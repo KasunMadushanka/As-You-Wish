@@ -6,9 +6,6 @@
 
     String id = request.getParameter("txt");
 
-    //String edit = request.getParameter("edit");
-    //String 
-
 %>
 
 <!DOCTYPE html>
@@ -283,6 +280,5 @@
         </script>
     </body>
 
-    <!-- Mirrored from seantheme.com/color-admin-v1.9/admin/html/table_manage.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2015 11:23:32 GMT -->
 </html>
 

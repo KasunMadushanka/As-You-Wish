@@ -3,11 +3,16 @@
 <%@include file= "../config/db_connection.jsp" %>
 
 <%
-    String contentType = request.getParameter("msg2");
-    if ((contentType != null)) {
+    String msg = request.getParameter("msg2");
+    String sender = request.getParameter("sender");
+    String rev = request.getParameter("rev");
+    String type = request.getParameter("revType");
+    String uType = request.getParameter("uType");
+    
+    if ((msg != null)) {
         Statement st= getCon().createStatement();
-        String sql = "insert into chat (`msg`, `revId`, `sendId`, `user`)"
-                + "values ('"+contentType+"','1','0','1')"; 
+        String sql = "insert into chat (`msg`, `revId`, `sendId`, `user`,`revType`,`userType`)"
+                + "values ('"+msg+"','"+rev+"','"+sender+"','"+rev+"','"+type+"','"+uType+"')"; 
         int j = st.executeUpdate(sql);
         //out.print(j);
         

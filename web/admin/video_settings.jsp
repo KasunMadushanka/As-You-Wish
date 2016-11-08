@@ -12,7 +12,6 @@
 
         <link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
 
-        <script src="assets/plugins/pace/pace.min.js"></script>
     </head>
 
     <body>
@@ -36,9 +35,9 @@
                     <li class="active">Settings</li>
                 </ol>
 
-                <h1 class="page-header">Video Settings  <input type="checkbox" data-render="switchery" data-theme="default" checked style="position: relative;left:100px;" /></h1>     
+                <h1 class="page-header">Video Settings</h1>     
 
-                <div class="panel panel-inverse" style="position: relative;left: 30px;">
+                <div class="panel panel-inverse">
                     <div class="panel-heading">
                         <div class="panel-heading-btn">
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
@@ -51,26 +50,18 @@
                     <div class="panel-body panel-form">
                         <form class="form-horizontal form-bordered">
                             <div class="form-group" style="padding-top: 0px;">                              
-                                <label class="control-label col-md-4">Greeting Text</label>
-                                <div class="col-md-8">
+                                <label class="control-label col-md-2">Your Greeting</label>
+                                <div class="col-md-4">
                                     <input id="no_of_images" type="text" class="form-control" />
                                 </div>                                  
                             </div>
                             <div class="form-group">                              
-                                <label class="control-label col-md-4">Number of Images</label>
-                                <div class="col-md-8">
+                                <label class="control-label col-md-2">Number of Images</label>
+                                <div class="col-md-4">
                                     <input id="no_of_images" type="number" class="form-control" />
                                 </div>                                  
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Starting Time</label>
-                                <div class="col-md-8">
-                                    <div class="input-group bootstrap-timepicker">
-                                        <input id="timepicker" type="text" class="form-control" />
-                                        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                                    </div>
-                                </div>                                      
-                            </div>
+                          
                             <div class="form-group">
                                 <label class="control-label col-md-4">Scheduled Date</label>
                                 <div class="col-md-8">
