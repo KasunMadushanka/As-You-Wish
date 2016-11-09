@@ -27,6 +27,14 @@
         <link href="assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
         <link href="assets/plugins/bootstrap-eonasdan-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 
+        <link href="assets/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet" />
+        <link href="assets/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet" />
+        <link href="assets/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" />
+
+        <link href="assets/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet" />
+        <link href="assets/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet" />
+        <link href="assets/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" />
+
         <script src="myjs/backup.js"></script>
 
     </head>
@@ -98,17 +106,18 @@
                                 <div class="col-md-4">
                                     <input id="limit_of_contestants" name="limit_of_contestants" type="number" value="" class="form-control"/>
                                 </div>
-                                <label class="control-label col-md-2">Time</label>                                                  
-                                <div class="input-group bootstrap col-md-4">
-                                    <input id="timepicker" type="text" class="form-control" />
-                                    <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                                </div>     
+                                <label class="control-label col-md-2">Time</label>
+                                <div class="col-md-4">
+                                    <div class="input-group bootstrap-timepicker">
+                                        <input id="timepicker" type="text" class="form-control" />
+                                        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                                    </div>
+                                </div>    
                             </div>                         
-
                         </form>
                         <div class="form-group">                             
                             <div class="col-md-6" style="position: relative;left: 183px;padding-top: 15px;">
-                                <button type="button" class="btn btn-sm btn-success">
+                                <button type="button" class="btn btn-sm btn-success" onclick="$('#modal-dropbox-connection').modal('show');window.open('controllers/dropbox_connection.jsp');">
                                     <i class="fa fa-upload"></i>
                                     <span>Upload Backup</span>
                                 </button>     
@@ -126,17 +135,20 @@
                                 <button type="button" class="btn btn-sm btn-success" onclick="update_contest_settings()">Reset to Default</button>                           
                             </div>
                         </div>
+                        <legend style="padding-top: 20px;"></legend>
                         <div class="form-group">                                                         
-                            <div class=""  style="position: relative;left: 360px;padding-top: 60px;padding-bottom: 10px;">
+                            <div class=""  style="position: relative;left: 360px;padding-bottom: 10px;">
                                 <a class="btn btn-primary start" href="controllers/download_backup.jsp">
                                     <i class="fa fa-download"></i>
                                     <span>Download Backup</span>
                                 </a>       
-                                <button type="button" class="btn btn-primary start" onclick="openInNewTab('www.google.com');">
+                                <span class="btn btn-primary fileinput-button">
                                     <i class="fa fa-upload"></i>
                                     <span>Restore Backup</span>
-                                </button> 
+                                    <input type="file" id="backup_file" name="backup_file">
+                                </span>
                             </div>
+
                         </div>
                     </div>
 
@@ -144,6 +156,32 @@
 
             </div>
 
+        </div>
+
+        <div class="modal fade" id="modal-dropbox-connection">
+            <div id="modal-comments" class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Paste the code here</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal form-bordered">
+                            <div class="form-group" style="padding-top: 10px;">                              
+                                <label class="control-label col-md-1">Code</label>
+                                <div class="col-md-9">
+                                    <input id="dropbox_access_code" name="dropbox_access_code" type="text" class="form-control" />
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-sm btn-success" onclick="$('#modal-dropbox-connection').modal('hide');dropbox_upload();">
+                                        <span>Submit</span>
+                                    </button>    
+                                </div>
+                            </div>   
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
@@ -180,7 +218,20 @@
         <script src="assets/plugins/select2/dist/js/select2.min.js"></script>
         <script src="assets/plugins/bootstrap-eonasdan-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 
-
+        <script src="assets/plugins/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
+        <script src="assets/plugins/jquery-file-upload/js/vendor/tmpl.min.js"></script>
+        <script src="assets/plugins/jquery-file-upload/js/vendor/load-image.min.js"></script>
+        <script src="assets/plugins/jquery-file-upload/js/vendor/canvas-to-blob.min.js"></script>
+        <script src="assets/plugins/jquery-file-upload/blueimp-gallery/jquery.blueimp-gallery.min.js"></script>
+        <script src="assets/plugins/jquery-file-upload/js/jquery.iframe-transport.js"></script>
+        <script src="assets/plugins/jquery-file-upload/js/jquery.fileupload.js"></script>
+        <script src="assets/plugins/jquery-file-upload/js/jquery.fileupload-process.js"></script>
+        <script src="assets/plugins/jquery-file-upload/js/jquery.fileupload-image.js"></script>
+        <script src="assets/plugins/jquery-file-upload/js/jquery.fileupload-audio.js"></script>
+        <script src="assets/plugins/jquery-file-upload/js/jquery.fileupload-video.js"></script>
+        <script src="assets/plugins/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
+        <script src="assets/plugins/jquery-file-upload/js/jquery.fileupload-ui.js"></script>
+        <script src="assets/js/form-multiple-upload.demo.min.js"></script>
 
         <script src="assets/js/form-plugins.demo.min.js"></script>
         <script src="assets/js/apps.min.js"></script>
@@ -190,6 +241,7 @@
                                         App.init();
                                         FormSliderSwitcher.init();
                                         FormPlugins.init();
+                                        FormMultipleUpload.init();
                                     });
                                     $('#myModal1').modal({
                                         show: true
