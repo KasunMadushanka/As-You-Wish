@@ -8,8 +8,8 @@ public class DropboxUpload {
 
     public static void main(String[] args) throws IOException, DbxException {
         // Get your app key and secret from the Dropbox developers website.
-        final String APP_KEY = "4d6d5dhp6vzsjac";
-        final String APP_SECRET = "klc555zfgce807w";
+        final String APP_KEY = "9mgmv6iccbdpg2r";
+        final String APP_SECRET = "fozgemjajkbg8c9";
 
         DbxAppInfo appInfo = new DbxAppInfo(APP_KEY, APP_SECRET);
 

@@ -132,7 +132,7 @@
                                     <i class="fa fa-download"></i>
                                     <span>Download Backup</span>
                                 </a>       
-                                <button type="button" class="btn btn-primary start">
+                                <button type="button" class="btn btn-primary start" onclick="openInNewTab('www.google.com');">
                                     <i class="fa fa-upload"></i>
                                     <span>Restore Backup</span>
                                 </button> 
