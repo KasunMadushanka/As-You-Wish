@@ -92,7 +92,7 @@
 
             <li><a href="#"><i class="fa fa-file-pdf-o"></i> <span>Reports</span></a></li>
 
-            <li><a href="backup_restore.jsp"><i class="fa fa-download"></i> <span>Backup</span></a></li>
+            <li><a href="backup.jsp"><i class="fa fa-download"></i> <span>Backup</span></a></li>
 
 
 

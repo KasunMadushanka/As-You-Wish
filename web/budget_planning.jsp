@@ -229,7 +229,7 @@
                                                                         </div>
                                                                         <div id="service2_content">
                                                                             <div class="pl-5 pr-5"> 
-                                                                                <select class="form-control" id="service2_type" name="service2_type" place>
+                                                                                <select class="form-control" id="service2_type" name="service2_type">
                                                                                     <option value="" disabled selected hidden>Cake design</option>
                                                                                     <option value="1" >Any</option>
                                                                                     <option value="2" >Buttercream</option>
