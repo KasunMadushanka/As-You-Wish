@@ -25,15 +25,15 @@
 
     ArrayList contestants = new ArrayList();
 
-    ResultSet rs = getCon().createStatement().executeQuery("Select* from contest inner join customer on contest.customer_id=customer.customer_id");
+    ResultSet rs = getCon().createStatement().executeQuery("Select cus.customer_id,cus.first_name,cus.partner_first_name,cus.image_url from customer cus inner join contestant cnt on cus.customer_id=cnt.customer_id inner join contest cn on cnt.contest_id=cn.contest_id");
     while (rs.next()) {
 
         String[] details = new String[4];
 
-        details[0] = rs.getString("contest.customer_id");
-        details[1] = rs.getString("customer.first_name");
-        details[2] = rs.getString("customer.partner_first_name");
-        details[3] = rs.getString("contest.image");
+        details[0] = rs.getString("cus.customer_id");
+        details[1] = rs.getString("cus.first_name");
+        details[2] = rs.getString("cus.partner_first_name");
+        details[3] = rs.getString("cus.image_url");
 
         contestants.add(details);
     }

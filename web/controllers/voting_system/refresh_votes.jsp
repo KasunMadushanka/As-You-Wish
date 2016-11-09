@@ -7,7 +7,7 @@
 <%
     ArrayList votes = new ArrayList();
 
-    ResultSet rs = getCon().createStatement().executeQuery("Select* from contest");
+    ResultSet rs = getCon().createStatement().executeQuery("Select* from contestant");
     while (rs.next()) {
         String[] values=new String[2];
         values[0]=rs.getString("customer_id");
