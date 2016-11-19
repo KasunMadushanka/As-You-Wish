@@ -28,7 +28,7 @@ function update_comment(post_id, type, event) {
             data: "post_id=" + post_id + "&type=" + type + "&comment=" + comment,
             success: function (msg) {
                 if (msg === "visitor") {
-                    visitor_sign_up();
+                    visitor_sign_in();
                 } else {
                     $.rustaMsgBox({'mode': 'info', 'content': 'Comment added', 'fadeOut': true});
                 }

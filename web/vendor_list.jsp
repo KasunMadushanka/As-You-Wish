@@ -8,17 +8,16 @@
 
     ArrayList vendors = new ArrayList();
 
-    ResultSet rs = getCon().createStatement().executeQuery("Select vendor.vendor_id,vendor.company_name,service_registry.rank,service_registry.rating,service_registry.image_url from vendor inner join service_registry on vendor.vendor_id=service_registry.vendor_id where service_registry.service_id='" + service_id + "'");
+    ResultSet rs = getCon().createStatement().executeQuery("Select v.vendor_id,v.company_name,sr.rating,sr.image from vendor v inner join service_registry sr on v.vendor_id=sr.vendor_id where sr.service_id='" + service_id + "'");
     while (rs.next()) {
 
         String[] details = new String[5];
 
-        details[0] = rs.getString("vendor_id");
-        details[1] = rs.getString("company_name");
-        details[2] = rs.getString("image_url");
-        details[3] = rs.getString("rank");
-        details[4] = rs.getString("rating");
-
+        details[0] = rs.getString("v.vendor_id");
+        details[1] = rs.getString("v.company_name");
+        details[2] = rs.getString("sr.image");
+        details[3] = rs.getString("sr.rating");
+    
         vendors.add(details);
     }
 
@@ -86,7 +85,7 @@
                                                     String[] vendor = (String[]) vendors.get(m);%>
                                             <div class="col-sm-6 col-md-4 col-lg-4 mb-30">
                                                 <div class="product">
-                                                    <span class="tag-sale">rank:<%=vendor[3]%></span>
+                                                    <span class="tag-sale">rating: <%=vendor[3]%></span>
                                                     <div> <img alt="" src="<%=vendor[2]%>" class="" width="260" height="150">
                                                         <div class="overlay"></div>
                                                     </div>
@@ -100,6 +99,9 @@
                                                 </div>
                                             </div>
                                             <%}%>
+                                            <%if(vendors.size()==0){%>
+                                            <center><h3>No vendors found...</h3></center>
+                                            <%}%>
                                         </div>
                                     </div>
                                 </div>
@@ -108,6 +110,7 @@
                                         <h5 class="widget-title line-bottom">Search box</h5>
                                         <div class="search-form">
                                             <form>
+                                                
                                                 <div class="input-group">
                                                     <input id="search" type="text" placeholder="Click to Search" class="form-control search-input">
                                                     <span class="input-group-btn">

@@ -223,7 +223,7 @@
                                             <div class="col-sm-6 col-md-3 col-lg-3 mb-30">
                                                 <div class="product">
                                                     <span class="tag-sale"><%= rs1.getString("tag")%></span>
-                                                    <div class="product-thumb"> <img alt="" src="<%= rs1.getString("img")%>" class="img-responsive">
+                                                    <div class="product-thumb"> <img alt="" src="<%= rs1.getString("img")%>" width="260" height="220" >
                                                         <div class="overlay"></div>
                                                     </div>
                                                     <div class="product-details text-center">

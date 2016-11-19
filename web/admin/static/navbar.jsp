@@ -69,8 +69,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li><a href="contestants.jsp">Contestants</a></li>
-                    <li><a href="sponsorship.jsp">Sponsorship</a></li>
-                    <li><a href="results.jsp">Results</a></li>
+                    <li><a href="contest_results.jsp">Results</a></li>
                     <li><a href="contest_settings.jsp">Settings</a></li>
 
                 </ul>

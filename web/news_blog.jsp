@@ -41,9 +41,6 @@
     <head>
         <%@ include file="/static/head.jsp" %>
 
-        <script src="js/bootstrap-filestyle.js"></script>  
-        <script src="myjs/image_upload.js"></script>
-        <script src="myjs/new_post.js"></script>
         <script src="myjs/update_post.js"></script>
 
     </head>

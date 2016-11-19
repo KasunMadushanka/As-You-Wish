@@ -5,7 +5,7 @@
 <%@include file="config/db_connection.jsp"%>
 <%
     session.setAttribute("type", "visitor");
-    
+
     ArrayList events = new ArrayList();
 
     ResultSet rs = getCon().createStatement().executeQuery("Select* from customer where confirmed='" + "yes" + "'");
@@ -29,8 +29,10 @@
     cal.set(Calendar.HOUR_OF_DAY, 23);
     cal.set(Calendar.MINUTE, 59);
 
-    int difference = (int)(cal.getTimeInMillis() - Calendar.getInstance().getTimeInMillis())/1000;
-   
+    int difference = (int) (cal.getTimeInMillis() - Calendar.getInstance().getTimeInMillis()) / 1000;
+
+    
+
 %>
 
 <!DOCTYPE html>
@@ -52,7 +54,7 @@
                     autoStart: true,
                     callbacks: {
                         stop: function () {
-                           
+
                         }
                     }
                 });
@@ -374,7 +376,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-3 wow fadeInUp animation-delay2">
                                 <div class="funfact text-center mb-sm-30">
                                     <h2 class="animate-number text-white" data-value="264" data-animation-duration="2000">0</h2>
-                                    <h4 class="title text-white">Success Wedding Party</h4>
+                                    <h4 class="title text-white">Wedding Events</h4>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 wow fadeInUp animation-delay3">
@@ -385,7 +387,7 @@
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 wow fadeInUp animation-delay4">
                                 <div class="funfact text-center mb-sm-30">
-                                    <h2 class="animate-number text-white" data-value="14125487" data-animation-duration="2000">0</h2>
+                                    <h2 class="animate-number text-white" data-value="10565" data-animation-duration="2000">0</h2>
                                     <h4 class="title text-white">Total Visiters</h4>
                                 </div>
                             </div>
@@ -449,95 +451,57 @@
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3 text-center wow fadeInUp animation-delay1">
                                     <h2 class="title pattern-bottom">News Blog</h2>
-                                    <p>So while it might seem impossible to sum up your ridiculously amazing, complicated, and fantastic wedding in a neat little sentence (heck, that’s what marriage is for—you get a lifetime to figure it out), here’s a list of some of my favorite love quotes for weddings (and marriage!) to get you started.</p>
+                                
                                 </div>
                             </div>
                         </div>
                         <div class="section-content">
                             <div class="row multi-row-clearfix">
                                 <div class="blog-post">
+                                    <%int i = 0;
+                                        ResultSet rs1 = getCon().createStatement().executeQuery("Select nb.*,ad.name from news_blog nb inner join adminac ad on nb.admin_id=ad.admin_id order by nb.post_id desc");
+                                        while (rs1.next() && i < 3) {
+                                            i++;
+                                    %>
                                     <div class="col-xs-12 col-sm-12 col-md-4 wow fadeInUp animation-delay1">
                                         <article class="post clearfix maxwidth500 mb-40">
                                             <div class="col-sm-12 col-md-12 p-0">
                                                 <div class="entry-header">
                                                     <div class="post-thumb">
-                                                        <img class="img-responsive img-fullwidth" alt="" src="images/blog/blog-img1.jpg">
+                                                        <img class="img-fullwidth" alt="" src="<%=rs1.getString("nb.image_url")%>" height="220">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 p-0">
                                                 <div class="entry-content p-30 pl-xs-15 pr-xs-15">
-                                                    <h3 class="entry-title sm-inline-block mt-0 mt-sm-30 mt-xs-0 pt-0">Doing a better Wedding</h3>
+                                                    <h3 class="entry-title sm-inline-block mt-0 mt-sm-30 mt-xs-0 pt-0"><%=rs1.getString("nb.title")%></h3>
                                                     <div class="entry-meta mb-20">
-                                                        <span>By Admin </span>
-                                                        <span><i class="fa fa-comments-o text-theme-colored ml-10"></i>Comments: 05
+                                                        <span><%=rs1.getString("ad.name")%></span>
+                                                        <span><i class="fa fa-comments-o text-theme-colored ml-10"></i> <%=rs1.getString("nb.comments")%>
                                                         </span>
                                                     </div>
-                                                    <p class="mb-20">So while it might seem impossible to sum up your ridiculously amazing, complicated, and fantastic wedding in a neat little sentence (heck, that’s what marriage is for—you get a lifetime to figure it out), here’s a list of some of my favorite love quotes for weddings (and marriage!) to get you started.</p>
-                                                    
+                                                    <p class="mb-20"><%=rs1.getString("nb.content")%></p>
+
                                                 </div>
                                             </div>
                                         </article>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-4 wow fadeInUp animation-delay2">
-                                        <article class="post clearfix maxwidth500 mb-40">
-                                            <div class="col-sm-12 col-md-12 p-0">
-                                                <div class="entry-header">
-                                                    <div class="post-thumb">
-                                                        <img class="img-responsive img-fullwidth" alt="" src="images/blog/blog-img2.jpg">
-                                                    </div>                                
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 p-0">
-                                                <div class="entry-content p-30 pl-xs-15 pr-xs-15">
-                                                    <h3 class="entry-title sm-inline-block mt-0 mt-sm-30 mt-xs-0 pt-0">Honeymoon planning</h3>
-                                                    <div class="entry-meta mb-20">
-                                                        <span>By Admin </span>
-                                                        <span><i class="fa fa-comments-o text-theme-colored ml-10"></i> comments: 15
-                                                        </span>
-                                                    </div>
-                                                    <p class="mb-20">So while it might seem impossible to sum up your ridiculously amazing, complicated, and fantastic wedding in a neat little sentence (heck, that’s what marriage is for—you get a lifetime to figure it out), here’s a list of some of my favorite love quotes for weddings (and marriage!) to get you started.</p>
-                                                  
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-4 wow fadeInUp animation-delay3">
-                                        <article class="post clearfix maxwidth500 mb-40">
-                                            <div class="col-sm-12 col-md-12 p-0">
-                                                <div class="entry-header">
-                                                    <div class="post-thumb">
-                                                        <img class="img-responsive img-fullwidth" alt="" src="images/blog/blog-img3.jpg">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 p-0">
-                                                <div class="entry-content p-30 pl-xs-15 pr-xs-15">
-                                                    <h3 class="entry-title sm-inline-block mt-0 mt-sm-30 mt-xs-0 pt-0">Ready for a Wedding</h3>
-                                                    <div class="entry-meta mb-20">
-                                                        <span>By Admin </span>
-                                                        <span><i class="fa fa-comments-o text-theme-colored ml-10"></i>comments: 19
-                                                        </span>
-                                                    </div>
-                                                    <p class="mb-20">So while it might seem impossible to sum up your ridiculously amazing, complicated, and fantastic wedding in a neat little sentence (heck, that’s what marriage is for—you get a lifetime to figure it out), here’s a list of some of my favorite love quotes for weddings (and marriage!) to get you started.</p>
-                                                   
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                                     <a class="text-theme-colored font-13" href="news_blog.jsp">Read more <i class="fa fa-angle-double-right"></i></a>
+                                    <%}%>
+                                   
                                 </div>
+                             
                             </div>
+                                            <center><a class="text-theme-colored font-13" href="news_blog.jsp">Read more <i class="fa fa-angle-double-right"></i></a></center>
                         </div>
                     </div>
                 </section>
 
-                <section id="contests" class="divider bg-img-center-bottom" data-bg-img="">
+                <section id="contests" class="divider bg-img-center-bottom" data-bg-img="images/bg/bg9.png">
                     <div class="container pb-30">
                         <div class="section-title">
                             <div class="row">
-                                <div class="col-md-6 col-md-offset-3 text-center wow fadeInUp animation-delay1">
-                                    <h3 class="title pattern-bottom">Most Popular Couple September 2016</h3>
+                                <div class="col-md-8 col-md-offset-2 text-center wow fadeInUp animation-delay1">
+                                    <h2 class="title pattern-bottom">Most Popular Couple September 2016</h2>
 
                                 </div>
                             </div>
@@ -546,27 +510,25 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-sm-6 col-md-4 col-lg-4 mb-30">
-                                        <h4 style="position: relative;left: 165px;top: 70px;">2<sup>nd</sup> Place</h4>
-                                        <div> <img alt="" src="images/gallery/2.jpg" class="img-circle" width="300" height="300" style="position:relative;left:50px;top:70px;">
-
+                                        <div> <img alt="" src="images/gallery/2.jpg" class="img-circle" width="350" height="350">
                                         </div>
-
+                                        <h3 style="position: relative;left: 100px;">1<sup>st</sup> Runners Up</h3>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-4 mb-30">
-                                        <h3 style="position: relative;left: 135px;">Winners</h3>
+                                    <div class="col-sm-6 col-md-4 col-lg-4 mb-30">                                     
                                         <div> <img alt="" src="images/gallery/12.jpg" class="img-circle" width="350" height="350">
 
                                         </div>
+                                        <h3 style="position: relative;left: 130px;">Winners</h3>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-4 mb-30">
-                                        <h4 style="position: relative;left: 90px;top:125px;">3<sup>rd</sup> Place</h4>
-                                        <div> <img alt="" src="images/gallery/full/4.jpg" class="img-circle" width="250" height="250" style="position:relative;top:120px;">
+                                    <div class="col-sm-6 col-md-4 col-lg-4 mb-30">                                 
+                                        <div> <img alt="" src="images/gallery/full/4.jpg" class="img-circle" width="350" height="350">
 
                                         </div>
+                                        <h3 style="position: relative;left: 100px;">2<sup>nd</sup> Runners Up</h3>
                                     </div>
                                 </div>               
                             </div>
-                            <center><a href="contests.jsp">More Details</a></center>
+
                         </div>
                     </div>
 

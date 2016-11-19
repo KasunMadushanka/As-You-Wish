@@ -3,15 +3,20 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file= "config/db_connection.jsp" %>
 <%
-    String id =(String)session.getAttribute("id");
+    String id = (String) session.getAttribute("id");
     session.setAttribute("page", "gallery");
 
     ArrayList gallery = new ArrayList();
-    
-    ResultSet rs = getCon().createStatement().executeQuery("Select image_url from customer_gallery where customer_id='" + id + "'");
-     while (rs.next()) {
-        gallery.add(rs.getString("image_url"));
+
+    ResultSet rs = getCon().createStatement().executeQuery("Select title,image_url from couple_blog where customer_id='" + id + "'");
+    while (rs.next()) {
+        String[] data = new String[2];
+        data[0] = rs.getString("title");
+        data[1] = rs.getString("image_url");
+
+        gallery.add(data);
     }
+
 
 %>
 <!DOCTYPE html>
@@ -22,9 +27,9 @@
     </head>
 
     <body class="has-side-panel side-panel-left fullwidth-page">
-        
+
         <%@ include file="/side_panels/customer_side_panel.jsp" %>
-       
+
         <div id="wrapper" class="clearfix">
             <!-- preloader -->
             <div id="preloader">
@@ -37,7 +42,7 @@
 
             <!-- Header -->
             <%@ include file="/static/customer_header.jsp"%>
-            
+
             <!-- Start main-content -->
             <div class="main-content">
                 <!-- Section: inner-header -->
@@ -63,12 +68,13 @@
 
                                     <!-- Gallery Grid -->
                                     <div id="grid" class="portfolio-gallery masonry grid-4 clearfix" data-lightbox="gallery">
-                                        <%for (int i = 0; i < gallery.size(); i++) {%>
+                                        <%for (int i = 0; i < gallery.size(); i++) {
+                                                String[] data = (String[]) gallery.get(i);%>
                                         <!-- Image -->
                                         <div class="portfolio-item">
-                                            <a href="<%=gallery.get(i)%>" data-lightbox="gallery-item" title="Title Here 1">
+                                            <a href="<%=data[1]%>" data-lightbox="gallery-item" title="<%=data[0]%>">
                                                 <div class="thumb">
-                                                    <img class="img-fullwidth photo" src="<%=gallery.get(i)%>" alt="project">
+                                                    <img class="img-fullwidth photo" src="<%=data[1]%>" alt="project" height="200">
                                                     <div class="overlay-shade"></div>
                                                     <div class="text-holder">
                                                         <div class="title text-center">Wedding</div>

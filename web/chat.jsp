@@ -5,10 +5,21 @@
 <%
 
     String id = "x";
-    String type = "0";
     String nameRev = "Administrator";
-    String UserId = "1";
-    String uType = "2";
+    String type = "0";
+    String UserId = ""+session.getAttribute("id");
+    String uType = (String)session.getAttribute("type");
+    
+    if(uType=="customer"){
+        uType = "2";
+    }
+    else if(uType=="vendor"){
+        uType = "1";
+    }
+//    else{
+//        uType = "0";
+//    }
+    
     if (request.getParameter("id") == null || request.getParameter("type") == "0") {
         id = "0";
     } else {
@@ -105,7 +116,7 @@
                                             <input type="hidden" id="revID" value="<%= id%>">
                                             <input type="hidden" id="revType" value="<%= type%>">
                                             <div class="panel panel-primary">
-                                                <div class="panel-body" id="check" style="height: 350px;padding-right: 20px;">
+                                                <div class="panel-body" id="check" style="height: 350px;padding-right: 20px;overflow: scroll;">
 
 
 
