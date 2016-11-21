@@ -468,7 +468,7 @@
                                             <div class="col-sm-12 col-md-12 p-0">
                                                 <div class="entry-header">
                                                     <div class="post-thumb">
-                                                        <img class="img-fullwidth" alt="" src="<%=rs1.getString("nb.image_url")%>" height="220">
+                                                        <img class="img-fullwidth" alt="" src="<%="admin/"+rs1.getString("nb.image_url")%>" height="220">
                                                     </div>
                                                 </div>
                                             </div>

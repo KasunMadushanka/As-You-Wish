@@ -102,7 +102,7 @@
                                                     <div class="entry-header">
                                                         <%String fields[] = (String[]) list.get(i);
                                                             if (!fields[5].equals("")) {%>
-                                                        <div class="post-thumb"> <img id="image<%=fields[0]%>" alt="" src="<%=fields[5]%>" class="img-fullwidth img-responsive"> </div>
+                                                        <div class="post-thumb"> <img id="image<%=fields[0]%>" alt="" src="admin/<%=fields[5]%>" class="img-fullwidth img-responsive"> </div>
                                                             <%}%>
                                                         <div class="dropdown">
                                                             <a class="dropdown-toggle" data-toggle="dropdown">

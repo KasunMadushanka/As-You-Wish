@@ -13,23 +13,31 @@
 
     File directory = null;
     int max = 0;
-    String save_file = null, path = null, image_url = null;
+    String save_file = null, image_url = null,route=null;
+    String path = getServletContext().getRealPath("/");
     String[] files = null;
 
     if (status.equals("customer_profile")) {
-
-        path = "F:/Project/AsYouWish/web/images/customer/profile";
+        
+        route="images/customer/profile";
+        path +=route;
+        
         directory = new File(path);
+        
         if (!directory.exists()) {
             directory.mkdir();
         }
+        
         save_file = path + "/" + id + ".jpg";
-        image_url = save_file.substring(25);
+        image_url =route+"/" + id + ".jpg";
+        
         getCon().createStatement().executeUpdate("Update customer set image_url='" + image_url + "' where customer_id='" + id + "'");
 
     } else if (status.equals("couple_blog")) {
-
-        path = "F:/Project/AsYouWish/web/images/customer/blog/" + id;
+        
+        route="images/customer/blog/" + id;
+          path +=route;
+        
         directory = new File(path);
 
         if (!directory.exists()) {
@@ -49,12 +57,15 @@
         }
 
         save_file = path + "/" + (max + 1) + ".jpg";
-        image_url = save_file.substring(25);
+        image_url=route+"/" + (max + 1) + ".jpg";
+      
         getCon().createStatement().executeUpdate("Update couple_blog set image_url='" + image_url + "' where post_id='" + post_id + "'");
 
     } else if (status.equals("customer_gallery")) {
 
-        path = "F:/Project/AsYouWish/web/images/customer/gallery/" + id;
+        route= "images/customer/gallery/" + id;
+        path+=route;
+        
         directory = new File(path);
 
         if (!directory.exists()) {
@@ -74,12 +85,15 @@
         }
 
         save_file = path + "/" + (max + 1) + ".jpg";
-        image_url = save_file.substring(25);
+        image_url = route+"/" + (max + 1) + ".jpg";
+        
         getCon().createStatement().executeUpdate("Update customer_gallery set image_url='" + image_url + "'");
 
     } else if (status.equals("vendor_profile")) {
 
-        path = "F:/Project/AsYouWish/web/images/vendor/profile";
+        route = "images/vendor/profile";
+        path+=route;
+        
         directory = new File(path);
 
         if (!directory.exists()) {
@@ -87,12 +101,15 @@
         }
 
         save_file = path + "/" + id + ".jpg";
-        image_url = save_file.substring(25);
+        image_url = route+"/" + id + ".jpg";
+        
         getCon().createStatement().executeUpdate("Update vendor set image_url='" + image_url + "' where vendor_id='" + id + "'");
 
     } else if (status.equals("vendor_blog")) {
 
-        path = "F:/Project/AsYouWish/web/images/vendor/blog/" + id + "/" + service;
+        route = "images/vendor/blog/" + id + "/" + service;
+        path+=route;
+        
         directory = new File(path);
 
         if (!directory.exists()) {
@@ -113,17 +130,22 @@
             }
         }
 
-        save_file = path + "/" + (max+1) + ".jpg";
-        image_url = save_file.substring(25);
-        getCon().createStatement().executeUpdate("Update vendor_blog set image_url='" + image_url + "' where post_id='"+post_id+"'");
+        save_file = path + "/" + (max + 1) + ".jpg";
+        image_url = route+"/" + (max + 1) + ".jpg";
         
+        getCon().createStatement().executeUpdate("Update vendor_blog set image_url='" + image_url + "' where post_id='" + post_id + "'");
+
     } else if (status.equals("vendor_gallery")) {
 
-        path = "F:/Project/AsYouWish/web/images/vendor/gallery/" + id;
+        route = "images/vendor/gallery/" + id;
+        path+=route;
+        
         directory = new File(path);
     } else if (status.equals("vendor_storefront")) {
 
-        path = "F:/Project/AsYouWish/web/images/vendor/storefront/" + id + "/" + service;
+        route = "images/vendor/storefront/" + id + "/" + service;
+        path+=route;
+        
         directory = new File(path);
     }
 

@@ -34,19 +34,11 @@
         <url-pattern>/DBBackup</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>DropboxConnection</servlet-name>
-        <servlet-class>AsYouWish.DropboxConnection</servlet-class>
+        <servlet-name>FileUpload</servlet-name>
+        <servlet-class>AsYouWish.FileUpload</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>DropboxConnection</servlet-name>
-        <url-pattern>/DropboxConnection</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>DropboxUpload</servlet-name>
-        <servlet-class>AsYouWish.DropboxUpload</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DropboxUpload</servlet-name>
-        <url-pattern>/DropboxUpload</url-pattern>
+        <servlet-name>FileUpload</servlet-name>
+        <url-pattern>/FileUpload</url-pattern>
     </servlet-mapping>
 </web-app>

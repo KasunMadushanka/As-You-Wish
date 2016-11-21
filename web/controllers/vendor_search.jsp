@@ -5,20 +5,26 @@
 
 <%
     String term = request.getParameter("term");
-    String service_id = request.getParameter("service");
+    String service_id = request.getParameter("service_id");
+    String option = request.getParameter("option");
 
     ArrayList vendors = new ArrayList();
 
-    ResultSet rs = getCon().createStatement().executeQuery("Select vendor.vendor_id,vendor.company_name,service_registry.rank,service_registry.rating,service_registry.image_url from vendor inner join service_registry on vendor.vendor_id=service_registry.vendor_id where service_registry.service_id='" + service_id + "' and vendor.company_name like '%" + term + "%'");
+    ResultSet rs = null;
+
+    if (option.equals("1")) {
+        rs = getCon().createStatement().executeQuery("Select v.vendor_id,v.company_name,sr.rating,sr.image from vendor v inner join service_registry sr on v.vendor_id=sr.vendor_id where sr.service_id='" + service_id + "' and v.company_name like '%" + term + "%'");
+    } else if(option.equals("2")){
+        rs = getCon().createStatement().executeQuery("Select v.vendor_id,v.company_name,sr.rating,sr.image from vendor v inner join service_registry sr on v.vendor_id=sr.vendor_id where sr.service_id='" + service_id + "' and v.company_city like '%" + term + "%'");
+    }
     while (rs.next()) {
 
-        String[] details = new String[5];
+        String[] details = new String[4];
 
-        details[0] = rs.getString("vendor_id");
-        details[1] = rs.getString("company_name");
-        details[2] = rs.getString("image_url");
-        details[3] = rs.getString("rank");
-        details[4] = rs.getString("rating");
+        details[0] = rs.getString("v.vendor_id");
+        details[1] = rs.getString("v.company_name");
+        details[2] = rs.getString("sr.image");
+        details[3] = rs.getString("sr.rating");
 
         vendors.add(details);
     }
@@ -28,8 +34,8 @@
         String[] vendor = (String[]) vendors.get(m);%>
 <div class="col-sm-6 col-md-4 col-lg-4 mb-30">
     <div class="product">
-        <span class="tag-sale">rank:<%=vendor[3]%></span>
-        <div class="product-thumb"> <img alt="" src="<%=vendor[2]%>" class="img-responsive thumbnail">
+        <span class="tag-sale">rating: <%=vendor[3]%></span>
+        <div class="product-thumb"> <img alt="" src="<%=vendor[2]%>" width="260" height="150">
             <div class="overlay"></div>
         </div>
         <div class="product-details text-center">

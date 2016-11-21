@@ -17,7 +17,7 @@
         details[1] = rs.getString("v.company_name");
         details[2] = rs.getString("sr.image");
         details[3] = rs.getString("sr.rating");
-    
+
         vendors.add(details);
     }
 
@@ -35,11 +35,11 @@
     </head>
 
     <body class="has-side-panel side-panel-left fullwidth-page">
-        
-         <%if ((String) session.getAttribute("id") != null) {%>
+
+        <%if ((String) session.getAttribute("id") != null) {%>
         <%@ include file="/side_panels/customer_side_panel.jsp"%>
         <%}%>
-        
+
         <div id="wrapper" class="clearfix">
 
             <div id="preloader">
@@ -99,19 +99,24 @@
                                                 </div>
                                             </div>
                                             <%}%>
-                                            <%if(vendors.size()==0){%>
+                                            <%if (vendors.size() == 0) {%>
                                             <center><h3>No vendors found...</h3></center>
-                                            <%}%>
+                                                <%}%>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-3">
                                     <div class="widget">
                                         <h5 class="widget-title line-bottom">Search box</h5>
-                                        <div class="search-form">
+                                         <label>Filter By</label>
+                                         <select class="form-control" id="search_filter" name="search_filter">                                      
+                                            <option value="1" >Company Name</option>
+                                            <option value="2" >Location</option>                                       
+                                        </select>
+                                         <div class="search-form" style="padding-top: 5px;">
                                             <form>
-                                                
                                                 <div class="input-group">
+                                                    <input id="service_id" type="hidden" value="<%=service_id%>">
                                                     <input id="search" type="text" placeholder="Click to Search" class="form-control search-input">
                                                     <span class="input-group-btn">
                                                         <button id="search_button" type="button" class="btn search-button"><i class="fa fa-search"></i></button>
@@ -157,5 +162,4 @@
 
     </body>
 
-    <!-- Mirrored from kodesolution.com/demo/wedding/happy-wedding/v2.0/shop-category-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 May 2016 13:11:41 GMT -->
 </html>
