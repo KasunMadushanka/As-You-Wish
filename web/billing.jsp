@@ -32,8 +32,18 @@
                 </div>
             </div>
 
-            <!-- Header -->
-            <%@ include file="/static/visitor_header.jsp"%>
+            <header id="header" class="header">
+                <div class="header-nav navbar-fixed-top header-dark navbar-white navbar-transparent navbar-sticky-animated animated-active">
+                    <div class="header-nav-wrapper">
+                        <div class="container">
+                            <nav>
+                                <div id="menuzord-right" class="menuzord red"> <a class="menuzord-brand pull-left flip font-playball text-theme-colored font-32" href="javascript:void(0)"><i class="fa fa-heart-o font-25"></i> As You Wish <i class="fa fa-heart-o font-25"></i></a>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </header>
 
             <div class="main-content">
                 <!-- Section: inner-header -->
@@ -75,10 +85,10 @@
 
                                 <div class="row">
                                     <div class="col-md-10">
-                                        <input class="form-control" type="text" name="card_number" id="card_number" placeholder="Card number">
+                                        <input class="form-control" type="text" name="card_number" id="card_number" onkeypress="check_card_number(event)" placeholder="Card number">
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="form-control" type="text" name="cvv" id="cvv" placeholder="CVV2">
+                                        <input class="form-control" type="text" name="cvv" id="cvv" onkeypress="check_cvv(event)" placeholder="CVV">
                                     </div>
                                     <br>
                                 </div>
@@ -116,6 +126,7 @@
                     </div>
                 </section>
             </div>
+
 
             <!-- Footer -->
             <footer id="footer" class="footer pb-0 bg-black-111">

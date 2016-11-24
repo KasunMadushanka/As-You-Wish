@@ -45,7 +45,7 @@
         <link rel="stylesheet" href="css/flipclock.css">
 
         <script src="js/flipclock.js"></script>	
-        <%if (true) {%>
+        <%if (false) {%>
         <script>
             var clock;
             $(document).ready(function () {
@@ -110,7 +110,7 @@
                         <div id="maximage">
                             <img src="images/bg/bg30.jpg" alt=""/>
                             <img src="images/bg/bg26.jpg" alt=""/>
-                            <img src="images/bg/bg33.jpg" alt=""/>
+                            <img src="images/bg/bg34.jpg" alt=""/>
                         </div>
                         <div class="fullscreen-controls"> <a class="img-prev"><i class="pe-7s-angle-left"></i></a> <a class="img-next"><i class="pe-7s-angle-right"></i></a> </div>
                     </div>
@@ -119,12 +119,12 @@
                             <div class="container pt-200 pb-50">
                                 <div class="row">
                                     <div class="col-md-8 col-md-offset-2 text-center pt-20 pb-50">
-                                        <%if (true) {%>
-                                        <img src="images/logo3.png" alt="" style="position: relative; top:35px; ">
+                                        <%if (false) {%>
+                                        <img src="images/logo3.png" alt="" style="position: relative; top:60px; ">
                                         <div class="clock" style="position: relative;left: 135px; top: -20px"></div>
                                         <a class="btn btn-theme-colored" href="voting.jsp" style="position: relative;top: -20px; width: 450px; height: 50px; font-size: 20px;">Most Popular Couple October 2016</a>
                                         <%} else {%>
-                                        <img src="images/logo2.png">
+                                        <img src="images/logo3.png" style="position: relative; top:120px; padding-bottom: 80px;">
                                         <%}%>
 
                                     </div>

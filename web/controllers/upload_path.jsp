@@ -59,7 +59,7 @@
         save_file = path + "/" + (max + 1) + ".jpg";
         image_url=route+"/" + (max + 1) + ".jpg";
       
-        getCon().createStatement().executeUpdate("Update couple_blog set image_url='" + image_url + "' where post_id='" + post_id + "'");
+        getCon().createStatement().executeUpdate("Update couple_blog set image_url='" + save_file + "' where post_id='" + post_id + "'");
 
     } else if (status.equals("customer_gallery")) {
 

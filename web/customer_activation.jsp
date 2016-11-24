@@ -8,14 +8,6 @@
 
     getCon().createStatement().executeUpdate("Update customer set status='" + "active" + "' where customer_id='" + id + "'");
 
-    ResultSet rs = getCon().createStatement().executeQuery("Select* from customer where customer_id='" + id + "'");
-    if (rs.first()) {
-        session.setAttribute("id", rs.getString("customer_id"));
-        session.setAttribute("type", "customer");
-        session.setAttribute("first_name", rs.getString("first_name"));
-        session.setAttribute("last_name", rs.getString("last_name"));
-    }
-
 %>
 
 <!DOCTYPE html>
@@ -25,7 +17,7 @@
         <%@ include file="/static/head.jsp" %>
 
         <link  href="css/customer_modal.css" rel="stylesheet" type="text/css"/>
-        
+
         <script src="js/customer_modal.js"></script>  
         <script src="js/bootstrap-filestyle.js"></script>  
         <script src="myjs/image_upload.js"></script>
@@ -36,12 +28,28 @@
 
     <body class="has-side-panel side-panel-left fullwidth-page">
 
-        <%@ include file="/side_panels/customer_side_panel.jsp" %>
-
         <div id="wrapper" class="clearfix">
 
-            <!-- Header -->
-             <%@ include file="/static/customer_header.jsp"%>
+            <div id="preloader">
+                <div id="spinner">
+                    <div class="heart-preloader">
+                        <i class="fa fa-heart font-36 infinite animated pulse"></i>
+                    </div>
+                </div>
+            </div>
+
+            <header id="header" class="header">
+                <div class="header-nav navbar-fixed-top header-dark navbar-white navbar-transparent navbar-sticky-animated animated-active">
+                    <div class="header-nav-wrapper">
+                        <div class="container">
+                            <nav>
+                                <div id="menuzord-right" class="menuzord red"> <a class="menuzord-brand pull-left flip font-playball text-theme-colored font-32" href="javascript:void(0)"><i class="fa fa-heart-o font-25"></i> As You Wish <i class="fa fa-heart-o font-25"></i></a>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </header>
 
             <!-- Start main-content -->
             <div class="main-content">
@@ -52,7 +60,11 @@
                         <div class="section-content pt-0">
                             <div class="row"> 
                                 <div class="col-md-12">
-                                    <h3 class="title text-white">Welcome <%=(String) session.getAttribute("first_name")%></h3>
+                                    <%                                        ResultSet rs = getCon().createStatement().executeQuery("Select first_name from customer where customer_id='" + id + "'");
+                                        if (rs.first()) {
+                                    %>
+                                    <h3 class="title text-white">Welcome <%=rs.getString("first_name")%></h3>
+                                    <%}%>
                                 </div>
                             </div>
                         </div>
@@ -63,8 +75,9 @@
                     <div class="container mt-30 mb-30 p-30">
                         <div class="section-content">
                             <div class="form-group">
-                               <center><h2>Congratulations!</h2></center>
-                               <center><p class="font-18"><b>You have activated your new As You Wish account...</b></p></center>
+                                <center><h2>Congratulations!</h2></center>
+                                <center><p class="font-18"><b>You have activated your new As You Wish account...</b></p></center>
+                                <center><a class="font-15" href="index.jsp"><b>Click here to Login</b></a></center>
                             </div>
                         </div>
                     </div>
@@ -78,10 +91,7 @@
             </footer>
             <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
         </div>
-        <!-- end wrapper -->
 
-        <!-- Footer Scripts -->
-        <!-- JS | Custom script for all pages -->
         <script src="js/custom.js"></script>
 
     </body>

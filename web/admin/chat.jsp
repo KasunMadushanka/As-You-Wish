@@ -133,7 +133,7 @@
                                                     <tr>
                                                         <td class="email-sender" style="vertical-align:center;">
                                                             <br>
-                                                            <a class="image"><img alt="" src="../<%= rs2.getString("image_url") %>" width="50" height="50" /></a> &nbsp;&nbsp; | &nbsp;&nbsp;
+                                                            <a class="image"><img alt="" src="../<%= rs2.getString("image_url") %>" class="img-circle" width="50" height="50" /></a> &nbsp;&nbsp; | &nbsp;&nbsp;
                                                             <a href="chat.jsp?id=<%= rs.getString("user") %>&&type=<%= rs.getString("userType")%>"><%= rs2.getString("first_name")+" "+rs2.getString("last_name") %></a>
                                                             <hr>
                                                         </td>
@@ -153,7 +153,7 @@
                                                     <tr>
                                                         <td class="email-sender" style="vertical-align:center;">
                                                             <br>
-                                                            <a class="image"><img alt="" src="../<%= rs2.getString("image_url") %>" width="50" height="50" /></a> &nbsp;&nbsp; | &nbsp;&nbsp;
+                                                            <a class="image"><img alt="" src="../<%= rs2.getString("image_url") %>" class="img-circle" width="50" height="50" /></a> &nbsp;&nbsp; | &nbsp;&nbsp;
                                                             <a href="chat.jsp?id=<%= rs.getString("user") %>&&type=<%= rs.getString("userType")%>"><%= rs2.getString("company_name") %></a>
                                                             <hr>
                                                         </td>

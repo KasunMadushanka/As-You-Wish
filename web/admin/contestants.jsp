@@ -69,7 +69,7 @@
                                         <tr class="odd gradeX">
                                             <td><%= rs.getString("first_name") + " & " + rs.getString("partner_first_name")%></td>
                                             <td><%= rs.getString("event_date")%></td>
-                                            <td><%= rs.getString("mobile")%></td>
+                                            <td><%="+94"+rs.getString("mobile")%></td>
                                             <td><%= rs.getString("email")%></td>
                                             <td>                                                                      
                                                 <button type="button" class="btn btn-primary btn-sm" ><i class="fa fa-pencil-square-o"></i> Contact </button>                                                                                          

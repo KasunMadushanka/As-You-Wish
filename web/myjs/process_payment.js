@@ -41,12 +41,20 @@ function process_payment() {
     }
 }
 
-function validate_cvv2() {
-
-
+function check_card_number(event) {
+    alert('dd');
+    if (!(event.keyCode >= 48 && event.keyCode <= 57) || $('#card_number').val().length === 16) {
+        event.preventDefault();
+        return false;
+    }
+    return true;
 }
 
-function card_number() {
-
-
+function check_cvv(event) {
+      alert('dd');
+    if (!(event.keyCode >= 48 && event.keyCode <= 57) || $('#cvv').val().length === 3) {
+        event.preventDefault();
+        return false;
+    }
+    return true;
 }
