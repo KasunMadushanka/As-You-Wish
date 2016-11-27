@@ -22,13 +22,11 @@
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
                     <i class="fa fa-user"></i> 
-                    <span>Vendor</span>
+                    <span>Users</span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="email_inbox.html">Vendor Requests</a></li>
-                    <li><a href="table_manage.html">Registrations</a></li>
-                    <li><a href="email_compose.html">All Vendors</a></li>
-                    <li><a href="email_detail.html">Contact</a></li>
+                    <li><a href="email_inbox.html">Vendors</a></li>
+                    <li><a href="email_inbox.html">Customers</a></li>
                 </ul>
             </li>
             <li class="has-sub">
@@ -76,7 +74,9 @@
             </li>
 
             <li><a href="news_blog.jsp"><i class="fa fa-pencil"></i> <span>News Blog</span></a></li>
-            
+
+            <li><a href="chat.jsp"><i class="fa fa-weixin" aria-hidden="true"></i> <span>Chat Room</span><span class="badge pull-right">10</span></a></li>
+
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
@@ -89,7 +89,7 @@
                 </ul>
             </li>
 
-            <li><a href="#"><i class="fa fa-file-pdf-o"></i> <span>Reports</span></a></li>
+            <li><a href="Reports.jsp"><i class="fa fa-file-pdf-o"></i> <span>Reports</span></a></li>
 
             <li><a href="backup.jsp"><i class="fa fa-download"></i> <span>Backup</span></a></li>
 

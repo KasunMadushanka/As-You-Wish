@@ -90,7 +90,7 @@
         <script src="myjs/upload.js"></script>
         <script src="myjs/email.js"></script>   
 
-        <script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAfQ3cmkPUoYxnF_ogbX1WhbhCjZmJwKjs&sensor=false"></script>
+        <script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA2JxhLeq4SOdHId77F0HLEbhlNIunbB4Q&sensor=false"></script>
         <script>
             latitude_value = '<%=latitude%>';
             longitude_value = '<%=longitude%>';
@@ -270,28 +270,6 @@
                 </section>
             </div>
 
-            <section class="divider bg-lightest">
-                <div class="row">
-                    <div class="section-title">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3 text-center pb-30 wow fadeInUp animation-delay1">
-                                <h2>Event Calendar</h2>
-                                <img src="images/section-title-after.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="section-content text-center">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div id="full-event-calendar"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <section id="gallery" class="bg-lighter">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 text-center pb-30 wow fadeInUp animation-delay1">
@@ -310,9 +288,9 @@
                                     <!-- Portfolio Item Start -->
                                     <%for (int i = 1; i <= 8; i++) {%>
                                     <div class="portfolio-item">
-                                        <a href="images/gallery/<%=i%>.jpg" data-lightbox="gallery-item" title="Title Here 1">
+                                        <a href="images/vendor/gallery_images/1/<%=i%>.jpg" data-lightbox="gallery-item" title="Title Here 1">
                                             <div class="thumb">
-                                                <img class="img-fullwidth photo" src="images/gallery/<%=i%>.jpg" alt="project">
+                                                <img class="img-fullwidth photo" src="images/vendor/gallery_images/1/<%=i%>.jpg" alt="project">
                                                 <div class="overlay-shade"></div>
                                                 <div class="text-holder">
                                                     <div class="title text-center">Wedding</div>
@@ -368,7 +346,7 @@
                                         <div class="col-sm-12 col-md-12 p-0">
                                             <div class="entry-header">
                                                 <div class="post-thumb">
-                                                    <img class="img-responsive img-fullwidth" alt="" src="images/blog/blog-img1.jpg">
+                                                    <img class="img-responsive img-fullwidth" alt="" src="<%=data[4]%>">
                                                 </div>
                                                 <div class="entry-date text-center font-playball">
                                                     <span><i class="fa fa-thumbs-o-up font-24 font-24"></i></span><br><%=data[5]%>
@@ -450,15 +428,14 @@
             <%@ include file="/static/footer.jsp" %>
         </footer>
         <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-    </div>
 
-    <script src="js/calendar-events-data.js"></script>
+        <script src="js/calendar-events-data.js"></script>
 
-    <script src="js/custom.js"></script>
-    <script src="js/jquery.rustaMsgBox.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="js/jquery.rustaMsgBox.js"></script>
 
 
-</body>
+    </body>
 
 
 </html>

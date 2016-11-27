@@ -72,9 +72,7 @@
                             <div class="login-buttons">
                                 <button type="button" id="logIn" class="btn btn-success btn-block btn-lg" onclick="admin_login()">Sign me in</button>
                             </div>
-                            <center><div style="padding-top: 10px;">
-                                <a href="sign_up.jsp">Sign Up as Admin</a>
-                            </div></center>
+                           
                             <br>
                             <div class="col-md-12 container note note-danger" id="msg">
 

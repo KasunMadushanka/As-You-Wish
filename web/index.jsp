@@ -31,7 +31,14 @@
 
     int difference = (int) (cal.getTimeInMillis() - Calendar.getInstance().getTimeInMillis()) / 1000;
 
+    boolean status=false;
     
+     ResultSet rs1 = getCon().createStatement().executeQuery("Select status from contest_settings");
+     if(rs1.first()){
+     if(rs1.getString("status").equals("active")){
+     status=true;
+     }
+     }
 
 %>
 
@@ -45,7 +52,7 @@
         <link rel="stylesheet" href="css/flipclock.css">
 
         <script src="js/flipclock.js"></script>	
-        <%if (false) {%>
+        <%if (status) {%>
         <script>
             var clock;
             $(document).ready(function () {
@@ -119,12 +126,12 @@
                             <div class="container pt-200 pb-50">
                                 <div class="row">
                                     <div class="col-md-8 col-md-offset-2 text-center pt-20 pb-50">
-                                        <%if (false) {%>
+                                        <%if (status) {%>
                                         <img src="images/logo3.png" alt="" style="position: relative; top:60px; ">
                                         <div class="clock" style="position: relative;left: 135px; top: -20px"></div>
                                         <a class="btn btn-theme-colored" href="voting.jsp" style="position: relative;top: -20px; width: 450px; height: 50px; font-size: 20px;">Most Popular Couple October 2016</a>
                                         <%} else {%>
-                                        <img src="images/logo3.png" style="position: relative; top:120px; padding-bottom: 80px;">
+                                        <img src="images/logo3.png" style="position: relative; top:180px; padding-bottom: 180px;">
                                         <%}%>
 
                                     </div>
@@ -459,8 +466,8 @@
                             <div class="row multi-row-clearfix">
                                 <div class="blog-post">
                                     <%int i = 0;
-                                        ResultSet rs1 = getCon().createStatement().executeQuery("Select nb.*,ad.name from news_blog nb inner join adminac ad on nb.admin_id=ad.admin_id order by nb.post_id desc");
-                                        while (rs1.next() && i < 3) {
+                                        ResultSet rs2 = getCon().createStatement().executeQuery("Select nb.*,ad.name from news_blog nb inner join adminac ad on nb.admin_id=ad.admin_id order by nb.post_id desc");
+                                        while (rs2.next() && i < 3) {
                                             i++;
                                     %>
                                     <div class="col-xs-12 col-sm-12 col-md-4 wow fadeInUp animation-delay1">
@@ -468,19 +475,19 @@
                                             <div class="col-sm-12 col-md-12 p-0">
                                                 <div class="entry-header">
                                                     <div class="post-thumb">
-                                                        <img class="img-fullwidth" alt="" src="<%="admin/"+rs1.getString("nb.image_url")%>" height="220">
+                                                        <img class="img-fullwidth" alt="" src="<%="admin/"+rs2.getString("nb.image_url")%>" height="220">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 p-0">
                                                 <div class="entry-content p-30 pl-xs-15 pr-xs-15">
-                                                    <h3 class="entry-title sm-inline-block mt-0 mt-sm-30 mt-xs-0 pt-0"><%=rs1.getString("nb.title")%></h3>
+                                                    <h3 class="entry-title sm-inline-block mt-0 mt-sm-30 mt-xs-0 pt-0"><%=rs2.getString("nb.title")%></h3>
                                                     <div class="entry-meta mb-20">
-                                                        <span><%=rs1.getString("ad.name")%></span>
-                                                        <span><i class="fa fa-comments-o text-theme-colored ml-10"></i> <%=rs1.getString("nb.comments")%>
+                                                        <span><%=rs2.getString("ad.name")%></span>
+                                                        <span><i class="fa fa-comments-o text-theme-colored ml-10"></i> <%=rs2.getString("nb.comments")%>
                                                         </span>
                                                     </div>
-                                                    <p class="mb-20"><%=rs1.getString("nb.content")%></p>
+                                                    <p class="mb-20"><%=rs2.getString("nb.content")%></p>
 
                                                 </div>
                                             </div>

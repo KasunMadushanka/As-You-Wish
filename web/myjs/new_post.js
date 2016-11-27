@@ -9,8 +9,8 @@ function new_post(status, service_id) {
         data: "service_id=" + service_id + "&title=" + title + "&content=" + content,
         success: function (msg) {
             get_path(status, service_id, msg);
+             close_modal();
             $.rustaMsgBox({"content": "Added to your timeline!"});
-            //document.location.href = "couple_blog.jsp";
 
 
         },

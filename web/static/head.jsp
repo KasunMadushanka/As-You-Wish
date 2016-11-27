@@ -36,6 +36,17 @@
 
 <link  href="css/jquery-confirm.min.css" rel="stylesheet" type="text/css"/>
 
+<style>
+    .ui-dialog-osx {
+                position: absolute;
+                left:calc(50% - 240px);
+                -moz-border-radius: 0 0 8px 8px;
+                -webkit-border-radius: 0 0 8px 8px;
+                border-radius: 0 0 8px 8px; border-width: 0 8px 8px 8px;
+            } 
+</style>
+
+
 <!-- external javascripts -->
 <script src="js/jquery-2.2.0.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>

@@ -23,3 +23,41 @@
         </div>
     </div>
 </header>
+<div id="dialog-message" class="xdf" title="Advertisement" style="z-index: 999">
+            <div id="imgAd" style="margin-left: 23px;">
+                
+            </div>
+</div>
+
+<script>
+        
+            $(document).ready(function() {
+		$('#imgAd').load('controllers/ads.jsp');
+            });
+            
+            $("#dialog-message").dialog({
+                modal: true,
+                draggable: false,
+                resizable: false,
+                show: 'blind',
+                hide: 'blind',
+                width: 500,
+                dialogClass: 'ui-dialog-osx',
+                buttons: {
+                    "Close": function() {
+                        $(this).dialog("close");
+                        startTime();
+                    }
+                }
+            });
+            
+            function startTime(){
+                
+               setInterval(function(){
+                  $('#imgAd').load('controllers/ads.jsp');
+                  $('#dialog-message').dialog('open');
+                },10000);
+                
+            }
+            
+</script> 

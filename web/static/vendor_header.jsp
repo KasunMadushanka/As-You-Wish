@@ -44,7 +44,6 @@
                                         <%}%>
                                 </ul>
                             </li>
-                            <li><a href="#people">Tick The Best</a></li>
                             <li><a href="" onclick="logout(); return false;">Logout</a></li>
                         </ul>
                     </div>

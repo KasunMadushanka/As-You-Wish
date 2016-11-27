@@ -25,3 +25,33 @@ function update_contest_settings() {
     });
 
 }
+
+function host_contest(){
+   
+    $.ajax({
+        type: "post",
+        url: "controllers/switch_contest.jsp",
+        data: "status="+"active",
+        success: function (msg) {
+            $.rustaMsgBox({'mode': 'info', 'content': 'New Contest Started', 'fadeOut': true});
+        },
+        error: function (error) {
+            $.rustaMsgBox({'mode': 'error', 'content': 'Cannot host', 'fadeOut': true});
+        }
+    });
+}
+
+function discard_contest(){
+  
+    $.ajax({
+        type: "post",
+        url: "controllers/switch_contest.jsp",
+        data: "status="+"inactive",
+        success: function (msg) {
+            $.rustaMsgBox({'mode': 'info', 'content': 'Currently running contest discarded', 'fadeOut': true});
+        },
+        error: function (error) {
+            $.rustaMsgBox({'mode': 'error', 'content': 'Cannot discard', 'fadeOut': true});
+        }
+    });
+}

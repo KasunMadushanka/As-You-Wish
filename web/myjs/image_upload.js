@@ -1,9 +1,9 @@
-function get_path(status,service_id,post_id) {
-  
+function get_path(status, service_id, post_id) {
+
     $.ajax({
         type: "post",
         url: "controllers/upload_path.jsp",
-        data: "status="+status+"&service_id="+service_id+"&post_id="+post_id,
+        data: "status=" + status + "&service_id=" + service_id + "&post_id=" + post_id,
         success: function (msg) {
             image_upload(status);
         },
@@ -40,7 +40,7 @@ function image_upload(status) {
         contentType: false,
         processData: false,
         success: function (msg) {
-
+          
         },
         error: function (error) {
             $.rustaMsgBox({"content": "Error occured while uploading image"});

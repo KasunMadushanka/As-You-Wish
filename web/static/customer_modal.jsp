@@ -22,8 +22,8 @@
                                 output.src = URL.createObjectURL(event.target.files[0]);
                             };
                         </script>
-                        <div class="form-group">
-                            <label for="form_title"><b>Subject</b></label>
+                        <div class="form-group pt-20">
+                            <label for="form_title"><b>Title</b></label>
                             <input id="form_title" name="form_title" class="form-control" type="text">
                         </div>
                         <div class="form-group">
@@ -33,12 +33,15 @@
                     </div>
                     <div class="modal-footer">
                         <div class="form-group text-center">
-                            <form id="form_upload_couple_blog">
-                                <center><input id="image_url" type="file" class="filestyle" data-input="false" name="file" accept="image/*" onchange="loadFile(event)"></center>
-                            </form>
-                            <button id="post_button" type="button" onclick="new_post('couple_blog', null)" class="btn btn-dark btn-theme-colored btn-flat mr-5">Post</button>
-                            <button type="button" onclick="reset()" class="btn btn-default btn-flat btn-theme-colored">Reset</button>
-
+                            <div class="col-md-6">
+                                <form id="form_upload_couple_blog">                 
+                                    <center><input id="image_url" type="file" class="filestyle" data-input="false" name="file" accept="image/*" onchange="loadFile(event)"></center>                       
+                                </form>
+                            </div>
+                            <div class="col-md-6">
+                                <button id="post_button" type="button" onclick="new_post('couple_blog', null)" class="btn btn-dark btn-theme-colored btn-flat mr-5">Post</button>
+                                <button type="button" onclick="reset()" class="btn btn-dark btn-theme-colored btn-flat mr-5">Reset</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -136,7 +139,7 @@
                 </div>
 
             </div>
-          
+
 
         </div>
     </div>

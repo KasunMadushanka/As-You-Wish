@@ -63,12 +63,11 @@
 
                                     <!-- Gallery Grid -->
                                     <div id="grid" class="portfolio-gallery masonry grid-4 clearfix" data-lightbox="gallery">
-                                        <%for (int i = 0; i < gallery.size(); i++) {%>
-                                        <!-- Image -->
+                                        <%for (int i = 1; i <= 8; i++) {%>
                                         <div class="portfolio-item">
-                                            <a href="<%=gallery.get(i)%>" data-lightbox="gallery-item" title="Title Here 1">
+                                            <a href="images/vendor/gallery_images/1/<%=i%>.jpg" data-lightbox="gallery-item" title="Title Here 1">
                                                 <div class="thumb">
-                                                    <img class="img-fullwidth photo" src="<%=gallery.get(i)%>" alt="project">
+                                                    <img class="img-fullwidth photo" src="images/vendor/gallery_images/1/<%=i%>.jpg" alt="project">
                                                     <div class="overlay-shade"></div>
                                                     <div class="text-holder">
                                                         <div class="title text-center">Wedding</div>
@@ -83,8 +82,8 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <!-- Image -->
                                         <%}%>
+                                       
                                     </div>
                                     <!-- Gallery Grid --> 
                                 </div>
