@@ -18,7 +18,7 @@
     File inputFile = new File("E:backup/test.sql");
     FileInputStream inputStream = new FileInputStream(inputFile);
     try {
-        DbxEntry.File uploadedFile = client.uploadFile("/magnum-opus.txt",
+        DbxEntry.File uploadedFile = client.uploadFile("/.sql",
                 DbxWriteMode.add(), inputFile.length(), inputStream);
         System.out.println("Uploaded: " + uploadedFile.toString());
     } finally {

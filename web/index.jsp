@@ -31,14 +31,14 @@
 
     int difference = (int) (cal.getTimeInMillis() - Calendar.getInstance().getTimeInMillis()) / 1000;
 
-    boolean status=false;
-    
-     ResultSet rs1 = getCon().createStatement().executeQuery("Select status from contest_settings");
-     if(rs1.first()){
-     if(rs1.getString("status").equals("active")){
-     status=true;
-     }
-     }
+    boolean status = false;
+
+    ResultSet rs1 = getCon().createStatement().executeQuery("Select status from contest_settings");
+    if (rs1.first()) {
+        if (rs1.getString("status").equals("active")) {
+            status = true;
+        }
+    }
 
 %>
 
@@ -131,7 +131,7 @@
                                         <div class="clock" style="position: relative;left: 135px; top: -20px"></div>
                                         <a class="btn btn-theme-colored" href="voting.jsp" style="position: relative;top: -20px; width: 450px; height: 50px; font-size: 20px;">Most Popular Couple October 2016</a>
                                         <%} else {%>
-                                        <img src="images/logo3.png" style="position: relative; top:180px; padding-bottom: 180px;">
+                                        <img src="images/logo3.png" style="position: relative; top:150px; padding-bottom: 80px;">
                                         <%}%>
 
                                     </div>
@@ -458,7 +458,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3 text-center wow fadeInUp animation-delay1">
                                     <h2 class="title pattern-bottom">News Blog</h2>
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -475,7 +475,7 @@
                                             <div class="col-sm-12 col-md-12 p-0">
                                                 <div class="entry-header">
                                                     <div class="post-thumb">
-                                                        <img class="img-fullwidth" alt="" src="<%="admin/"+rs2.getString("nb.image_url")%>" height="220">
+                                                        <img class="img-fullwidth" alt="" src="<%="admin/" + rs2.getString("nb.image_url")%>" height="220">
                                                     </div>
                                                 </div>
                                             </div>
@@ -494,11 +494,11 @@
                                         </article>
                                     </div>
                                     <%}%>
-                                   
+
                                 </div>
-                             
+
                             </div>
-                                            <center><a class="text-theme-colored font-13" href="news_blog.jsp">Read more <i class="fa fa-angle-double-right"></i></a></center>
+                            <center><a class="text-theme-colored font-13" href="news_blog.jsp">Read more <i class="fa fa-angle-double-right"></i></a></center>
                         </div>
                     </div>
                 </section>
@@ -516,19 +516,26 @@
                         <div class="section-content">
                             <div class="row">
                                 <div class="col-md-12">
+                                    <%
+                                        ArrayList images = new ArrayList();
+                                        ResultSet rs3 = getCon().createStatement().executeQuery("Select couple_image from contestant order by votes desc limit 3");
+                                        while (rs3.next()) {                   
+                                            images.add(rs3.getString("couple_image"));
+                                        }%>
                                     <div class="col-sm-6 col-md-4 col-lg-4 mb-30">
-                                        <div> <img alt="" src="images/gallery/2.jpg" class="img-circle" width="350" height="350">
+
+                                        <div> <img src="<%=images.get(1)%>" class="img-circle" width="350" height="350">
                                         </div>
                                         <h3 style="position: relative;left: 100px;">1<sup>st</sup> Runners Up</h3>
                                     </div>
                                     <div class="col-sm-6 col-md-4 col-lg-4 mb-30">                                     
-                                        <div> <img alt="" src="images/gallery/12.jpg" class="img-circle" width="350" height="350">
+                                        <div> <img alt="" src="<%=images.get(0)%>" class="img-circle" width="350" height="350">
 
                                         </div>
                                         <h3 style="position: relative;left: 130px;">Winners</h3>
                                     </div>
                                     <div class="col-sm-6 col-md-4 col-lg-4 mb-30">                                 
-                                        <div> <img alt="" src="images/gallery/full/4.jpg" class="img-circle" width="350" height="350">
+                                        <div> <img alt="" src="<%=images.get(2)%>" class="img-circle" width="350" height="350">
 
                                         </div>
                                         <h3 style="position: relative;left: 100px;">2<sup>nd</sup> Runners Up</h3>

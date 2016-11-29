@@ -15,13 +15,9 @@
  %>
 
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
 
-	
-	
+<html lang="en">
+
 <head>
 	<meta charset="utf-8" />
 	<title>As You Wish | Admin Panel</title>
@@ -100,7 +96,7 @@
                                         <li>
                                             <form method="get" action="custList.jsp" target="_blank">
                                                 <div class="col-md-2 result-image">
-                                                    <a href="javascript:;"><img src="assets/img/gallery/gallery-1.jpg" alt=""  height="205" /></a>
+                                                    <a href="javascript:;"><img src="assets/img/reports/order.jpg" alt=""  height="225" /></a>
                                                 </div>
                                                 <div class="col-md-7 result-info">
                                                     <h4 class="title">
@@ -134,7 +130,7 @@
                                         <li>
                                             <form method="get" action="#">
                                                 <div class="col-md-2 result-image">
-                                                    <a href="javascript:;"><img src="assets/img/gallery/gallery-2.jpg" alt=""  height="205" /></a>
+                                                    <a href="javascript:;"><img src="assets/img/reports/customers.png" alt=""  height="225" /></a>
                                                 </div>
                                                 <div class="col-md-7">
                                                     <h4 class="title">
@@ -160,7 +156,7 @@
                                         </li>
                                         <li>
                                             <div class="col-md-2 result-image">
-                                                    <a href="javascript:;"><img src="assets/img/gallery/gallery-3.jpg" alt=""  height="205" /></a>
+                                                    <a href="javascript:;"><img src="assets/img/reports/contest.jpg" alt=""  height="225" /></a>
                                                 </div>
                                                 <form method="get" action="VoteReport.jsp">
                                                 <div class="col-md-5">
@@ -214,7 +210,7 @@
                                         </li>
                                         <li>
                                             <div class="col-md-2 result-image">
-                                                    <a href="javascript:;"><img src="assets/img/gallery/gallery-4.jpg" alt=""  height="205" /></a>
+                                                    <a href="javascript:;"><img src="assets/img/reports/progress.jpg" alt="" height="225" /></a>
                                                 </div>
                                             <form method="get" action="overallItem.jsp">
                                                 <div class="col-md-5">

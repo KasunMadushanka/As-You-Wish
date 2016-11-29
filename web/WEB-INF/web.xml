@@ -41,4 +41,7 @@
         <servlet-name>FileUpload</servlet-name>
         <url-pattern>/FileUpload</url-pattern>
     </servlet-mapping>
+    <listener>
+        <listener-class>AsYouWish.QuartzListener</listener-class>
+    </listener>
 </web-app>
