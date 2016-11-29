@@ -6,9 +6,9 @@
 <%
     session.setAttribute("type", "visitor");
 
-    ArrayList events = new ArrayList();
+    ArrayList data = new ArrayList();
 
-    ResultSet rs = getCon().createStatement().executeQuery("Select* from customer where confirmed='" + "yes" + "'");
+    ResultSet rs = getCon().createStatement().executeQuery("Select* from customer where status='active'");
     while (rs.next()) {
 
         String[] details = new String[7];
@@ -19,7 +19,7 @@
         details[3] = rs.getString("cover_image");
         details[4] = rs.getString("event_date");
 
-        events.add(details);
+        data.add(details);
     }
 
     Calendar cal = Calendar.getInstance();
@@ -407,7 +407,7 @@
                         <div class="section-title">
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3 text-center pb-30 wow fadeInUp animation-delay1">
-                                    <h2>Upcoming Events</h2>
+                                    <h2>As You Wish Our Story</h2>
                                 </div>
                             </div>
                         </div>
@@ -417,16 +417,16 @@
                                     <div class="row multi-row-clearfix">
                                         <div class="products">
                                             <%for (int m = 0; m < 3; m++) {
-                                                    String[] event = (String[]) events.get(m);%>
+                                                    String[] fields = (String[]) data.get(m);%>
                                             <div class="col-sm-6 col-md-4 col-lg-4 mb-30">
-                                                <div> <img alt="" src="<%=event[3]%>" class="img-responsive img-circle">
+                                                <div> <img alt="" src="<%=fields[3]%>" class="img-responsive img-circle">
                                                     <div class="overlay"></div>
                                                 </div>
                                                 <div class="product-details text-center">
-                                                    <h3 class="entry-title"><%=event[1]%>  <img src="images/wedding-ring3.png"> <%=event[2]%></h3>
-                                                    <h6 class="product-title"><%=event[4]%></h6>
+                                                    <h3 class="entry-title"><%=fields[1]%>  <img src="images/wedding-ring3.png"> <%=fields[2]%></h3>
+                                                  
                                                     <div>
-                                                        <a class="btn btn-default" href="event.jsp?id=<%=event[0]%>">More Details</a>
+                                                        <a class="btn btn-default" href="couple_blog.jsp?id=<%=fields[0]%>">View Blog</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -436,7 +436,7 @@
                                 </div>
 
                             </div>
-                            <center><a href="event_list.jsp">View more events</a></center>
+                            <center><a href="blog_list.jsp">View all blogs</a></center>
                         </div>
                     </div>
                 </section>

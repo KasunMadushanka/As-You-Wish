@@ -13,7 +13,7 @@
     String APP_SECRET = null;
 
     try {
-        ResultSet rs = getCon().createStatement().executeQuery("Select dropbox_app_key,dropbox_app_secret from backup");
+        ResultSet rs = getCon().createStatement().executeQuery("Select dropbox_app_key,dropbox_app_secret from backup_settings");
         if (rs.first()) {
             APP_KEY = rs.getString("dropbox_app_key");
             APP_SECRET = rs.getString("dropbox_app_secret");

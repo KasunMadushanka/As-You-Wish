@@ -20,7 +20,7 @@ import org.quartz.impl.StdSchedulerFactory;
 
 public class QuartzListener implements ServletContextListener {
 
-    Scheduler scheduler = null;
+    static Scheduler scheduler = null;
 
     @Override
     public void contextInitialized(ServletContextEvent servletContext) {
@@ -34,16 +34,49 @@ public class QuartzListener implements ServletContextListener {
             // Create a Trigger that fires every 5 minutes.
             Trigger trigger = newTrigger()
                     .withIdentity("TriggerName", "Group")
-                    .withSchedule(CronScheduleBuilder.cronSchedule("0/5 * * * * ?"))
+                    .withSchedule(CronScheduleBuilder.cronSchedule("0/3600 * * * * ?"))
                     .build();
 
             // Setup the Job and Trigger with Scheduler & schedule jobs
             scheduler = new StdSchedulerFactory().getScheduler();
             scheduler.start();
+
             scheduler.scheduleJob(job, trigger);
         } catch (SchedulerException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void pause() {
+
+        try {
+            scheduler.standby();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void resume(int time) {
+
+        try {
+
+            JobDetail job = newJob(QuartzJob.class).withIdentity(
+                    "CronQuartzJob", "Group").build();
+
+            Trigger trigger = newTrigger()
+                    .withIdentity("TriggerName", "Group")
+                    .withSchedule(CronScheduleBuilder.cronSchedule("0/" + time + " * * * * ?"))
+                    .build();
+
+            scheduler = new StdSchedulerFactory().getScheduler();
+            scheduler.start();
+
+            scheduler.scheduleJob(job, trigger);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override

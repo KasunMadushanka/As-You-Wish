@@ -28,7 +28,7 @@ public class EmailSendingServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+      
         String recipient_email = request.getParameter("recipient");
         String status = request.getParameter("status");
 

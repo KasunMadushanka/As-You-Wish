@@ -13,9 +13,10 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class DBBackup {
-
+    
     public static boolean mysqlDatabaseRestore(String dbName, String dbUserName, String dbPassword, String source) {
         boolean status = false;
         String[] executeCmd = new String[]{"C:\\Program Files\\MySQL\\MySQL Server 5.7\\bin\\mysql", "--user=" + dbUserName, "--password=" + dbPassword, dbName, "-e", " source " + source};
@@ -37,36 +38,47 @@ public class DBBackup {
         }
         System.out.println(status);
         return status;
-
+        
     }
-
+    
     public static String mysqlDatabaseBackUp() {
         String status = "";
-
-        File file = new File("E:\\Backups");
+        File file = null;
+        
+        try {
+            ResultSet rs = DB.getCon().createStatement().executeQuery("Select backup_path from backup_settings");
+            if (rs.first()) {
+                file = new File(rs.getString("backup_path"));
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+      
         if (!file.exists()) {
             if (file.mkdir()) {
                 System.out.println("Directory is created!");
-
+                
                 String backUpPath = "E:\\Backups";
                 String host = "localhost";
                 String mysqlPort = "3306";
                 String dbUser = "root";
                 String dbPassword = "1234";
-                String database = "kasun";
+                String database = "db";
                 DBBackup dbBackup = new DBBackup();
                 try {
                     DateFormat dayFormat = new SimpleDateFormat("dd");
                     DateFormat monthFormat = new SimpleDateFormat("MM");
                     DateFormat yearFormat = new SimpleDateFormat("yyyy");
+                    DateFormat timeFormat = new SimpleDateFormat("hh:mm a");
                     Calendar cal = Calendar.getInstance();
-                    String backupDate = dayFormat.format(cal.getTime()) + "-" + monthFormat.format(cal.getTime()) + "-" + yearFormat.format(cal.getTime());
+                    String backupDate = dayFormat.format(cal.getTime()) + "-" + monthFormat.format(cal.getTime()) + "-" + yearFormat.format(cal.getTime() + "-" + timeFormat.format(cal.getTime()));
                     byte[] data = dbBackup.getData(host, mysqlPort, dbUser, dbPassword, database).getBytes();
-
+                    
                     File fileDestination = new File(backUpPath + "\\" + database + "_" + backupDate + ".sql");
                     FileOutputStream destination = new FileOutputStream(fileDestination);
                     destination.write(data);
-
+                    
                     destination.close();
                     status = "y";
                     System.out.println("Back Up Success");
@@ -75,34 +87,36 @@ public class DBBackup {
                     System.out.println("Back Up Failed");
                     status = "n";
                     return status;
-
+                    
                 }
-
+                
             } else {
                 System.out.println("Failed to create directory!");
             }
         } else {
-            String backUpPath = "E:\\backups";
+            String backUpPath = "E:\\Backups";
             String host = "localhost";
             String mysqlPort = "3306";
             String dbUser = "root";
             String dbPassword = "1234";
-            String database = "kasun";
+            String database = "db";
             DBBackup dbBackup = new DBBackup();
             try {
                 DateFormat dayFormat = new SimpleDateFormat("dd");
                 DateFormat monthFormat = new SimpleDateFormat("MM");
                 DateFormat yearFormat = new SimpleDateFormat("yyyy");
-                Calendar cal = Calendar.getInstance();
-                String backupDate = dayFormat.format(cal.getTime()) + "-" + monthFormat.format(cal.getTime()) + "-" + yearFormat.format(cal.getTime());
+                DateFormat hourFormat = new SimpleDateFormat("HH");
+                DateFormat minuteFormat = new SimpleDateFormat("mm");
+                Date date = new Date();
+                String backupDate = dayFormat.format(date) + "-" + monthFormat.format(date) + "-" + yearFormat.format(date) + " " + hourFormat.format(date) + "." + minuteFormat.format(date);
                 byte[] data = dbBackup.getData(host, mysqlPort, dbUser, dbPassword, database).getBytes();
-
+                
                 File fileDestination = new File(backUpPath + "\\" + database + "_" + backupDate + ".sql");
                 FileOutputStream destination = new FileOutputStream(fileDestination);
                 destination.write(data);
-
+                
                 destination.close();
-
+                
                 System.out.println("Back Up Success");
                 status = "y";
                 return status;
@@ -110,19 +124,19 @@ public class DBBackup {
                 System.out.println("Back Up Failed");
                 status = "n";
                 return status;
-
+                
             }
-
+            
         }
-
+        
         return status;
     }
-
+    
     private static ResultSet rs;
     private static Connection con;
     private Statement st;
     private int BUFFER = 99999;
-
+    
     public String getData(String host, String port, String user, String password, String db) {
         String Mysqlpath = getMysqlBinPath(user, password, db);
         try {
@@ -146,11 +160,11 @@ public class DBBackup {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
+        
         InputStream in = run.getInputStream();
         BufferedReader br = new BufferedReader(new InputStreamReader(in));
         StringBuffer temp = new StringBuffer();
-
+        
         int count;
         char[] cbuf = new char[BUFFER];
         try {
@@ -185,9 +199,9 @@ public class DBBackup {
             System.out.print("connection error");
             e.printStackTrace();
         }
-
+        
         String a = "";
-
+        
         try {
             rs = st.executeQuery("select @@basedir");
             while (rs.next()) {
