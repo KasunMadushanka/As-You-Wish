@@ -19,7 +19,7 @@
                                         <%}%>
                                 </ul>
                             </li>
-                            <li><a href="#events">Pricing</a></li>
+                          
                             <li><a href="#">Gallery</a>
                                 <ul class="dropdown">
                                     <%for (int i = 0; i < services.size(); i++) {

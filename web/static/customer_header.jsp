@@ -13,9 +13,9 @@
                             <li><a href="customer_gallery.jsp">Gallery</a></li>
                             <li><a href="vendor_list.jsp?service_id=1&service=Reception Halls">Vendors</a></li>
                             <li><a href="budget_planning.jsp">Budget Planning</a></li>
-                            <li><a href="event_list.jsp">Events</a></li>
+                            <li><a href="blog_list.jsp">Events</a></li>
                             <li><a href="store.jsp">Online Store</a></li>
-                            <li><a href="" onclick="logout(); return false;">Logout</a></li>
+                            <li><a href="" onclick="logout(); return false;"><img class="img-circle" src="images/customer/profile/1.jpg" width="25" height="25"> <%=session.getAttribute("first_name")%></a></li>
                         </ul>
                     </div>
                 </nav>
@@ -23,41 +23,3 @@
         </div>
     </div>
 </header>
-<div id="dialog-message" class="xdf" title="Advertisement" style="z-index: 999">
-            <div id="imgAd" style="margin-left: 23px;">
-                
-            </div>
-</div>
-
-<script>
-        
-            $(document).ready(function() {
-		$('#imgAd').load('controllers/ads.jsp');
-            });
-            
-            $("#dialog-message").dialog({
-                modal: true,
-                draggable: false,
-                resizable: false,
-                show: 'blind',
-                hide: 'blind',
-                width: 500,
-                dialogClass: 'ui-dialog-osx',
-                buttons: {
-                    "Close": function() {
-                        $(this).dialog("close");
-                        startTime();
-                    }
-                }
-            });
-            
-            function startTime(){
-                
-               setInterval(function(){
-                  $('#imgAd').load('controllers/ads.jsp');
-                  $('#dialog-message').dialog('open');
-                },10000);
-                
-            }
-            
-</script> 

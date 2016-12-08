@@ -64,13 +64,14 @@
 
     ArrayList plans = new ArrayList();
 
-    ResultSet rs3 = getCon().createStatement().executeQuery("Select* from vendor_pricing where pricing_id='" + id + "'");
+    ResultSet rs3 = getCon().createStatement().executeQuery("Select* from vendor_pricing where package_id in(Select package_id from vendor_package where registry_id in(Select registry_id from service_registry where vendor_id='" + id + "' and service_id='" + service + "') )");
     while (rs3.next()) {
 
-        String[] plan = new String[2];
+        String[] plan = new String[3];
 
         plan[0] = rs3.getString("package_id");
         plan[1] = rs3.getString("title");
+        plan[2] = rs3.getString("features");
 
         plans.add(plan);
     }
@@ -163,17 +164,17 @@
                                 <div class="image-carousel">
                                     <div class="item">
                                         <div class="thumb">
-                                            <img src="images/bg/1.jpg" height="350">
+                                            <img src="images/vendor/slider/1/1/1.jpg" height="350">
                                         </div>
                                     </div>
                                     <div class="item">
                                         <div class="thumb">
-                                            <img src="images/bg/2.jpg" height="350">
+                                            <img src="images/vendor/slider/1/1/2.jpg" height="350">
                                         </div>
                                     </div>
                                     <div class="item">
                                         <div class="thumb">
-                                            <img src="images/bg/3.jpg" height="350">
+                                            <img src="images/vendor/slider/1/1/3.jpg" height="350">
                                         </div>
                                     </div>
                                 </div>
@@ -253,11 +254,16 @@
                                         <h4 class="package-type"><%=rs4.getString("pr.title")%> Package</h4>
                                         <h3 class="price text-theme-colored mb-10"><span class="font-30">LKR </span><%=rs4.getString("pr.price")%></h3>
                                         <ul class="table-list bg-lightest pl-0">
-                                            <%String[] features = rs4.getString("pr.features").split("/");
-                                                for (int i = 0; i < features.length; i++) {
+                                            <%
+                                                try {
+                                                    String[] features = rs4.getString("pr.features").split(",");
+                                                    for (int i = 0; i < features.length; i++) {
                                             %>
                                             <li><%=features[i]%></li>          
                                                 <%}
+                                                    } catch (Exception e) {
+                                                        e.printStackTrace();
+                                                    }
                                                 %>                                                                                                            
                                         </ul>
                                         <a class="btn btn-colored btn-theme-colored text-uppercase" href="#">Contact Now</a><br>
@@ -346,11 +352,9 @@
                                         <div class="col-sm-12 col-md-12 p-0">
                                             <div class="entry-header">
                                                 <div class="post-thumb">
-                                                    <img class="img-responsive img-fullwidth" alt="" src="<%=data[4]%>">
+                                                    <img class=" img-fullwidth" height="220" alt="" src="<%=data[4]%>">
                                                 </div>
-                                                <div class="entry-date text-center font-playball">
-                                                    <span><i class="fa fa-thumbs-o-up font-24 font-24"></i></span><br><%=data[5]%>
-                                                </div>
+
                                             </div>
                                         </div>
                                         <div class="col-md-12 p-0">
@@ -363,7 +367,7 @@
                                                     <p><%=data[0]%> | <%=data[1]%></p>
                                                 </div>
                                                 <p class="mb-20"><%=data[3]%></p>
-                                                <a class="text-theme-colored font-13" href="vendor_blog.jsp?id=<%=id%>&service=<%=service%>">Read more<i class="fa fa-angle-double-right"></i></a>
+
                                             </div>
                                         </div>
                                     </article>
@@ -371,6 +375,7 @@
                                 <%}%>
                             </div>
                         </div>
+                        <center><a class="text-theme-colored font-13" href="vendor_blog.jsp?id=<%=id%>&service=<%=service%>">Read more<i class="fa fa-angle-double-right"></i></a></center>
                     </div>
                 </div>
             </section>

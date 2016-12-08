@@ -28,7 +28,7 @@ $(function () {
         current_form = null;
     });
 
-    $('#front_images').click(function () {
+    $('#sliding_images').click(function () {
         divForms.css("height", 1221);
         if (current_form === null) {
             if (current !== null) {

@@ -1,7 +1,9 @@
+<%@page import="java.sql.ResultSet"%>
 <%@page import="java.util.ArrayList"%>
 <link href="css/vendor_modal.css" rel="stylesheet" type="text/css">  
 <script src="js/vendor_modal.js"></script>  
 <script src="myjs/visitor_sign_in.js"></script>  
+
 
 <%
     String current_page = (String) session.getAttribute("page");
@@ -26,7 +28,7 @@
                             <h4 class="text-gray pt-10 mt-0 mb-30">Customize your sliding images</h4>
                         </div>
                         <div class="form-group" align="center">
-                            <img id="output1" src="images/bg/bg11.jpg" height="300" width="550">
+                            <img id="output1" src="images/vendor/slider/1/1/1.jpg" height="300" width="550">
                         </div>
                         <div class="form-group" align="center">
                             <form id="form_upload1">
@@ -40,7 +42,7 @@
                             </script>
                         </div>
                         <div class="form-group" align="center">
-                            <img id="output2" src="images/bg/bg11.jpg" height="300" width="550">
+                            <img id="output2" src="images/vendor/slider/1/1/2.jpg" height="300" width="550">
                         </div>
                         <div class="form-group" align="center">
                             <form id="form_upload2">
@@ -54,7 +56,7 @@
                             </script>
                         </div>
                         <div class="form-group" align="center">
-                            <img id="output3" src="images/bg/bg11.jpg" height="300" width="550">
+                            <img id="output3" src="images/vendor/slider/1/1/3.jpg" height="300" width="550">
                         </div>
                         <div class="form-group" align="center">
                             <form id="form_upload3">
@@ -187,10 +189,37 @@
                 </form>
 
                 <%if (current_page.equals("storefront")) {
-                        ArrayList plans_list = (ArrayList) session.getAttribute("pricing_plans");
+
                 %>
                 <form id="pricing_form" style="display: none;">
                     <div class="modal-body">
+                        <%--<div class="row">
+                            <div class="form-group col-md-9">
+                                <select class="form-control" id="packages">
+                                  
+                                </select>  
+                                <script>
+                                    $(document).on('change', '#packages', function () {
+
+                                        package_id = $('option:selected', '#pricing_plans').val();
+
+                                        $.ajax({
+                                            type: "post",
+                                            url: "controllers/storefront/get_pricing.jsp",
+                                            data: "package_id=" + package_id,
+                                            success: function (msg) {
+
+                                            },
+                                            error: function (error) {
+                                                alert(error);
+                                            }
+                                        });
+                                    });
+                                </script>
+                            </div>
+
+                        </div>--%>
+
                         <div class="row">
                             <div class="form-group col-md-9">
                                 <input id="new_plan" name="new_plan" class="form-control" type="text" placeholder="New Plan Title">
@@ -199,7 +228,7 @@
                                 <button type="button" onclick="add_plan()" class="btn btn-dark btn-theme-colored btn-lg btn-block">Add Plan</button>
                                 <script>
                                     function add_plan() {
-                                        option = new Option($('#new_plan').val(),<%=(plans_list.size() + 1)%>);
+                                        option = new Option($('#new_plan').val(),<%=(0 + 1)%>);
                                         $(option).html($('#new_plan').val());
                                         $("#pricing_plans").append(option);
                                     }
@@ -209,26 +238,43 @@
 
                         <div class="row">
                             <div class="form-group col-md-9">
-
                                 <select class="form-control" id="pricing_plans">
-                                    <%for (int i = 0; i < plans_list.size(); i++) {
-                                            String[] values = (String[]) plans_list.get(i);%>
-                                    <option value="<%=values[0]%>"><%=values[1]%></option>
-                                    <%}%>
+                                   
                                 </select>    
+                                <script>
+                                    $(document).on('change', '#pricing_plans', function () {
+
+                                        pricing_id = $('option:selected', '#pricing_plans').val();
+
+                                        $.ajax({
+                                            type: "post",
+                                            url: "controllers/storefront/get_features.jsp",
+                                            data: "pricing_id=" + pricing_id,
+                                            success: function (msg) {
+
+                                            },
+                                            error: function (error) {
+                                                alert(error);
+                                            }
+                                        });
+                                    });
+                                </script>
+
                             </div>
                             <div class="form-group col-md-3">
                                 <button type="button" onclick="remove_plan()" class="btn btn-dark btn-theme-colored btn-lg btn-block">Remove</button>
                                 <script>
                                     function remove_plan() {
-                                        $('option:selected','#pricing_plans').remove();
+                                        $('option:selected', '#pricing_plans').remove();
                                     }
+
                                 </script>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="features"><b>Features:</b></label>
                             <textarea id="features" name="features" class="form-control" rows="8" placeholder="Add New Features"></textarea>
+                          
                         </div>
 
                     </div>
@@ -240,15 +286,6 @@
                     </div>
                 </form>
                 <%}%>
-
-
-                <form id="calendar_form" style="display: none;">
-                    <div class="modal-body">
-                    </div>
-                    <div class="modal-footer">
-
-                    </div>
-                </form>
 
                 <div id="gallery_form" style="display: none;">
                     <div class="modal-body">
@@ -311,7 +348,7 @@
                     </div>
                 </div>
 
-               <div id="visitor_sign_in_form" style="display: none;">
+                <div id="visitor_sign_in_form" style="display: none;">
                     <form>
                         <div class="modal-body">
                             <div class="form-group col-md-12">
@@ -322,7 +359,8 @@
                         <div class="modal-footer">
                             <div class="form-group text-center">
                                 <div class="row">
-                                    <a id="visitor_sign_up" href="" onclick="visitor_sign_up();return false;" style="position: relative;left:-150px; ">Sign Up</a>
+                                    <a id="visitor_sign_up" href="" onclick="visitor_sign_up();
+                                            return false;" style="position: relative;left:-150px; ">Sign Up</a>
                                     <button id="visitor_sign_in_button" type="button" class="btn btn-dark btn-theme-colored btn-flat mr-5" data-toggle="modal" data-target="#login-modal" style="position: relative;left:-25px;">Sign In</button>
                                     <button type="reset" class="btn btn-dark btn-theme-colored btn-flat mr-5" style="position: relative;left:-25px;">Reset</button>
                                 </div>
@@ -354,7 +392,8 @@
                         <div class="modal-footer">
                             <div class="form-group text-center">
                                 <div class="row">
-                                    <a id="visitor_sign_in" href="" onclick="visitor_sign_in();return false;" style="position: relative;left:-150px; ">Sign In</a>
+                                    <a id="visitor_sign_in" href="" onclick="visitor_sign_in();
+                                            return false;" style="position: relative;left:-150px; ">Sign In</a>
                                     <button id="visitor_sign_up_button" type="button" class="btn btn-dark btn-theme-colored btn-flat mr-5" data-toggle="modal" data-target="#login-modal" style="position: relative;left:-25px;">Sign Up</button>
                                     <button type="reset" class="btn btn-dark btn-theme-colored btn-flat mr-5" style="position: relative;left:-25px;">Reset</button>
                                 </div>
@@ -362,7 +401,7 @@
                         </div>
                     </form>
                 </div>
-                            
+
             </div>
         </div>
     </div>

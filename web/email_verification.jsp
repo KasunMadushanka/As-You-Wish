@@ -23,10 +23,22 @@
                     </div>
                 </div>
             </div>
+            
+             <header id="header" class="header">
+                <div class="header-nav navbar-fixed-top header-dark navbar-white navbar-transparent navbar-sticky-animated animated-active">
+                    <div class="header-nav-wrapper">
+                        <div class="container">
+                            <nav>
+                                <div id="menuzord-right" class="menuzord red"> <a class="menuzord-brand pull-left flip font-playball text-theme-colored font-32" href="javascript:void(0)"><i class="fa fa-heart-o font-25"></i> As You Wish <i class="fa fa-heart-o font-25"></i></a>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </header>
 
-            <!-- Header -->
-             <%@ include file="/static/visitor_header.jsp"%>
 
+          
             <!-- Start main-content -->
             <div class="main-content">
                 <!-- Section: inner-header -->
@@ -47,7 +59,7 @@
                     <div class="container mt-30 mb-30 p-30">
                         <div class="section-content">
                             <div class="form-group">
-                              <center><p class="font-18"><b>Please check your email and verify your account...</b></p></center>
+                              <center><p class="font-18"><b>Please check your mails and activate your account...</b></p></center>
                             </div>
                         </div>
                     </div>

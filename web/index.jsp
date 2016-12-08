@@ -268,105 +268,116 @@
                     <div class="container pt-70" style="float:center">
                         <div class="row">
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
-                                <div class="couple">
-                                    <div class="couple-thumb">                    
-                                        <img class="img-fullwidth" src="images/event/10.jpg" alt=""> 
+                                <a href="vendor_list.jsp?service_id=1&service=Reception Halls">
+                                    <div class="couple">
+                                        <div class="couple-thumb">                    
+                                            <img class="img-fullwidth" src="images/event/10.jpg" alt=""> 
+                                        </div>
+                                        <div class="couple-details">
+                                            <h4 class="title text-theme-colored font-21"><span>Reception Halls</span></h4>
+                                        </div>
                                     </div>
-                                    <div class="couple-details">
-                                        <h4 class="title text-theme-colored font-21"><span>Reception Halls</span></h4>
-                                    </div>
-                                </div>
-
+                                </a>
                             </div>
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
-                                <div class="couple">
-                                    <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/9.jpg" alt=""> </a>
+                                <a href="vendor_list.jsp?service_id=2&service=Cake Designers">
+                                    <div class="couple">
+                                        <div class="couple-thumb">                    
+                                            <img class="img-fullwidth" src="images/event/9.jpg" alt="">
+                                        </div>
+                                        <div class="couple-details">
+                                            <h4 class="title"><span>Cake Designers</span></h4>
+                                        </div>
                                     </div>
-                                    <div class="couple-details">
-                                        <a class="text-theme-colored font-13"> <h4 class="title"><span>Cake Designers</span></h4> </a>
-                                    </div>
-                                </div>
-
+                                </a>
                             </div>
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
-                                <div class="couple">
-                                    <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/2.jpg" alt=""> </a>
+                                <a href="vendor_list.jsp?service_id=3&service=Bbeaticians">
+                                    <div class="couple">
+                                        <div class="couple-thumb">                    
+                                            <img class="img-fullwidth" src="images/event/2.jpg" alt="">
+                                        </div>
+                                        <div class="couple-details">
+                                            <h4 class="title"><span>Beauticians</span></h4>
+                                        </div>
                                     </div>
-                                    <div class="couple-details">
-                                        <a href="#" class="text-theme-colored font-13"> <h4 class="title"><span>Beauticians</span></h4> </a>
-                                    </div>
-                                </div>
-
+                                </a>
                             </div>
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
-                                <div class="couple">
-                                    <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/1.jpg" alt=""> </a>
+                                <a href="vendor_list.jsp?service_id=4&service=Bridal Dresses">
+                                    <div class="couple">
+                                        <div class="couple-thumb">                    
+                                            <img class="img-fullwidth" src="images/event/1.jpg" alt="">
+                                        </div>
+                                        <div class="couple-details">
+                                            <h4 class="title"><span>Bridal Dresses</span></h4>
+                                        </div>
                                     </div>
-                                    <div class="couple-details">
-                                        <a href="#" class="text-theme-colored font-13"> <h4 class="title"><span>Bridal Dresses</span></h4> </a>
-                                    </div>
-                                </div>
-
+                                </a>
                             </div>
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
-                                <div class="couple">
-                                    <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/4.jpg" alt=""> </a>
+                                <a href="vendor_list.jsp?service_id=5&service=Groom Suits">
+                                    <div class="couple">
+                                        <div class="couple-thumb">                    
+                                            <img class="img-fullwidth" src="images/event/4.jpg" alt="">
+                                        </div>
+                                        <div class="couple-details">
+                                            <h4 class="title"><span>Groom Suits</span></h4>
+                                        </div>
                                     </div>
-                                    <div class="couple-details">
-                                        <a href="#" class="text-theme-colored font-13"> <h4 class="title"><span>Groom Suits</span></h4> </a>
-                                    </div>
-                                </div>
-
+                                </a>
                             </div>
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
-                                <div class="couple">
-                                    <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/5.jpg" alt=""> </a>
+                                <a href="vendor_list.jsp?service_id=6&service=Photography">
+                                    <div class="couple">
+                                        <div class="couple-thumb">                    
+                                            <img class="img-fullwidth" src="images/event/5.jpg" alt="">
+                                        </div>
+                                        <div class="couple-details">
+                                            <h4 class="title"><span>Photography</span></h4>
+                                        </div>
                                     </div>
-                                    <div class="couple-details">
-                                        <a href="#" class="text-theme-colored font-13"> <h4 class="title"><span>Photography</span></h4> </a>
-                                    </div>
-                                </div>
-
+                                </a>
                             </div>
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
-                                <div class="couple">
-                                    <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/8.jpg" alt=""> </a>
+                                <a href="vendor_list.jsp?service_id=7&service=Poruwa & Decorations">
+                                    <div class="couple">
+                                        <div class="couple-thumb">                    
+                                            <img class="img-fullwidth" src="images/event/8.jpg" alt="">
+                                        </div>
+                                        <div class="couple-details">
+                                            <h4 class="title"><span>Poruwa and Decorations</span></h4>
+                                        </div>
                                     </div>
-                                    <div class="couple-details">
-                                        <a href="#" class="text-theme-colored font-13"> <h4 class="title"><span>Poruwa and Decorations</span></h4> </a>
-                                    </div>
-                                </div>
-
+                                </a>
                             </div>
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
-                                <div class="couple">
-                                    <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/7.jpg" alt=""> </a>
+                                <a href="vendor_list.jsp?service_id=8&service=Entertainment Groups">
+                                    <div class="couple">
+                                        <div class="couple-thumb">                    
+                                            <img class="img-fullwidth" src="images/event/7.jpg" alt="">
+                                        </div>
+                                        <div class="couple-details">
+                                            <h4 class="title"><span>Entertainment Groups</span></h4>
+                                        </div>
                                     </div>
-                                    <div class="couple-details">
-                                        <a href="#" class="text-theme-colored font-13"> <h4 class="title"><span>Entertainment Groups</span></h4> </a>
-                                    </div>
-                                </div>
+                                </a>
                             </div>	
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
-                                <div class="couple">
-                                    <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/6.jpg" alt=""> </a>
-                                    </div>
-                                    <div class="couple-details">
-                                        <a href="#" class="text-theme-colored font-13"> <h4 class="title"><span> Wedding Cars </span></h4> </a>
-                                    </div>
-                                </div>
+                                <a href="vendor_list.jsp?service_id=9&service=Wedding Cars">
+                                    <div class="couple">
+                                        <div class="couple-thumb">                    
+                                            <img class="img-fullwidth" src="images/event/6.jpg" alt="">
+                                        </div>
+                                        <div class="couple-details">
+                                            <h4 class="title"><span> Wedding Cars </span></h4>
+                                        </div>
 
-
+                                    </div>
+                                </a>
                             </div>
                         </div>
+                    </div>
                 </section>
 
 
@@ -424,7 +435,7 @@
                                                 </div>
                                                 <div class="product-details text-center">
                                                     <h3 class="entry-title"><%=fields[1]%>  <img src="images/wedding-ring3.png"> <%=fields[2]%></h3>
-                                                  
+
                                                     <div>
                                                         <a class="btn btn-default" href="couple_blog.jsp?id=<%=fields[0]%>">View Blog</a>
                                                     </div>
@@ -519,7 +530,7 @@
                                     <%
                                         ArrayList images = new ArrayList();
                                         ResultSet rs3 = getCon().createStatement().executeQuery("Select couple_image from contestant order by votes desc limit 3");
-                                        while (rs3.next()) {                   
+                                        while (rs3.next()) {
                                             images.add(rs3.getString("couple_image"));
                                         }%>
                                     <div class="col-sm-6 col-md-4 col-lg-4 mb-30">
