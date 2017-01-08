@@ -26,7 +26,7 @@
     <body class="has-side-panel side-panel-left fullwidth-page">
 
         <div id="wrapper" class="clearfix">
-            <!-- preloader -->
+            
             <div id="preloader">
                 <div id="spinner">
                     <div class="heart-preloader">
@@ -100,10 +100,7 @@
             </footer>
             <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
         </div>
-        <!-- end wrapper -->
-
-        <!-- Footer Scripts -->
-        <!-- JS | Custom script for all pages -->
+       
         <script src="js/custom.js"></script>
 
     </body>

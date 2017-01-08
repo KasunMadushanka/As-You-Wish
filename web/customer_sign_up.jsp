@@ -52,7 +52,7 @@
                                             <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
                                                 <i class="pe-7s-user"></i>
                                             </a>
-                                            <h4 class="text-gray pt-10 mt-0 mb-30">Add your and your partner details</h4>
+                                            <h4 class="text-gray pt-10 mt-0 mb-30">Add your details to create your new account</h4>
                                             <hr>
                                         </div>
                                         <div>

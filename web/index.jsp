@@ -131,7 +131,7 @@
                                         <div class="clock" style="position: relative;left: 135px; top: -20px"></div>
                                         <a class="btn btn-theme-colored" href="voting.jsp" style="position: relative;top: -20px; width: 450px; height: 50px; font-size: 20px;">Most Popular Couple October 2016</a>
                                         <%} else {%>
-                                        <img src="images/logo3.png" style="position: relative; top:150px; padding-bottom: 80px;">
+                                        <img src="images/logo3.png" style="position: relative; top:220px; padding-bottom: 240px;">
                                         <%}%>
 
                                     </div>

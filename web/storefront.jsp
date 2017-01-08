@@ -45,18 +45,20 @@
 
     ArrayList blog_data = new ArrayList();
 
-    ResultSet rs2 = getCon().createStatement().executeQuery("Select* from vendor_blog where vendor_id='" + id + "' and service_id='" + service + "'");
+    ResultSet rs2 = getCon().createStatement().executeQuery("Select vb.*,v.first_name,v.last_name from vendor v inner join vendor_blog vb on v.vendor_id=vb.vendor_id where vb.vendor_id='" + id + "' and vb.service_id='" + service + "'");
     while (rs2.next()) {
 
-        String data[] = new String[7];
+        String data[] = new String[9];
 
-        data[0] = rs2.getString("date");
-        data[1] = rs2.getString("time");
-        data[2] = rs2.getString("title");
-        data[3] = rs2.getString("content");
-        data[4] = rs2.getString("image_url");
-        data[5] = rs2.getString("comments");
-        data[6] = rs2.getString("likes");
+        data[0] = rs2.getString("vb.date");
+        data[1] = rs2.getString("vb.time");
+        data[2] = rs2.getString("vb.title");
+        data[3] = rs2.getString("vb.content");
+        data[4] = rs2.getString("vb.image_url");
+        data[5] = rs2.getString("vb.comments");
+        data[6] = rs2.getString("vb.likes");
+        data[7] = rs2.getString("v.first_name");
+        data[8] = rs2.getString("v.last_name");
 
         blog_data.add(data);
 
@@ -250,13 +252,13 @@
                             %>
                             <div class="col-xs-12 col-sm-3 col-md-3 hvr-float-shadow mb-sm-30">
                                 <div class="pricing-table style1 bg-white-light border-10px text-center">
-                                    <div class="pt-40 pb-60">                                    
+                                    <div class="pt-40">                                    
                                         <h4 class="package-type"><%=rs4.getString("pr.title")%> Package</h4>
                                         <h3 class="price text-theme-colored mb-10"><span class="font-30">LKR </span><%=rs4.getString("pr.price")%></h3>
                                         <ul class="table-list bg-lightest pl-0">
                                             <%
                                                 try {
-                                                    String[] features = rs4.getString("pr.features").split(",");
+                                                    String[] features = rs4.getString("pr.features").split("/");
                                                     for (int i = 0; i < features.length; i++) {
                                             %>
                                             <li><%=features[i]%></li>          
@@ -266,7 +268,7 @@
                                                     }
                                                 %>                                                                                                            
                                         </ul>
-                                        <a class="btn btn-colored btn-theme-colored text-uppercase" href="#">Contact Now</a><br>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -276,7 +278,7 @@
                 </section>
             </div>
 
-            <section id="gallery" class="bg-lighter">
+            <section id="gallery">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 text-center pb-30 wow fadeInUp animation-delay1">
                         <h2>Wedding Gallery</h2>
@@ -361,7 +363,7 @@
                                             <div class="entry-content p-30 pl-xs-15 pr-xs-15">
                                                 <h3 class="entry-title sm-inline-block mt-0 mt-sm-30 mt-xs-0 pt-0"><a href="#"><%=data[2]%></a></h3>
                                                 <div class="entry-meta mb-20">
-                                                    <span>By Admin </span>
+                                                    <span>By <%=data[7]+" "+data[8]%> </span>
                                                     <span><i class="fa fa-comments-o text-theme-colored ml-10"></i><%=data[6]%>
                                                     </span>
                                                     <p><%=data[0]%> | <%=data[1]%></p>

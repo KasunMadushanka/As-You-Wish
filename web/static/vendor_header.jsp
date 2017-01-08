@@ -2,6 +2,7 @@
 <%
     ArrayList services = (ArrayList) session.getAttribute("services");
 %>
+<script src="myjs/logout.js"></script>
 
 <header id="header" class="header">
     <div class="header-nav navbar-fixed-top header-dark navbar-white navbar-transparent navbar-sticky-animated animated-active">

@@ -15,7 +15,7 @@
                             <li><a href="budget_planning.jsp">Budget Planning</a></li>
                             <li><a href="blog_list.jsp">Events</a></li>
                             <li><a href="store.jsp">Online Store</a></li>
-                            <li><a href="" onclick="logout(); return false;"><img class="img-circle" src="images/customer/profile/1.jpg" width="25" height="25"> <%=session.getAttribute("first_name")%></a></li>
+                            <li><a href="" onclick="logout(); return false;">Logout</a></li>
                         </ul>
                     </div>
                 </nav>

@@ -3,7 +3,7 @@
 
 <%
     // need set affter user registartion
-    String custId = "1";
+    String custId = (String)session.getAttribute("id");
 
     String cat = request.getParameter("item");
     if (cat == null) {

@@ -1,3 +1,5 @@
+<%@page import="java.security.NoSuchAlgorithmException"%>
+<%@page import="java.security.MessageDigest"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
@@ -34,12 +36,14 @@
     String service7 = request.getParameter("service7");
     String service8 = request.getParameter("service8");
     String service9 = request.getParameter("service9");
-    
+
     String pricing = request.getParameter("pricing");
 
     String[] services = {service1, service2, service3, service4, service5, service6, service7, service8, service9};
+    
+    String hashed_password=signup(password);
 
-    getCon().createStatement().executeUpdate("Insert into vendor (title,first_name,last_name,mobile,email,address1,address2,city,postal_code,company_name,company_contact_no,company_email,company_website_url,company_fb_page,company_address1,company_address2,company_city,company_postal_code,password,pricing,status) values ('" + title + "','" + first_name + "','" + last_name + "'," + "'" + mobile + "','" + email + "','" + address1 + "','" + address2 + "','" + city + "'," + "'" + postal_code + "','" + company_name + "','" + company_contact_no + "','" + company_email + "','" + company_website_url + "','" + company_fb_page + "','" + company_address1 + "','" + company_address2 + "','" + company_city + "','" + company_postal_code + "','" + password + "','"+pricing+"','"+"inactive"+"')");
+    getCon().createStatement().executeUpdate("Insert into vendor (title,first_name,last_name,mobile,email,address1,address2,city,postal_code,company_name,company_contact_no,company_email,company_website_url,company_fb_page,company_address1,company_address2,company_city,company_postal_code,password,pricing,status) values ('" + title + "','" + first_name + "','" + last_name + "'," + "'" + mobile + "','" + email + "','" + address1 + "','" + address2 + "','" + city + "'," + "'" + postal_code + "','" + company_name + "','" + company_contact_no + "','" + company_email + "','" + company_website_url + "','" + company_fb_page + "','" + company_address1 + "','" + company_address2 + "','" + company_city + "','" + company_postal_code + "','" + hashed_password + "','" + pricing + "','" + "inactive" + "')");
 
     String vendor_id;
 
@@ -52,7 +56,7 @@
 
     for (int j = 0; j < services.length; j++) {
         if (services[j].equals("true")) {
-            getCon().createStatement().executeUpdate("Insert into service_registry (vendor_id,service_id,status) values('" + vendor_id + "','" + (j + 1) + "','"+"inactive"+"')");
+            getCon().createStatement().executeUpdate("Insert into service_registry (vendor_id,service_id,status) values('" + vendor_id + "','" + (j + 1) + "','" + "inactive" + "')");
         }
     }
 
@@ -63,4 +67,31 @@
     session.setAttribute("status", "vendor_verification");
 
 %>
+<%!    public static final String SALT = "as-you-wish";
 
+    public String signup(String password) {
+        String saltedPassword = SALT + password;
+        String hashedPassword = generateHash(saltedPassword);
+        return hashedPassword;
+    }
+
+    public static String generateHash(String input) {
+        StringBuilder hash = new StringBuilder();
+
+        try {
+            MessageDigest sha = MessageDigest.getInstance("SHA-1");
+            byte[] hashedBytes = sha.digest(input.getBytes());
+            char[] digits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                'a', 'b', 'c', 'd', 'e', 'f'};
+            for (int idx = 0; idx < hashedBytes.length; idx++) {
+                byte b = hashedBytes[idx];
+                hash.append(digits[(b & 0xf0) >> 4]);
+                hash.append(digits[b & 0x0f]);
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+
+        return hash.toString();
+    }
+%>

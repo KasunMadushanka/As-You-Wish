@@ -31,21 +31,25 @@ function image_upload(status) {
         form = $('#form_upload_vendor_gallery')[0];
     }
 
-    formData = new FormData(form);
+    if (form !== null) {
 
-    $.ajax({
-        type: "post",
-        url: "controllers/image_upload.jsp",
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function (msg) {
-          
-        },
-        error: function (error) {
-            $.rustaMsgBox({"content": "Error occured while uploading image"});
+        formData = new FormData(form);
 
-        }
-    });
+        $.ajax({
+            type: "post",
+            url: "controllers/image_upload.jsp",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (msg) {
+
+            },
+            error: function (error) {
+                $.rustaMsgBox({"content": "Error occured while uploading image"});
+
+            }
+        });
+
+    }
 
 }
