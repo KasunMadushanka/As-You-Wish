@@ -4,21 +4,21 @@
 
 <%
     // need set affter user registartion
-    String custId = (String)session.getAttribute("id");
+    String custId = (String) session.getAttribute("id");
 
     if (custId == null) {
         response.sendRedirect("store.jsp");
     } else {
 
     }
-    
-    String fName ="";
+
+    String fName = "";
     String lName = "";
-    String email="";
-    
-    String sqlUser ="Select * from customer where customer_id = '"+custId+"'";
-    ResultSet rs0=getCon().createStatement().executeQuery(sqlUser);
-    while(rs0.next()){
+    String email = "";
+
+    String sqlUser = "Select * from customer where customer_id = '" + custId + "'";
+    ResultSet rs0 = getCon().createStatement().executeQuery(sqlUser);
+    while (rs0.next()) {
         fName = rs0.getString("first_name");
         lName = rs0.getString("last_name");
         email = rs0.getString("email");
@@ -50,7 +50,7 @@
     </head>
 
     <body class="has-side-panel side-panel-left fullwidth-page">
-        
+
         <%if ((String) session.getAttribute("id") != null) {%>
         <%@ include file="/side_panels/customer_side_panel.jsp"%>
         <%}%>
@@ -81,7 +81,7 @@
                         <div class="section-content pt-0">
                             <div class="row"> 
                                 <div class="col-md-12">
-                                    <h3 class="title text-white">Shop Cart</h3>
+                                    <h3 class="title text-white">Checkout</h3>
                                 </div>
                             </div>
                         </div>
@@ -100,17 +100,17 @@
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     <label for="checkout-form-fname">First Name*</label>
-                                                    <input type="hidden" name="userId" id="cust" value="<%= custId %>" />
-                                                    <input  type="text" name="fname" class="form-control" id="fName" placeholder="First Name" required="true" value="<%= fName %>">
+                                                    <input type="hidden" name="userId" id="cust" value="<%= custId%>" />
+                                                    <input  type="text" name="fname" class="form-control" id="fName" placeholder="First Name" required="true" value="<%= fName%>">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="checkout-form-lname">Last Name*</label>
-                                                    <input  type="text" name="lname" class="form-control" id="lName" placeholder="Last Name" required="true" value="<%= lName %>">
+                                                    <input  type="text" name="lname" class="form-control" id="lName" placeholder="Last Name" required="true" value="<%= lName%>">
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label for="checkout-form-email">Email Address*</label>
-                                                        <input  type="email" name="email" class="form-control" id="email" placeholder="Email Address" required="true" value="<%= email  %>">
+                                                        <input  type="email" name="email" class="form-control" id="email" placeholder="Email Address" required="true" value="<%= email%>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="checkout-form-address">Address*</label>
@@ -221,11 +221,31 @@
 
                                             <div class="row">
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="number" maxlength="16" name="card" id="card" placeholder="Card number"  required="true">
+                                                    <input class="form-control" name="card" id="card_number" placeholder="Card number" onkeypress="check_card(event)">
                                                 </div>
+                                                <script>
+                                                    function check_card(event) {
+
+                                                        if (!(event.keyCode >= 48 && event.keyCode <= 57) || $('#card_number').val().length === 16) {
+                                                            event.preventDefault();
+                                                            return false;
+                                                        }
+                                                        return true;
+                                                    }
+                                                </script>
                                                 <div class="col-md-2">
-                                                    <input class="form-control" type="number" name="ccv" id="cvv" placeholder="CVV2" maxlength="3" minlength="3" min="001" max="999"  required="true">
+                                                    <input class="form-control" name="ccv" id="cvv" placeholder="CVV2" onkeypress="check_cvv(event)" required="true">
                                                 </div>
+                                                <script>
+                                                    function check_cvv(event) {
+
+                                                        if (!(event.keyCode >= 48 && event.keyCode <= 57) || $('#cvv').val().length === 3) {
+                                                            event.preventDefault();
+                                                            return false;
+                                                        }
+                                                        return true;
+                                                    }
+                                                </script>
                                                 <br>
                                             </div>
 
@@ -283,57 +303,57 @@
         <script src="js/custom.js"></script>
         <script>
 
-                                    function xx() {
+                                                    function xx() {
 
 
-                                        var fname = $('#fName').val();
-                                        var lname = $('#lName').val();
-                                        var email = $('#email').val();
-                                        var street = $('#street').val();
-                                        var city = $('#city').val();//
-                                        var pro = $('#pro').val();
-                                        var etc = $('#etcAdd').val();
-                                        var postal = $('#postal').val();
-                                        var note = $('#note').val();
-                                        var rad = $('#rad').val();//
-                                        //var price = $('#price').val();//
+                                                        var fname = $('#fName').val();
+                                                        var lname = $('#lName').val();
+                                                        var email = $('#email').val();
+                                                        var street = $('#street').val();
+                                                        var city = $('#city').val();//
+                                                        var pro = $('#pro').val();
+                                                        var etc = $('#etcAdd').val();
+                                                        var postal = $('#postal').val();
+                                                        var note = $('#note').val();
+                                                        var rad = $('#rad').val();//
+                                                        //var price = $('#price').val();//
 
 
-                                        var name = $('#name').val();
-                                        var ccv = $('#cvv').val();
-                                        var card = $('#card').val();
-                                        var month = $('#month').val();
-                                        var year = $('#year').val();//
-                                        var userId = $('#cust').val();
+                                                        var name = $('#name').val();
+                                                        var ccv = $('#cvv').val();
+                                                        var card = $('#card').val();
+                                                        var month = $('#month').val();
+                                                        var year = $('#year').val();//
+                                                        var userId = $('#cust').val();
 
-                                        var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+                                                        var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
 
 
-                                        var d = new Date();
-                                        var n = d.getFullYear();
-                                        var n2 = n + 5;
+                                                        var d = new Date();
+                                                        var n = d.getFullYear();
+                                                        var n2 = n + 5;
 
-                                        if (fname != "" && lname != "" && email != "" && street != "" && city != "" && pattern.test(email)) {
+                                                        if (fname != "" && lname != "" && email != "" && street != "" && city != "" && pattern.test(email)) {
 
-                                            if (name.length > 0 && card.length == 16 && year.length == 4 && ccv.length == 3 && month != null) {
+                                                            if (name.length > 0 && card.length == 16 && year.length == 4 && ccv.length == 3 && month != null) {
 
-                                                if (year >= n && year <= n2) {
+                                                                if (year >= n && year <= n2) {
 
-                                                    return true;
-                                                } else {
+                                                                    return true;
+                                                                } else {
 
-                                                    swal({title: 'Check Your Expiration Year Again!', text: '', type: 'warning', confirmButtonText: 'OK!'}, function () { });
-                                                    return false;
-                                                }
-                                            } else {
-                                                swal({title: 'Check Your Payment Information Again!', text: '', type: 'warning', confirmButtonText: 'OK!'}, function () { });
-                                                return false;
-                                            }
-                                        } else {
-                                            swal({title: 'Check Your Billing Information Again!', text: '', type: 'warning', confirmButtonText: 'OK!'}, function () { });
-                                            return false;
-                                        }
-                                    }
+                                                                    swal({title: 'Check Your Expiration Year Again!', text: '', type: 'warning', confirmButtonText: 'OK!'}, function () { });
+                                                                    return false;
+                                                                }
+                                                            } else {
+                                                                swal({title: 'Check Your Payment Information Again!', text: '', type: 'warning', confirmButtonText: 'OK!'}, function () { });
+                                                                return false;
+                                                            }
+                                                        } else {
+                                                            swal({title: 'Check Your Billing Information Again!', text: '', type: 'warning', confirmButtonText: 'OK!'}, function () { });
+                                                            return false;
+                                                        }
+                                                    }
 
         </script>
     </body>

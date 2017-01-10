@@ -6,7 +6,7 @@
     
     
     ResultSet rs;
-    String sql = "SELECT * FROM `ads` order by Rand() Limit 1";///
+    String sql = "SELECT * FROM `ads` order by Rand() Limit 1";
     rs = getCon().createStatement().executeQuery(sql);
         
     while(rs.next()){

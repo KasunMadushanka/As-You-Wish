@@ -106,7 +106,7 @@
                                                         <a id="reception_hall1"><h5 class="product-title"><b><%=rs.getString("v.company_name")%></b></h5></a>                                                      
                                                         <div class="star-rating" title="Rated 4.50 out of 5"><span style="width: 90%;"></span></div>
                                                         <div class="btn-add-to-cart-wrapper pt-15">
-                                                            <a class="btn btn-default" href="storefront.jsp?id=<%=rs.getString("v.vendor_id")%>&service=<%=j%>">Contact</a>
+                                                            <a class="btn btn-default" href="storefront.jsp?id=<%=rs.getString("v.vendor_id")%>&service=<%=j%>">Visit Page</a>
                                                         </div>
                                                     </div>
                                                 </div>

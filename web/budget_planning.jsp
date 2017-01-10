@@ -84,7 +84,7 @@
                                                 <input id="duration" name="duration" class="form-control" type="text" placeholder="Hours">
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="no_of_guests"><b>Number Of Guests*</b></label>
+                                                <label for="no_of_guests"><b>Number Of Guests</b></label>
                                                 <input id="no_of_guests" name="no_of_guests" class="form-control" onkeypress="validate_number(event)" type="text"/>
                                             </div>
                                         </div>

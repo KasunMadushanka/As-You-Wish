@@ -15,7 +15,13 @@
                             <li><a href="budget_planning.jsp">Budget Planning</a></li>
                             <li><a href="event_list.jsp">Events</a></li>
                             <li><a href="store.jsp">Online Store</a></li>
-                            <li><a href="" onclick="logout(); return false;">Logout</a></li>
+                            <li><a href="#"><img src="<%=session.getAttribute("image_url")%>" class="img-circle" style="position: relative;top: -10px;margin-left:8;margin-right: 8;" width="40" height="40"></a>
+                                <ul class="dropdown">                             
+                                    <li><a href="customer_account.jsp">My Account</a></li>
+                                    <li><a href="" onclick="logout(); return false;">Sign Out</a></li>
+                                </ul>
+                            </li>
+
                         </ul>
                     </div>
                 </nav>
@@ -32,47 +38,49 @@
 </div>-->
 
 
-    <div id="adver" >
-        <a onclick="ad()" style="color: black; float: right" >[x] Close Advertisement</a>
-        <center><div id="imgAd"></div></center>
-    </div>
-    
+<div id="adver" >
+    <a onclick="ad()" style="color: black; float: right" >[x] Close Advertisement</a>
+    <center><div id="imgAd"></div></center>
+</div>
+
 
 
 
 
 <script>
-        
-            $(document).ready(function() {
-		$('#imgAd').load('controllers/ads.jsp');
-            });
-            
-            $("#dialog-message").dialog({
-                modal: true,
-                draggable: false,
-                resizable: false,
-                show: 'blind',
-                hide: 'blind',
-                width: 500,
-                dialogClass: 'ui-dialog-osx',
-                buttons: {
-                    "Close": function() {
-                        $(this).dialog("close");
-                        startTime();
-                    }
-                }
-            });
-            
-            function ad(){
-                $("#adver").toggle();
-                $('#imgAd').load('controllers/ads.jsp');
-                interval = setInterval(startTime,5000);
+
+    $(document).ready(function () {
+     
+        $('#imgAd').load('controllers/ads.jsp');
+    });
+
+    $("#dialog-message").dialog({
+        modal: true,
+        draggable: false,
+        resizable: false,
+        show: 'blind',
+        hide: 'blind',
+        width: 500,
+        dialogClass: 'ui-dialog-osx',
+        buttons: {
+            "Close": function () {
+                $(this).dialog("close");
+                startTime();
             }
-            
-            function startTime(){
-               $("#adver").toggle();
-               clearInterval(interval);
-                
-            }
-            
+        }
+    });
+
+    function ad() {
+           alert('uvfy');
+        $("#adver").toggle();
+        $('#imgAd').load('controllers/ads.jsp');
+        interval = setInterval(startTime, 5000);
+    }
+
+    function startTime() {
+        $("#adver").toggle();
+        clearInterval(interval);
+
+    }
+
 </script> 

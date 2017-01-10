@@ -42,7 +42,7 @@ function process_payment() {
 }
 
 function check_card_number(event) {
-    alert('dd');
+   
     if (!(event.keyCode >= 48 && event.keyCode <= 57) || $('#card_number').val().length === 16) {
         event.preventDefault();
         return false;
@@ -51,7 +51,7 @@ function check_card_number(event) {
 }
 
 function check_cvv(event) {
-      alert('dd');
+   
     if (!(event.keyCode >= 48 && event.keyCode <= 57) || $('#cvv').val().length === 3) {
         event.preventDefault();
         return false;
