@@ -100,6 +100,10 @@
 		<!-- end #header -->
 		
 		<!-- begin #sidebar -->
+                <%
+                    String pageTitle = "chat";
+                    String subPage = "";
+                %>
 		<%@ include file="static/navbar.jsp" %>
 		<!-- end #sidebar -->
 		

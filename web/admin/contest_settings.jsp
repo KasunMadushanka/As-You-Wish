@@ -40,6 +40,10 @@
             <!-- end #header -->
 
             <!-- begin #sidebar -->
+            <%
+                    String pageTitle = "contest";
+                    String subPage = "setting";
+            %>
             <%@ include file="static/navbar.jsp" %>
             <!-- end #sidebar -->
 

@@ -10,6 +10,14 @@
 
 
 <% 
+    String custId = (String)session.getAttribute("id");
+
+    if (custId == null) {
+        response.sendRedirect("store.jsp");
+    } else {
+
+    }
+    
     String id = "";
     
     String sqlMax = "SELECT if(max(id) is null , 1 ,max(`id`)+1) as x FROM `checkout`";
@@ -43,7 +51,7 @@
     
     // create the checkout
     String sql = "insert into `checkout`(`id`, `fname`, `lname`, `email`, `street`, `city`, `pro`, `etcAdd`, `postal`, `note`, `userId`)"
-            + "values ('"+id+"','"+ftName+"','"+lName+"','"+email+"','"+add1+"','"+add2+"','"+add3+"','"+etc+"','"+postal+"','"+note+"','"+userId+"')";
+            + "values ('"+id+"','"+ftName+"','"+lName+"','"+email+"','"+add1+"','"+add2+"','"+add3+"','"+etc+"','"+postal+"','"+note+"','"+custId+"')";
     getCon().createStatement().executeUpdate(sql); 
 //    
 //    
@@ -57,17 +65,17 @@
 //    
 //    
 //    // get all items in cart
-    String sqlitems = "SELECT * FROM `cart` WHERE `custId` ='"+userId+"'";
+    String sqlitems = "SELECT * FROM `cart` WHERE `custId` ='"+custId+"'";
     ResultSet rs1 = getCon().createStatement().executeQuery(sqlitems);
     while(rs1.next()){
         String item = rs1.getString("itemId");
         String qty = rs1.getString("qty");
         
-        getCon().createStatement().executeUpdate("insert into `list`(`refCheck`, `itemId`, `qty`) values ('"+id+"','"+item+"','"+qty+"')"); 
+        getCon().createStatement().executeUpdate("insert into `list`(`refCheck`, `itemId`, `qty`,`userId`) values ('"+id+"','"+item+"','"+qty+"','"+custId+"')"); 
     }
     
     // clear the cart
-    getCon().createStatement().executeUpdate("delete FROM `cart` WHERE `custId` ='"+userId+"'"); 
+    getCon().createStatement().executeUpdate("delete FROM `cart` WHERE `custId` ='"+custId+"'"); 
     
    
 //    out.print(sql +"<br>"+ sqlPrice );

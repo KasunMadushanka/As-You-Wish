@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <!-- begin mobile sidebar expand / collapse button -->
         <div class="navbar-header">
-            <a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> As You Wish </a>
+            <a href="index.jsp" style="color: #9e5196;font-style: italic; font-family: Georgia, serif; font-size: 30px"><img src="../images/AYW/aywLogo.png" width="15%">  Admin Panel </a>
             <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>

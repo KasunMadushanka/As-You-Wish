@@ -2,7 +2,6 @@
 <%
     ArrayList services = (ArrayList) session.getAttribute("services");
 %>
-<script src="myjs/logout.js"></script>
 
 <header id="header" class="header">
     <div class="header-nav navbar-fixed-top header-dark navbar-white navbar-transparent navbar-sticky-animated animated-active">
@@ -20,7 +19,7 @@
                                         <%}%>
                                 </ul>
                             </li>
-                          
+                            <li><a href="#events">Pricing</a></li>
                             <li><a href="#">Gallery</a>
                                 <ul class="dropdown">
                                     <%for (int i = 0; i < services.size(); i++) {

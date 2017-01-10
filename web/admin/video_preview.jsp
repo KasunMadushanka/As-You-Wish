@@ -26,6 +26,10 @@
             <!-- end #header -->
 
             <!-- begin #sidebar -->
+            <%
+                    String pageTitle = "video";
+                    String subPage = "pre";
+            %>
             <%@ include file="static/navbar.jsp" %>
             <!-- end #sidebar -->
 

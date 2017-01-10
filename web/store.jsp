@@ -65,7 +65,7 @@
                         </div>
                     </div>
                 </section>
-
+ 
                 <!-- Section: Shop Category Sidebar -->
                 <section class="">
                     <div class="container mt-30 mb-30 p-30">
@@ -74,7 +74,7 @@
                                 <div class="col-sm-12 col-md-9">
                                     <div class="row multi-row-clearfix">
                                         <div class="products">
-
+ 
                                             <%while (rs.next()) {%>
 
                                             <div class="col-sm-6 col-md-4 col-lg-4 mb-30">

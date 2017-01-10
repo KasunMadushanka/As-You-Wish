@@ -16,12 +16,12 @@
     String qty = "0";
     
     String item = request.getParameter("itemId");
-    String cust = request.getParameter("customer");
+    String cust = (String)session.getAttribute("id");
     qty = request.getParameter("quantity");
     
     
     
-    if(item != null || cust != null){
+    if(item != null && cust != null){
         
         Statement st= getCon().createStatement();
         String sql = "Insert into `cart` (`custId`, `itemId`, `qty`)"
@@ -33,7 +33,7 @@
         int i1=st1.executeUpdate(sql1);
         
         if(i == 1){
-            out.print("<script>swal({  title: 'Added to Cart!', text: '', type: 'success', confirmButtonText: 'Done!'}, function(){ window.location.href='../../cart.jsp?txt="+cust+"'; });</script>");
+            out.print("<script>swal({  title: 'Added to Cart!', text: '', type: 'success', confirmButtonText: 'Done!'}, function(){ window.location.href='../../cart.jsp'; });</script>");
             
         }
         else{
@@ -44,7 +44,7 @@
         
     }
     else{
-        response.sendRedirect( "../../store.jsp"); 
+        response.sendRedirect( "../../index.jsp"); 
     }
         
     

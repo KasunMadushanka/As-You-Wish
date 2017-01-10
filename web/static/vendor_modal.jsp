@@ -28,7 +28,7 @@
                             <h4 class="text-gray pt-10 mt-0 mb-30">Customize your sliding images</h4>
                         </div>
                         <div class="form-group" align="center">
-                            <img id="output1" src="images/vendor/slider/1/1/1.jpg" height="300" width="550">
+                            <img id="output1" src="images/bg/bg11.jpg" height="300" width="550">
                         </div>
                         <div class="form-group" align="center">
                             <form id="form_upload1">
@@ -42,7 +42,7 @@
                             </script>
                         </div>
                         <div class="form-group" align="center">
-                            <img id="output2" src="images/vendor/slider/1/1/2.jpg" height="300" width="550">
+                            <img id="output2" src="images/bg/bg11.jpg" height="300" width="550">
                         </div>
                         <div class="form-group" align="center">
                             <form id="form_upload2">
@@ -56,7 +56,7 @@
                             </script>
                         </div>
                         <div class="form-group" align="center">
-                            <img id="output3" src="images/vendor/slider/1/1/3.jpg" height="300" width="550">
+                            <img id="output3" src="images/bg/bg11.jpg" height="300" width="550">
                         </div>
                         <div class="form-group" align="center">
                             <form id="form_upload3">
@@ -193,10 +193,10 @@
                 %>
                 <form id="pricing_form" style="display: none;">
                     <div class="modal-body">
-                        <%--<div class="row">
+                        <div class="row">
                             <div class="form-group col-md-9">
                                 <select class="form-control" id="packages">
-                                  
+                                   
                                 </select>  
                                 <script>
                                     $(document).on('change', '#packages', function () {
@@ -218,7 +218,7 @@
                                 </script>
                             </div>
 
-                        </div>--%>
+                        </div>
 
                         <div class="row">
                             <div class="form-group col-md-9">

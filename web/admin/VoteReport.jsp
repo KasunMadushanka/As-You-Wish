@@ -9,14 +9,15 @@
     ResultSet rs;
     String sql = "SELECT  customer.first_name, customer.partner_first_name,`votes` "
             + "FROM `contestant` inner join customer "
-            + "on contestant.`customer_id` = customer.customer_id WHERE contestant.`contest_id` = '"+id+"'";
+            + "on contestant.`customer_id` = customer.customer_id WHERE contestant.`contest_id` = '"+id+"' "
+            + "order by `votes` desc limit 3";
     rs = getCon().createStatement().executeQuery(sql);
     
     
     ResultSet rs1;
     String sql1 = "SELECT  `month`, `year` "
             + "FROM `contestant` inner join contest on  contest.contest_id = contestant.`contest_id`"
-            + " WHERE contestant.`contest_id` = '"+id+"'";
+            + " WHERE contestant.`contest_id` = '"+id+"' group by `month`, `year`";
     rs1 = getCon().createStatement().executeQuery(sql1);
     
     
@@ -92,6 +93,10 @@
 		<!-- end #header -->
 		
 		<!-- begin #sidebar -->
+                <%
+                    String pageTitle = "report";
+                    String subPage = "otherReport";
+                %>
 		<%@ include file="static/navbar.jsp" %>
 		<!-- end #sidebar -->
 		

@@ -67,6 +67,10 @@
 		<!-- end #header -->
 		
 		<!-- begin #sidebar -->
+                <%
+                    String pageTitle = "report";
+                    String subPage = "otherReport";
+                %>
 		<%@ include file="static/navbar.jsp" %>
 		<!-- end #sidebar -->
 		
@@ -177,7 +181,7 @@
                 String NoVotes = "";
                 int pos =0;
                 ResultSet rs;
-                String sql = "SELECT * FROM `contestant` where contest_id = '"+ConId+"' order by `votes`";
+                String sql = "SELECT * FROM `contestant` where contest_id = '"+ConId+"' order by `votes` desc limit 3";
                 rs = getCon().createStatement().executeQuery(sql);
                 while(rs.next()){
                     if(pos ==2){

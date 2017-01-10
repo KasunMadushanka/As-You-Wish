@@ -32,10 +32,12 @@
                 <!-- begin news-feed -->
                 <div class="news-feed">
                     <div class="news-image">
-                        <img src="assets/img/login-bg/bg-7.jpg" data-id="login-cover-image" alt="" />
+                        <img src="assets/img/login-bg/bg-71.jpg" data-id="login-cover-image" alt="" />
                     </div>
                     <div class="news-caption">
-                        <h4 class="caption-title"><i class="fa fa-diamond text-success"></i> Welcome to As You Wish Admin Panel</h4>
+                        <center>
+                            <h4 class="caption-title"><i class="fa fa-key text-success"></i>    Administrator Control Panel</h4>
+                        </center>
                         <p>
 
                         </p>

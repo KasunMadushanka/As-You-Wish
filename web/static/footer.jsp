@@ -6,7 +6,14 @@
             <div class="widget dark">
                 <a class="text-white font-playball font-32" href="#"><i class="fa fa-heart-o font-25"></i> As You Wish <i class="fa fa-heart-o font-25"></i></a>
                 <p class="mt-20 mb-10">We are a proud wedding planner in Sri Lanka with a great number of partners to help you to make the dream day in your whole life a success</p>
+                <p style="text-align: left"><img src="images/AYW/teamLogo2.png" alt="" width="90%"></p>
             </div>
+            
+<!--            <section id="about_us" class="divider bg-img-center-bottom" data-bg-img="images/bg/bg9.png">
+                    <div class="container pb-30">
+                        <img class="img-fullwidth" src="images/AYW/teamLogo.png" alt="" width="10%">
+                    </div>
+            </section>-->
         </div>
         <div class="col-sm-6 col-md-3">
             <div class="widget dark">

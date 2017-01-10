@@ -9,8 +9,8 @@
     String email = request.getParameter("email");
     String password = request.getParameter("password");
     String user_type = request.getParameter("user_type");
-    
-    String hashed_password=login(password);
+
+    String hashed_password = login(password);
 
     ResultSet rs;
 
@@ -22,6 +22,7 @@
             session.setAttribute("last_name", rs.getString("last_name"));
             session.setAttribute("type", "customer");
             session.setAttribute("email", rs.getString("email"));
+            session.setAttribute("image_url", rs.getString("image_url"));
         } else {
             out.print("invalid");
         }
@@ -35,6 +36,7 @@
             session.setAttribute("type", "vendor");
             session.setAttribute("email", rs.getString("email"));
             session.setAttribute("company_name", rs.getString("company_name"));
+            session.setAttribute("image_url", rs.getString("image_url"));
 
             ArrayList services_list = new ArrayList();
 

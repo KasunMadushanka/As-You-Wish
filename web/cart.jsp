@@ -6,8 +6,7 @@
     // need set after user registartion
     String custId = (String)session.getAttribute("id");
 
-    String cat = request.getParameter("txt");
-    if (cat == null) {
+    if (custId == null) {
         response.sendRedirect("store.jsp");
     } else {
 
@@ -23,7 +22,7 @@
 
     ResultSet rs;
     String sql = "SELECT cart.*, catName,  `itemName`, `stock`, `price`, `color`, `img` FROM `cart` inner join items on cart.itemId = items.itemId "
-            + "inner join category on items.catId = category.catId WHERE `custId` = '" + cat + "'";
+            + "inner join category on items.catId = category.catId WHERE `custId` = '" + custId + "'";
     rs = getCon().createStatement().executeQuery(sql);
 
 
@@ -140,7 +139,7 @@
                                             <td class="product-remove">
 
                                                 <input type="hidden" name="item" value="<%= itemId%>" />
-                                                <input type="hidden" name="cust" value="<%= cat%>" />
+                                                <input type="hidden" name="cust" value="<%= custId %>" />
 
                                                 <button type="submit" name="update" class="btn">Update Quantity</button>
                                                 <button type="submit" name="delete" class="btn btn-warning">Remove Item</button>
@@ -187,7 +186,7 @@
                                             </tbody>
                                         </table>
                                         <div class="row" style="float: right">
-                                            <a href="checkout.jsp?txt=<%= cat%>" class="btn btn-success" style="text-align: right">Proceed to Checkout</a> 
+                                            <a href="checkout.jsp" class="btn btn-success" style="text-align: right">Proceed to Checkout</a> 
                                         </div>
 
                                     </div>

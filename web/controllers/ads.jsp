@@ -12,11 +12,15 @@
     while(rs.next()){
         String img = rs.getString("loc");
         %>
-            <img src="<%= img %>" >
+        <img src="<%= img %>" >
         <%
     }
+
+    
     
     //out.print(sql);
 
 %>
+
+
 

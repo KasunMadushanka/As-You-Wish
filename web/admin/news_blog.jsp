@@ -50,6 +50,10 @@
             <!-- end #header -->
 
             <!-- begin #sidebar -->
+            <%
+                    String pageTitle = "blog";
+                    String subPage = "";
+            %>
             <%@ include file="static/navbar.jsp" %>
             <!-- end #sidebar -->
 

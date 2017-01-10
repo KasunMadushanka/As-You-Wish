@@ -9,6 +9,27 @@
 <!-- Page Title -->
 <title>As You Wish</title>
 
+<style>
+    #adver {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #dad6d7;
+        width: auto;
+        box-shadow: 0 0 15px #00214B;
+        z-index: 999;
+        padding-right: 15px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        border-radius: 25px;
+        border: 2px solid #73AD21;
+         
+    }
+    
+</style>
+
+
 <!-- Favicon and Touch Icons -->
 <link href="images/favicon.png" rel="shortcut icon" type="image/png">
 <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
@@ -36,15 +57,7 @@
 
 <link  href="css/jquery-confirm.min.css" rel="stylesheet" type="text/css"/>
 
-<style>
-    .ui-dialog-osx {
-                position: absolute;
-                left:calc(50% - 240px);
-                -moz-border-radius: 0 0 8px 8px;
-                -webkit-border-radius: 0 0 8px 8px;
-                border-radius: 0 0 8px 8px; border-width: 0 8px 8px 8px;
-            } 
-</style>
+
 
 
 <!-- external javascripts -->
@@ -58,3 +71,5 @@
 
 <script src="admin/assets/sweetalert-dev.js"></script>
 <link rel="stylesheet" href="admin/assets/sweetalert.css">
+
+

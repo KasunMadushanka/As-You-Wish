@@ -3,7 +3,7 @@
 
 <%
     // need set affter user registartion
-    String custId = (String)session.getAttribute("id");
+    String custId = (String) session.getAttribute("id");
 
     String cat = request.getParameter("item");
     if (cat == null) {
@@ -76,7 +76,7 @@
     </head>
 
     <body class="has-side-panel side-panel-left fullwidth-page">
-        
+
         <%if ((String) session.getAttribute("id") != null) {%>
         <%@ include file="/side_panels/customer_side_panel.jsp"%>
         <%}%>
@@ -230,7 +230,7 @@
                                                         <a href="productdetails.jsp?item=<%= rs1.getString("itemId")%>"><h5 class="product-title"><%= rs1.getString("itemName")%></h5></a>
                                                         <div class="price"><ins><span class="amount">Rs. <%= rs1.getString("price")%></span></ins></div>
                                                         <div class="btn-add-to-cart-wrapper">
-                                                            <a class="btn btn-default btn-xs btn-add-to-cart" href="productdetails.jsp?item=<%= rs1.getString("itemId")%>">Add To Cart</a>
+                                                            <a class="btn btn-default btn-xs btn-add-to-cart" onclick="alert('dd')">Add To Cart</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -246,7 +246,8 @@
                     </div>
                 </section>
             </div>
-            <!-- end main-content -->
+
+            <%@ include file="/static/customer_modal.jsp"%>
 
             <!-- Footer -->
             <footer id="footer" class="footer pb-0 bg-black-111">
@@ -254,10 +255,7 @@
             </footer>
             <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
         </div>
-        <!-- end wrapper -->
 
-        <!-- Footer Scripts -->
-        <!-- JS | Custom script for all pages -->
         <script src="js/custom.js"></script>
 
     </body>

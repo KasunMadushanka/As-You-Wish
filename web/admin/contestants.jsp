@@ -1,7 +1,20 @@
+<%@page import="java.util.Calendar"%>
 <%@ include file="../config/sessionCheckAdmin.jsp" %>
 <%
-
-    ResultSet rs = getCon().createStatement().executeQuery("Select first_name,partner_first_name,mobile,email,event_date from customer where customer_id in (Select customer_id from contest)");
+    
+    Calendar now = Calendar.getInstance();
+    int year = now.get(Calendar.YEAR);
+    String[] monthName = { "January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December" };
+    int month = now.get(Calendar.MONTH);
+    
+    String Contest_Title = monthName[month]+" "+year;
+    
+    //Select first_name,partner_first_name,mobile,email,event_date from customer where customer_id in (Select customer_id from contest)
+    ResultSet rs = getCon().createStatement().executeQuery(""
+            + "Select first_name,partner_first_name,mobile,email,event_date "
+            + "from customer "
+            + "where customer_id in "
+            + "(Select customer_id from contestant where `contest_id` = (SELECT `contest_id` FROM `contest` WHERE `status` = 'active'))");
 
 %>
 
@@ -22,6 +35,10 @@
             <!-- end #header -->
 
             <!-- begin #sidebar -->
+            <%
+                    String pageTitle = "contest";
+                    String subPage = "conters";
+            %>
             <%@ include file="static/navbar.jsp" %>
             <!-- end #sidebar -->
 
@@ -30,11 +47,11 @@
                 <!-- begin breadcrumb -->
                 <ol class="breadcrumb pull-right">
                     <li><a href="javascript:;">Home</a></li>
-                    <li><a href="javascript:;">Online Store</a></li>
-                    <li class="active">Checkouts</li>
+                    <li><a href="javascript:;">Contest</a></li>
+                    <li class="active">Active Contesters</li>
                 </ol>
 
-                <h1 class="page-header">Contestants<small> November 2016</small></h1>
+                <h1 class="page-header">Contestants <small> <%= Contest_Title %></small></h1>
                 <!-- end page-header -->
 
                 <!-- begin row -->

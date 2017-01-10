@@ -1,12 +1,15 @@
-<%@page import="java.util.Calendar"%>
 <%@ include file="../config/sessionCheckAdmin.jsp" %>
 <%
-    Calendar now = Calendar.getInstance();
-    int year = now.get(Calendar.YEAR);
-    int month = now.get(Calendar.MONTH) + 1;
+    
+    
 
-    ResultSet rs = getCon().createStatement().executeQuery("Select c.first_name,c.partner_first_name,cnt.votes from customer c inner join contestant cnt on c.customer_id=cnt.customer_id inner join contest cn on cnt.contest_id=cn.contest_id where cn.month='" + month + "' and cn.year='" + year + "' order by cnt.votes desc");
-    ResultSet rs1 = getCon().createStatement().executeQuery("Select sum(votes) as total_votes from contestant where contest_id=(Select contest_id from contest where month='" + month + "' and year='" + year + "')");
+    ResultSet rs = getCon().createStatement().executeQuery(""
+            + "Select cnt.contest_id,c.first_name,c.partner_first_name,CONCAT(cn.year, '-',cn.month) as mon,cnt.votes "
+            + "from customer c "
+            + "inner join contestant cnt on c.customer_id=cnt.customer_id "
+            + "inner join contest cn on cnt.contest_id=cn.contest_id "
+            + "order by mon,cnt.votes desc");
+    
 %>
 
 <!DOCTYPE html>
@@ -26,6 +29,10 @@
             <!-- end #header -->
 
             <!-- begin #sidebar -->
+            <%
+                    String pageTitle = "contest";
+                    String subPage = "results";
+            %>
             <%@ include file="static/navbar.jsp" %>
             <!-- end #sidebar -->
 
@@ -34,11 +41,11 @@
                 <!-- begin breadcrumb -->
                 <ol class="breadcrumb pull-right">
                     <li><a href="javascript:;">Home</a></li>
-                    <li><a href="javascript:;">Online Store</a></li>
-                    <li class="active">Checkouts</li>
+                    <li><a href="javascript:;">Contest</a></li>
+                    <li class="active">All Results</li>
                 </ol>
 
-                <h1 class="page-header">Contestants<small> November 2016</small></h1>
+                <h1 class="page-header">Contestants<small> results sorted by votes</small></h1>
                 <!-- end page-header -->
 
                 <!-- begin row -->
@@ -61,8 +68,9 @@
                                 <table id="data-table" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th style="width: 100px;">Position</th>
-                                            <th style="width: 700px;">Couple</th>
+                                            <th style="width: 200px;">Contest Month</th>
+                                            <th style="width: 500px;">Couple</th>
+                                            
                                             <th style="width: 100px;">Votes</th>
                                             <th style="width: 100px;">Percentage</th>
                                             <th></th>
@@ -70,19 +78,29 @@
                                     </thead>
                                     <tbody>
                                         <%  int i = 0;
-                                            if (rs1.first()) {
-                                                while (rs.next()) {%>
+                                            
+                                            
+                                                while (rs.next()) {
+                                                    String ConId = rs.getString("cnt.contest_id");
+                                                    ResultSet rs1 = getCon().createStatement().executeQuery("Select sum(votes) as total_votes from contestant where `contest_id` = '"+ConId+"'");
+                                                    String Tot = "1";
+                                                    if (rs1.first()) {
+                                                        Tot = rs1.getString("total_votes");
+                                                    }
+                                                    
+                                        %>
                                         <tr class="odd gradeX">
-                                            <td><%=++i%></td>
-                                            <td><%= rs.getString("c.first_name") + " & " + rs.getString("c.partner_first_name")%></td>                                         
+                                            <td><%= rs.getString("mon")%></td>
+                                            <td><%= rs.getString("c.first_name") + " & " + rs.getString("c.partner_first_name")%></td> 
+                                            
                                             <td><%= rs.getString("cnt.votes")%></td>
-                                            <td><%=Math.round(Double.parseDouble(rs.getString("cnt.votes"))/Double.parseDouble(rs1.getString("total_votes"))*100)+"%"%></td>
+                                            <td><%=Math.round(Double.parseDouble(rs.getString("cnt.votes"))/Double.parseDouble(Tot)*100)+"%"%></td>
                                             <td>                                                                      
                                                 <button type="button" class="btn btn-primary btn-sm" > Contact </button>                                                                                          
                                             </td>
                                         </tr>
                                         <%
-                                                }
+                                              
                                             }
                                         %>
                                     </tbody>

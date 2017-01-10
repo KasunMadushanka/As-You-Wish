@@ -127,6 +127,10 @@
 		<!-- end #header -->
 		
 		<!-- begin #sidebar -->
+                <%
+                    String pageTitle = "report";
+                    String subPage = "storeReport";
+                %>
 		<%@ include file="static/navbar.jsp" %>
 		<!-- end #sidebar -->
 		

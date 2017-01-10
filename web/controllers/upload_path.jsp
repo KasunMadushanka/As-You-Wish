@@ -14,7 +14,7 @@
     File directory = null;
     int max = 0;
     String save_file = null, image_url = null,route=null;
-    String path = "D:/Group Project/Project/AsYouWish/web/";
+    String path = "E:/Group Project/Project/AsYouWish/web/";
     String[] files = null;
 
     if (status.equals("customer_profile")) {

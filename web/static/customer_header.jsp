@@ -13,7 +13,7 @@
                             <li><a href="customer_gallery.jsp">Gallery</a></li>
                             <li><a href="vendor_list.jsp?service_id=1&service=Reception Halls">Vendors</a></li>
                             <li><a href="budget_planning.jsp">Budget Planning</a></li>
-                            <li><a href="blog_list.jsp">Events</a></li>
+                            <li><a href="event_list.jsp">Events</a></li>
                             <li><a href="store.jsp">Online Store</a></li>
                             <li><a href="" onclick="logout(); return false;">Logout</a></li>
                         </ul>
@@ -23,3 +23,56 @@
         </div>
     </div>
 </header>
+
+<!--<div id="someidentifier">
+    <div>
+        <img src="../images/Ads/1.jpg"       
+    </div>
+    
+</div>-->
+
+
+    <div id="adver" >
+        <a onclick="ad()" style="color: black; float: right" >[x] Close Advertisement</a>
+        <center><div id="imgAd"></div></center>
+    </div>
+    
+
+
+
+
+<script>
+        
+            $(document).ready(function() {
+		$('#imgAd').load('controllers/ads.jsp');
+            });
+            
+            $("#dialog-message").dialog({
+                modal: true,
+                draggable: false,
+                resizable: false,
+                show: 'blind',
+                hide: 'blind',
+                width: 500,
+                dialogClass: 'ui-dialog-osx',
+                buttons: {
+                    "Close": function() {
+                        $(this).dialog("close");
+                        startTime();
+                    }
+                }
+            });
+            
+            function ad(){
+                $("#adver").toggle();
+                $('#imgAd').load('controllers/ads.jsp');
+                interval = setInterval(startTime,5000);
+            }
+            
+            function startTime(){
+               $("#adver").toggle();
+               clearInterval(interval);
+                
+            }
+            
+</script> 

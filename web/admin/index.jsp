@@ -17,6 +17,10 @@
             <!-- end #header -->
 
             <!-- begin #sidebar -->
+            <%
+                String pageTitle = "home";
+                String subPage = "";
+            %>
             <%@ include file="static/navbar.jsp" %>
             <!-- end #sidebar -->
 

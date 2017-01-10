@@ -68,6 +68,7 @@ page import="java.servlet.*,
     String sql0 = "SELECT `customer_id` FROM `customer` WHERE CONCAT(`first_name`, ' ', `last_name`)= '"+Name+"'";
     rs0 = getCon().createStatement().executeQuery(sql0);
     
+    
     ResultSet rs;
     rs = getCon().createStatement().executeQuery("SELECT *,SUBSTRING_INDEX(`time`, ' ', 1) as x FROM `list` WHERE `userId` "
             + "= (SELECT `customer_id` FROM `customer` WHERE CONCAT(`first_name`, ' ', `last_name`)= '"+Name+"') "
@@ -76,7 +77,7 @@ page import="java.servlet.*,
     if (rs0.first()) {
         
     } else {
-        response.sendRedirect("Reports.jsp");
+        response.sendRedirect("customerReports.jsp");
     }
 
     response.setContentType("application/pdf");

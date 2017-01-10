@@ -50,6 +50,10 @@
             <!-- end #header -->
 
             <!-- begin #sidebar -->
+            <%
+               String pageTitle = "backup";
+               String subPage = "";
+            %>         
             <%@ include file="static/navbar.jsp" %>
             <!-- end #sidebar -->
 
@@ -151,8 +155,8 @@
                         </div>
                     </div>
                     <legend style="padding-top: 20px;"></legend>
-                    <div class="form-group">                                                         
-                        <div class=""  style="position: relative;left: 360px;padding-bottom: 10px;">
+                    <center><div class="form-group">                                                         
+                        <div class=""  style="padding-bottom: 15px;">
                             <a class="btn btn-primary start" href="controllers/download_backup.jsp">
                                 <i class="fa fa-download"></i>
                                 <span>Download Backup</span>
@@ -198,7 +202,7 @@
                             </script>
                         </div>
 
-                    </div>
+                    </div></center>
                 </div>
 
             </div>

@@ -4,13 +4,24 @@
 
 <%
     // need set affter user registartion
-    String custId = "1";
+    String custId = (String)session.getAttribute("id");
 
-    String cat = request.getParameter("txt");
-    if (cat == null) {
+    if (custId == null) {
         response.sendRedirect("store.jsp");
     } else {
 
+    }
+    
+    String fName ="";
+    String lName = "";
+    String email="";
+    
+    String sqlUser ="Select * from customer where customer_id = '"+custId+"'";
+    ResultSet rs0=getCon().createStatement().executeQuery(sqlUser);
+    while(rs0.next()){
+        fName = rs0.getString("first_name");
+        lName = rs0.getString("last_name");
+        email = rs0.getString("email");
     }
 
     //itemId itemName catId price tag reviews desc brand weight	size color img
@@ -23,7 +34,7 @@
 
     ResultSet rs;
     String sql = "SELECT cart.*, catName,  `itemName`, `price`, `color`, `img` FROM `cart` inner join items on cart.itemId = items.itemId "
-            + "inner join category on items.catId = category.catId WHERE `custId` = '" + cat + "'";
+            + "inner join category on items.catId = category.catId WHERE `custId` = '" + custId + "'";
     rs = getCon().createStatement().executeQuery(sql);
 
 
@@ -89,17 +100,17 @@
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     <label for="checkout-form-fname">First Name*</label>
-                                                    <input type="hidden" name="userId" id="cust" value="<%= cat%>" />
-                                                    <input  type="text" name="fname" class="form-control" id="fName" placeholder="First Name" required="true">
+                                                    <input type="hidden" name="userId" id="cust" value="<%= custId %>" />
+                                                    <input  type="text" name="fname" class="form-control" id="fName" placeholder="First Name" required="true" value="<%= fName %>">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="checkout-form-lname">Last Name*</label>
-                                                    <input  type="text" name="lname" class="form-control" id="lName" placeholder="Last Name" required="true">
+                                                    <input  type="text" name="lname" class="form-control" id="lName" placeholder="Last Name" required="true" value="<%= lName %>">
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label for="checkout-form-email">Email Address*</label>
-                                                        <input  type="email" name="email" class="form-control" id="email" placeholder="Email Address" required="true">
+                                                        <input  type="email" name="email" class="form-control" id="email" placeholder="Email Address" required="true" value="<%= email  %>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="checkout-form-address">Address*</label>
@@ -210,7 +221,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="number" name="card" id="card" placeholder="Card number" maxlength="12"  minlength="12" required="true">
+                                                    <input class="form-control" type="number" maxlength="16" name="card" id="card" placeholder="Card number"  required="true">
                                                 </div>
                                                 <div class="col-md-2">
                                                     <input class="form-control" type="number" name="ccv" id="cvv" placeholder="CVV2" maxlength="3" minlength="3" min="001" max="999"  required="true">

@@ -29,6 +29,10 @@
             <!-- end #header -->
 
             <!-- begin #sidebar -->
+            <%
+                    String pageTitle = "store";
+                    String subPage = "purOrders";
+            %>
             <%@ include file="static/navbar.jsp" %>
             <!-- end #sidebar -->
 
