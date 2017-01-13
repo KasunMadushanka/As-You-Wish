@@ -12,6 +12,7 @@ $(function () {
     edit_post_form = $('#edit_post_form');
     comment_form = $('#comment_form');
     visitor_sign_up_form = $('#visitor_sign_up_form');
+    customer_request_form = $('#service_request_form');
 
     divForms = $('#div-forms');
 
@@ -217,6 +218,22 @@ $(function () {
         }
         current_form = visitor_sign_up_form;
         current = "visitor_sign_up_form";
+    };
+    
+     window.load_request= function () {
+        if (current_form === null) {
+            if (current !== null) {
+                document.getElementById(current).style.display = "none";
+            }
+            document.getElementById("service_request_form").style.display = "";
+            $('#login-modal').modal({
+                show: 'true'
+            });
+        } else {
+            modalAnimate(current_form, service_request_form);
+        }
+        current_form = service_request_form;
+        current = "service_request_form";
     };
 
     function modalAnimate(oldForm, newForm) {

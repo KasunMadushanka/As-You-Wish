@@ -76,7 +76,7 @@
     <body class="">
 
         <div id="wrapper" class="clearfix">
-           
+
             <div id="preloader">
                 <div id="spinner">
                     <div class="heart-preloader">
@@ -171,7 +171,7 @@
                                                     <h4 class="entry-title sm-inline-block mt-0 mt-sm-30 pt-0" style="text-align:center">Search Vendors</h4>
                                                     <div class="entry-meta mt-10 mb-10">
                                                         <ul class="list-inline font-13">
-                                                            <li style="text-align:center"> Select the best vendors all around the country...</li>
+                                                            <li style="text-align:center"> Find the best vendors all around the country...</li>
                                                         </ul>
                                                     </div>
 
@@ -196,7 +196,7 @@
                                                     <h4 class="entry-title sm-inline-block mt-0 mt-sm-30 pt-0" style="text-align:center">Plan Your Wedding</h4>
                                                     <div class="entry-meta mt-10 mb-10">
                                                         <ul class="list-inline font-13">
-                                                            <li style="text-align:center"> Create your own checklist, budget and many more...</li>
+                                                            <li style="text-align:center">Take the correct decisions with budget planning...</li>
                                                         </ul>
                                                     </div>
 
@@ -220,7 +220,7 @@
                                                     <h4 class="entry-title sm-inline-block mt-0 mt-sm-30 pt-0" style="text-align:center">Wedding Blog</h4>
                                                     <div class="entry-meta mt-10 mb-10">
                                                         <ul class="list-inline font-13">
-                                                            <li style="text-align:center"> Share your story with others, online RSVP and wishlist...</li>
+                                                            <li style="text-align:center"> Share the story of your journey with others...</li>
                                                         </ul>
                                                     </div>
 
@@ -244,7 +244,7 @@
                                                     <h4 class="entry-title sm-inline-block mt-0 mt-sm-30 pt-0" style="text-align:center">Online Store</h4>
                                                     <div class="entry-meta mt-10 mb-10">
                                                         <ul class="list-inline font-13">
-                                                            <li style="text-align:center"> Buy amazing gifts for wedding couple</li>
+                                                            <li style="text-align:center"> Buy amazing gifts for wedding couples...</li>
                                                         </ul>
                                                     </div>
 
@@ -270,10 +270,20 @@
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
                                 <div class="couple">
                                     <div class="couple-thumb">                    
-                                        <img class="img-fullwidth" src="images/event/10.jpg" alt=""> 
+                                        <a href="vendor_list.jsp?service_id=1&service=Reception Halls" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/services/1.jpg" alt=""> </a>
                                     </div>
                                     <div class="couple-details">
-                                        <h4 class="title text-theme-colored font-21"><span>Reception Halls</span></h4>
+                                       <a href="vendor_list.jsp?service_id=1&service=Reception Halls" class="text-theme-colored font-13"> <h4 class="title"><span>Reception Halls</span></h4> </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
+                                <div class="couple">
+                                    <div class="couple-thumb">                    
+                                        <a href="vendor_list.jsp?service_id=2&service=Cake Designers" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/services/2.jpg" alt=""> </a>
+                                    </div>
+                                    <div class="couple-details">
+                                       <a href="vendor_list.jsp?service_id=2&service=Cake Designers" class="text-theme-colored font-13"> <h4 class="title"><span>Cake Designers</span></h4> </a>
                                     </div>
                                 </div>
 
@@ -281,10 +291,10 @@
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
                                 <div class="couple">
                                     <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/9.jpg" alt=""> </a>
+                                        <a href="vendor_list.jsp?service_id=3&service=Beauticians" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/services/3.jpg" alt=""> </a>
                                     </div>
                                     <div class="couple-details">
-                                        <a class="text-theme-colored font-13"> <h4 class="title"><span>Cake Designers</span></h4> </a>
+                                        <a href="vendor_list.jsp?service_id=3&service=Beauticians" class="text-theme-colored font-13"> <h4 class="title"><span>Beauticians</span></h4> </a>
                                     </div>
                                 </div>
 
@@ -292,10 +302,10 @@
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
                                 <div class="couple">
                                     <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/2.jpg" alt=""> </a>
+                                        <a href="vendor_list.jsp?service_id=4&service=Bridal Dresses" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/services/4.jpg" alt=""> </a>
                                     </div>
                                     <div class="couple-details">
-                                        <a href="#" class="text-theme-colored font-13"> <h4 class="title"><span>Beauticians</span></h4> </a>
+                                        <a href="vendor_list.jsp?service_id=4&service=Bridal Dresses" class="text-theme-colored font-13"> <h4 class="title"><span>Bridal Dresses</span></h4> </a>
                                     </div>
                                 </div>
 
@@ -303,10 +313,10 @@
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
                                 <div class="couple">
                                     <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/1.jpg" alt=""> </a>
+                                        <a href="vendor_list.jsp?service_id=5&service=Groom Suits" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/services/5.jpg" alt=""> </a>
                                     </div>
                                     <div class="couple-details">
-                                        <a href="#" class="text-theme-colored font-13"> <h4 class="title"><span>Bridal Dresses</span></h4> </a>
+                                        <a href="vendor_list.jsp?service_id=5&service=Groom Suits" class="text-theme-colored font-13"> <h4 class="title"><span>Groom Suits</span></h4> </a>
                                     </div>
                                 </div>
 
@@ -314,10 +324,10 @@
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
                                 <div class="couple">
                                     <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/4.jpg" alt=""> </a>
+                                        <a href="vendor_list.jsp?service_id=6&service=Photography" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/services/6.jpg" alt=""> </a>
                                     </div>
                                     <div class="couple-details">
-                                        <a href="#" class="text-theme-colored font-13"> <h4 class="title"><span>Groom Suits</span></h4> </a>
+                                        <a href="vendor_list.jsp?service_id=6&service=Photography" class="text-theme-colored font-13"> <h4 class="title"><span>Photography</span></h4> </a>
                                     </div>
                                 </div>
 
@@ -325,10 +335,10 @@
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
                                 <div class="couple">
                                     <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/5.jpg" alt=""> </a>
+                                        <a href="vendor_list.jsp?service_id=7&service=Poruwa & Decorations" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/services/7.jpg" alt=""> </a>
                                     </div>
                                     <div class="couple-details">
-                                        <a href="#" class="text-theme-colored font-13"> <h4 class="title"><span>Photography</span></h4> </a>
+                                        <a href="vendor_list.jsp?service_id=7&service=Poruwa & Decorations" class="text-theme-colored font-13"> <h4 class="title"><span>Poruwa and Decorations</span></h4> </a>
                                     </div>
                                 </div>
 
@@ -336,37 +346,27 @@
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
                                 <div class="couple">
                                     <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/8.jpg" alt=""> </a>
+                                        <a href="vendor_list.jsp?service_id=8&service=Entertainment Groups" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/services/8.jpg" alt=""> </a>
                                     </div>
                                     <div class="couple-details">
-                                        <a href="#" class="text-theme-colored font-13"> <h4 class="title"><span>Poruwa and Decorations</span></h4> </a>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
-                                <div class="couple">
-                                    <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/7.jpg" alt=""> </a>
-                                    </div>
-                                    <div class="couple-details">
-                                        <a href="#" class="text-theme-colored font-13"> <h4 class="title"><span>Entertainment Groups</span></h4> </a>
+                                        <a href="vendor_list.jsp?service_id=8&service=Entertainment Groups" class="text-theme-colored font-13"> <h4 class="title"><span>Entertainment Groups</span></h4> </a>
                                     </div>
                                 </div>
                             </div>	
                             <div class="col-md-4 wow fadeInUp animation-delay1" style="padding-bottom:20px;">
                                 <div class="couple">
                                     <div class="couple-thumb">                    
-                                        <a href="#" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/event/6.jpg" alt=""> </a>
+                                        <a href="vendor_list.jsp?service_id=9&service=Wedding Cars" class="text-theme-colored font-13"> <img class="img-fullwidth" src="images/services/9.jpg" alt=""> </a>
                                     </div>
                                     <div class="couple-details">
-                                        <a href="#" class="text-theme-colored font-13"> <h4 class="title"><span> Wedding Cars </span></h4> </a>
+                                        <a href="vendor_list.jsp?service_id=9&service=Wedding Cars" class="text-theme-colored font-13"> <h4 class="title"><span> Wedding Cars </span></h4> </a>
                                     </div>
                                 </div>
 
 
                             </div>
                         </div>
+                    </div>
                 </section>
 
 
@@ -424,7 +424,7 @@
                                                 </div>
                                                 <div class="product-details text-center">
                                                     <h3 class="entry-title"><%=fields[1]%>  <img src="images/wedding-ring3.png"> <%=fields[2]%></h3>
-                                                  
+
                                                     <div>
                                                         <a class="btn btn-default" href="couple_blog.jsp?id=<%=fields[0]%>">View Blog</a>
                                                     </div>
@@ -508,17 +508,17 @@
                         <div class="section-title">
                             <div class="row">
                                 <%
-                                        Calendar now = Calendar.getInstance();
-                                        int year = now.get(Calendar.YEAR);
-                                        int month = now.get(Calendar.MONTH);
-                                        String[] monthName = { "January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December" };
-                                        if(month == 0){
-                                            year-=1;
-                                            month = 11;
-                                        }
-                                  %>
+                                    Calendar now = Calendar.getInstance();
+                                    int year = now.get(Calendar.YEAR);
+                                    int month = now.get(Calendar.MONTH);
+                                    String[] monthName = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+                                    if (month == 0) {
+                                        year -= 1;
+                                        month = 11;
+                                    }
+                                %>
                                 <div class="col-md-8 col-md-offset-2 text-center wow fadeInUp animation-delay1">
-                                    <h2 class="title pattern-bottom">Most Popular Couple <%= monthName[month]+" "+year %></h2>
+                                    <h2 class="title pattern-bottom">Most Popular Couple <%= monthName[month] + " " + year%></h2>
 
                                 </div>
                             </div>
@@ -529,11 +529,11 @@
                                     <%
                                         ArrayList images = new ArrayList();
                                         String qu = "select couple_image from contestant where "
-                                                + "`contest_id` = (select `contest_id` from contest where year = '"+year+"' and month = '"+month+"')"
+                                                + "`contest_id` = (select `contest_id` from contest where year = '" + year + "' and month = '" + month + "')"
                                                 + "order by votes desc limit 3";
 //                                        
                                         ResultSet rs3 = getCon().createStatement().executeQuery(qu);
-                                        while (rs3.next()) {                   
+                                        while (rs3.next()) {
                                             images.add(rs3.getString("couple_image"));
                                         }%>
                                     <div class="col-sm-6 col-md-4 col-lg-4 mb-30">
@@ -562,7 +562,7 @@
 
                 </section>
 
-                
+
 
             </div>
             <!-- end main-content -->

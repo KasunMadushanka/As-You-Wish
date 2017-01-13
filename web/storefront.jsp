@@ -3,12 +3,12 @@
 <%@include file="config/db_connection.jsp"%>
 
 <%
-    String id = request.getParameter("id");
+    String vendor_id = request.getParameter("id");
     String service = request.getParameter("service");
 
     String company_name = null;
 
-    ResultSet rs = getCon().createStatement().executeQuery("Select company_name from vendor where vendor_id='" + id + "'");
+    ResultSet rs = getCon().createStatement().executeQuery("Select company_name from vendor where vendor_id='" + vendor_id + "'");
     if (rs.first()) {
         company_name = rs.getString("company_name");
     }
@@ -24,7 +24,7 @@
     double latitude = 0, longitude = 0;
     int zoom_level = 0;
 
-    ResultSet rs1 = getCon().createStatement().executeQuery("Select*  from service_registry where vendor_id='" + id + "' and service_id='" + service + "'");
+    ResultSet rs1 = getCon().createStatement().executeQuery("Select*  from service_registry where vendor_id='" + vendor_id + "' and service_id='" + service + "'");
     if (rs1.first()) {
 
         contact_no = rs1.getString("contact_no");
@@ -45,7 +45,7 @@
 
     ArrayList blog_data = new ArrayList();
 
-    ResultSet rs2 = getCon().createStatement().executeQuery("Select vb.*,v.first_name,v.last_name from vendor v inner join vendor_blog vb on v.vendor_id=vb.vendor_id where vb.vendor_id='" + id + "' and vb.service_id='" + service + "'");
+    ResultSet rs2 = getCon().createStatement().executeQuery("Select vb.*,v.first_name,v.last_name from vendor v inner join vendor_blog vb on v.vendor_id=vb.vendor_id where vb.vendor_id='" + vendor_id + "' and vb.service_id='" + service + "'");
     while (rs2.next()) {
 
         String data[] = new String[9];
@@ -66,7 +66,7 @@
 
     ArrayList plans = new ArrayList();
 
-    ResultSet rs3 = getCon().createStatement().executeQuery("Select* from vendor_pricing where package_id in(Select package_id from vendor_package where registry_id in(Select registry_id from service_registry where vendor_id='" + id + "' and service_id='" + service + "') )");
+    ResultSet rs3 = getCon().createStatement().executeQuery("Select* from vendor_pricing where package_id in(Select package_id from vendor_package where registry_id in(Select registry_id from service_registry where vendor_id='" + vendor_id + "' and service_id='" + service + "') )");
     while (rs3.next()) {
 
         String[] plan = new String[3];
@@ -92,6 +92,7 @@
         <script src="myjs/update_storefront.js"></script>
         <script src="myjs/upload.js"></script>
         <script src="myjs/email.js"></script>   
+        <script src="myjs/service_request.js"></script>   
 
         <script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA2JxhLeq4SOdHId77F0HLEbhlNIunbB4Q&sensor=false"></script>
         <script>
@@ -162,7 +163,7 @@
                 <section id="contact" class="divider bg-img-center-bottom" data-bg-img="images/bg/bg14.png">
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-12 col-md-7">
+                            <div class="col-md-7">
                                 <div class="image-carousel">
                                     <div class="item">
                                         <div class="thumb">
@@ -182,49 +183,70 @@
                                 </div>
                             </div>
 
-                            <div id="map-canvas" class="col-sm-offset-9" style="width:300px;height:250px;"></div>
-
-                            <div>
-                                <div class="col-sm-offset-9">
-                                    <div class="widget">
-                                        <h4>Contact Details</h4>
-                                        <ul class="xs-text-center mt-5">
-                                            <li> <i class="fa fa-phone text-theme-colored mr-10"></i><span id="contact_no_content">+94 <%=contact_no%></span></li>
-                                            <li> <i class="fa fa-envelope text-theme-colored mr-10"></i><span id="email_content"><%=email%></span></li>
-                                            <li> <i class="fa fa-globe text-theme-colored mr-10"></i><span id="website_url_content"><a href="<%=website_url%>">Visit our web site</a></span></li>
-                                            <li> <i class="fa fa-clock-o text-theme-colored mr-10"></i><span id="working_hours_content"><%=working_hours%></span></li>
-                                            <li> <i class="fa fa-map-marker text-theme-colored mr-10"></i><span id="address_content"><%=address1%>, <%=address2%>, <%=city%></span></li>
-                                        </ul>
+                            <div class="col-md-5" style="padding-left: 80px;">
+                                <div class="row">
+                                    <div class="section-title">
+                                        <div class="row">
+                                            <div class="pb-30 wow fadeInUp animation-delay1" style="position:relative;top: -30px; ">
+                                                <center><h2>About Us</h2></center>
+                                                <center><img src="images/section-title-after.png" alt=""></center>
+                                                <div id="about_content">
+                                                    <p><%=about%></p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
 
-                        </div>
-
-                        <div class="row">
-                            <div class="section-title">
-                                <div class="row">
-                                    <div class="col-md-6 col-md-offset-3 text-center pb-30 wow fadeInUp animation-delay1">
-                                        <h2>About Us</h2>
-                                        <img src="images/section-title-after.png" alt="">
-                                        <div id="about_content">
-                                            <p><%=about%></p>
+                            <div class="row">
+                                <div class="section-title">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-3 text-center pb-30 wow fadeInUp animation-delay1">
+                                            <h2>Our Vision</h2>
+                                            <img src="images/section-title-after.png" alt="">
+                                            <div id="vision_content">
+                                                <p><%=vision%></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                </section>
 
+                <section id="success" class="divider parallax layer-overlay overlay-dark-5" data-stellar-background-ratio="0.5" data-bg-img="images/vendor/background/1.jpg">
+                    <div class="container pt-120 pb-120 pb-sm-60 pt-sm-60">
                         <div class="row">
-                            <div class="section-title">
-                                <div class="row">
-                                    <div class="col-md-6 col-md-offset-3 text-center pb-30 wow fadeInUp animation-delay1">
-                                        <h2>Our Vision</h2>
-                                        <img src="images/section-title-after.png" alt="">
-                                        <div id="vision_content">
-                                            <p><%=vision%></p>
-                                        </div>
-                                    </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 wow fadeInUp animation-delay1">
+                                <div class="funfact text-center mb-sm-30">
+                                    <h4 class="title text-white">Mobile</h4>
+                                    <h3 class="title text-white">+94 <%=contact_no%></h3>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-2 wow fadeInUp animation-delay2">
+                                <div class="funfact text-center mb-sm-30">
+                                    <h4 class="title text-white">Email</h4>
+                                    <h3 class="title text-white"><%=email%></h3>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-2 wow fadeInUp animation-delay3">
+                                <div class="funfact text-center mb-sm-30">
+                                    <h4 class="title text-white">Chat Online</h4>
+                                    <h3 ><a class="title text-white" href="chat.jsp?id=1&type=vendor">Start</a></h3>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 wow fadeInUp animation-delay3">
+                                <div class="funfact text-center mb-sm-30">
+                                    <h4 class="title text-white">Address</h4>
+                                    <h3 class="title text-white"><%=address1%>, <%=address2%>, <%=city%></h3>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-2 wow fadeInUp animation-delay4">
+                                <div class="funfact text-center mb-sm-30">
+                                    <h4 class="title text-white">Working Hours</h4>
+                                    <h3 class="title text-white"><%=working_hours%></h3>
                                 </div>
                             </div>
                         </div>
@@ -247,12 +269,12 @@
 
                         <div class="row">
                             <%
-                                ResultSet rs4 = getCon().createStatement().executeQuery("Select pr.title,pr.description,pr.price,pr.features from service_registry r left join vendor_package p on r.registry_id=p.registry_id left join vendor_pricing pr on p.package_id=pr.package_id where r.vendor_id='" + id + "' and r.service_id='" + service + "'");
+                                ResultSet rs4 = getCon().createStatement().executeQuery("Select pr.pricing_id,pr.title,pr.description,pr.price,pr.features from service_registry r left join vendor_package p on r.registry_id=p.registry_id left join vendor_pricing pr on p.package_id=pr.package_id where r.vendor_id='" + vendor_id + "' and r.service_id='" + service + "'");
                                 while (rs4.next()) {
                             %>
                             <div class="col-xs-12 col-sm-3 col-md-3 hvr-float-shadow mb-sm-30">
                                 <div class="pricing-table style1 bg-white-light border-10px text-center">
-                                    <div class="pt-40">                                    
+                                    <div class="pt-40 pb-30">                                    
                                         <h4 class="package-type"><%=rs4.getString("pr.title")%> Package</h4>
                                         <h3 class="price text-theme-colored mb-10"><span class="font-30">LKR </span><%=rs4.getString("pr.price")%></h3>
                                         <ul class="table-list bg-lightest pl-0">
@@ -268,7 +290,9 @@
                                                     }
                                                 %>                                                                                                            
                                         </ul>
-                                        
+                                        <%if (session.getAttribute("type").equals("customer")) {%>
+                                        <a class="btn btn-colored btn-theme-colored text-uppercase" onclick="send_request(<%=vendor_id%>,<%=rs4.getString("pr.pricing_id")%>)">Contact Now</a><br>
+                                        <%}%>
                                     </div>
                                 </div>
                             </div>
@@ -363,7 +387,7 @@
                                             <div class="entry-content p-30 pl-xs-15 pr-xs-15">
                                                 <h3 class="entry-title sm-inline-block mt-0 mt-sm-30 mt-xs-0 pt-0"><a href="#"><%=data[2]%></a></h3>
                                                 <div class="entry-meta mb-20">
-                                                    <span>By <%=data[7]+" "+data[8]%> </span>
+                                                    <span>By <%=data[7] + " " + data[8]%> </span>
                                                     <span><i class="fa fa-comments-o text-theme-colored ml-10"></i><%=data[6]%>
                                                     </span>
                                                     <p><%=data[0]%> | <%=data[1]%></p>
@@ -377,8 +401,14 @@
                                 <%}%>
                             </div>
                         </div>
-                        <center><a class="text-theme-colored font-13" href="vendor_blog.jsp?id=<%=id%>&service=<%=service%>">Read more<i class="fa fa-angle-double-right"></i></a></center>
+                        <center><a class="text-theme-colored font-13" href="vendor_blog.jsp?id=<%=vendor_id%>&service=<%=service%>">Read more<i class="fa fa-angle-double-right"></i></a></center>
                     </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container" id="map-canvas" style="width: 100%;height:450px;">
+
                 </div>
             </section>
 

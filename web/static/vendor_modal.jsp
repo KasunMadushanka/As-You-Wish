@@ -196,7 +196,7 @@
                         <div class="row">
                             <div class="form-group col-md-9">
                                 <select class="form-control" id="packages">
-                                   
+
                                 </select>  
                                 <script>
                                     $(document).on('change', '#packages', function () {
@@ -239,7 +239,7 @@
                         <div class="row">
                             <div class="form-group col-md-9">
                                 <select class="form-control" id="pricing_plans">
-                                   
+
                                 </select>    
                                 <script>
                                     $(document).on('change', '#pricing_plans', function () {
@@ -274,7 +274,7 @@
                         <div class="form-group">
                             <label for="features"><b>Features:</b></label>
                             <textarea id="features" name="features" class="form-control" rows="8" placeholder="Add New Features"></textarea>
-                          
+
                         </div>
 
                     </div>
@@ -400,6 +400,10 @@
                             </div>
                         </div>
                     </form>
+                </div>
+
+                <div id="service_request_form" style="display: none;">
+                    
                 </div>
 
             </div>

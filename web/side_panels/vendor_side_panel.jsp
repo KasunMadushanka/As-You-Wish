@@ -28,6 +28,13 @@
                             </ul>
                         </li>
                         <%}%>
+                         <li><a class="tree-toggler nav-header" href="#">Requests<i class="fa fa-angle-down"></i></a>
+                            <ul class="nav nav-list tree">
+                               
+                                <li><a href="service_requests.jsp?service_id=1">halss</a></li>
+                                           
+                            </ul>
+                        </li>
                         <li><a class="tree-toggler nav-header" href="#">Messages<i class="fa fa-angle-down"></i></a>
                             <ul class="nav nav-list tree">
                                 <li><a id="new_message" href="#">New Message</a></li>
