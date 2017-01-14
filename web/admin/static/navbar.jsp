@@ -27,7 +27,8 @@
         </li>
         <li class="has-sub <% out.print(pageTitle == "customer" ? "active" : ""); %>"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-users"></i><span>Customer</span></a>
             <ul class="sub-menu">
-                <li class="<% out.print(subPage == "allcust" ? "active" : ""); %>"><a href="customers.jsp">All Customer</a></li>
+                <li class="<% out.print(subPage == "allcust" ? "active" : ""); %>"><a href="customers.jsp">All Customers</a></li>
+             <li class="<% out.print(subPage == "requests" ? "active" : ""); %>"><a href="service_requests.jsp">Service Requests</a></li>
             </ul>
         </li>
         <li class="has-sub <% out.print(pageTitle == "frontend" ? "active" : ""); %>"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-star"></i><span>Front End</span> </a>

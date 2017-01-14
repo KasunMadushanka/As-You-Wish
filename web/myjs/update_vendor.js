@@ -47,14 +47,14 @@ $(document).ready(function () {
                                                                     if (company_email === "" || (company_email.indexOf("@") !== -1 && company_email.indexOf(".") !== -1)) {
                                                                         if (company_address1 !== "") { 
                                                                             if (company_city !== "") {
-                                                                               alert('e');
+                                                                            
                                                                                 $.ajax({
                                                                                     
                                                                                     type: "post",
                                                                                     url: "controllers/update_vendor.jsp",
                                                                                     data: "title=" + title + "&first_name=" + first_name + "&last_name=" + last_name + "&mobile=" + mobile + "&address1=" + address1 + "&address2=" + address2 + "&city=" + city + "&postal_code" + postal_code + "&password=" + password + "&company_name=" + company_name + "&company_contact_no=" + company_contact_no + "&company_email=" + company_email + "&company_website_url=" + company_website_url + "&company_fb_page=" + company_fb_page + "&company_address1=" + company_address1 + "&company_address2=" + company_address2 + "&company_city=" + company_city + "&company_postal_code=" + company_postal_code,
                                                                                     success: function (msg) {
-                                                                                        alert('ddd');
+                                                                                     
                                                                                         get_path('vendor_profile');
                                                                                         swal({title: 'Your Account was updated successfully!', text: '', type: 'success', confirmButtonText: 'OK'});
 

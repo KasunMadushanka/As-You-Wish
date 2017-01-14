@@ -16,7 +16,7 @@
                 <ul class="list-border list theme-colored angle-double-right">
                     <li><a href="privacy_policy.jsp">Privacy Policy</a></li>
                     <li><a href="terms_of_use.jsp">Terms of Use</a></li>
-                    <li><a href="#">Help Center</a></li>
+                    <li><a href="help_center.jsp">Help Center</a></li>
                     
            </ul>
             </div>
@@ -30,7 +30,7 @@
                 <h5 class="widget-title line-bottom">Contact</h5>
                 <ul class="list list-border">
                     <li><a href="#">+(094) 112 145 424</a></li>
-                    <li><a href="#">asyouwish055@gmail.com</a></li>
+                    <li><a href="#">asyouwish077@gmail.com</a></li>
                     <li><a href="#" class="lineheight-20">University of Colombo School of Computing, Reid Avenue, Colombo 7</a></li>
                 </ul>
                 
