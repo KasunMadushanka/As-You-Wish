@@ -15,13 +15,34 @@
                             <li><a href="budget_planning.jsp">Budget Planning</a></li>
                             <li><a href="event_list.jsp">Events</a></li>
                             <li><a href="store.jsp">Online Store</a></li>
-                            <li><a href="#"><img src="<%=session.getAttribute("image_url")%>" class="img-circle" style="position: relative;top: -10px;margin-left:8;margin-right: 8;" width="40" height="40"></a>
+                                       <li><a href="#"><img id="bell" src="images/bell.png" style="position: relative;top: -5px;margin-left:8px;margin-right: 8px;" width="25" height="25"></a>
+                                <ul id="notification" class="dropdown">    
+                                </ul>
+                                <script>
+                                    $(document).ready(function () {
+
+                                        $.ajax({
+                                            type: "post",
+                                            url: "controllers/check_notifications.jsp",
+                                            data: "id=" + '<%=session.getAttribute("id")%>' + "&type=" + '<%=session.getAttribute("type")%>',
+                                            success: function (msg) {
+                                                //$("#bell").attr("src","");
+                                                $('#notification').append(msg);
+                                            },
+                                            error: function (error) {
+                                                alert('dd');
+                                            }
+
+                                        });
+                                    });
+                                </script>
+                            </li>
+                             <li><a href="#"><img src="<%=session.getAttribute("image_url")%>" class="img-circle" style="position: relative;top: -10px;margin-left:8;margin-right: 8;" width="40" height="40"></a>
                                 <ul class="dropdown">                             
                                     <li><a href="customer_account.jsp">My Account</a></li>
                                     <li><a href="" onclick="logout(); return false;">Sign Out</a></li>
                                 </ul>
                             </li>
-
                         </ul>
                     </div>
                 </nav>
@@ -50,7 +71,7 @@
 <script>
 
     $(document).ready(function () {
-     
+
         $('#imgAd').load('controllers/ads.jsp');
     });
 
@@ -71,7 +92,7 @@
     });
 
     function ad() {
-           alert('uvfy');
+        alert('uvfy');
         $("#adver").toggle();
         $('#imgAd').load('controllers/ads.jsp');
         interval = setInterval(startTime, 5000);

@@ -109,7 +109,7 @@
                     <li class="arrow"></li>
                     <li><a href="javascript:;">Edit Profile</a></li>
                     <li class="divider"></li>
-                    <li><a href="controllers/logoutAdmin.jsp">Log Out</a></li>
+                    <li><a href="controllers/logoutAdmin.jsp">Sign Out</a></li>
                 </ul>
             </li>
         </ul>

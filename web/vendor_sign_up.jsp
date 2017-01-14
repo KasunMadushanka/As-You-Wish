@@ -15,24 +15,6 @@
         <script src="myjs/image_upload.js"></script>
         <script src="myjs/email.js"></script>
 
-
-        <link rel="stylesheet" href="css/clockpicker/bootstrap-clockpicker.css">
-        <link rel="stylesheet" href="css/clockpicker/bootstrap-clockpicker.min.css">      
-        <link rel="stylesheet" href="css/clockpicker/clockpicker.css">
-        <link rel="stylesheet" href="css/clockpicker/jquery-clockpicker.css">
-        <link rel="stylesheet" href="css/clockpicker/jquery-clockpicker.min.css">
-        <link rel="stylesheet" href="css/bootstrap-switch.css">
-        <link rel="stylesheet" href="css/bootstrap-switch.min.css">
-
-        <script src="js/clockpicker/bootstrap-clockpicker.js"></script>
-        <script src="js/clockpicker/bootstrap-clockpicker.min.js"></script>
-        <script src="js/clockpicker.css"></script>
-        <script src="js/clockpicker/jquery-clockpicker.js"></script>
-        <script src="js/clockpicker/jquery-clockpicker.min.js"></script>
-        <script src="js/bootstrap-switch.js"></script>
-        <script src="js/bootstrap-switch.min.js"></script>
-
-
     </head>
 
     <body class="">

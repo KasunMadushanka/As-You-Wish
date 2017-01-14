@@ -18,6 +18,9 @@
     </head>
 
     <body class="has-side-panel side-panel-left fullwidth-page">
+
+        <%@ include file="/side_panels/vendor_side_panel.jsp"%>
+
         <div id="wrapper">
 
             <div id="preloader">

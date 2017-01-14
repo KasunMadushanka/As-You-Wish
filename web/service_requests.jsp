@@ -17,6 +17,8 @@
     if (rs.first()) {
         service_name = rs.getString("name");
     }
+    
+getCon().createStatement().executeQuery("Update service_request set status  service where service_id='" + service + "'");
 
 %>
 

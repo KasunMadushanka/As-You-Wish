@@ -55,7 +55,6 @@
         <script src="myjs/new_post.js"></script>
         <script src="myjs/update_post.js"></script>
         <script src="myjs/visitor_sign_up.js"></script>
-        <script src="myjs/logout.js"></script>
 
     </head>
 
