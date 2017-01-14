@@ -30,7 +30,7 @@ $(document).ready(function () {
                         if (partner_last_name !== "") {
                             if (mobile !== "") {
                                 if (mobile.length === 9) {
-                                    if (email.length !== "") {
+                                    if (email!== "") {
                                         if (email.indexOf("@") !== -1 && email.indexOf(".") !== -1) {
                                             if (address1 !== "") {
                                                 if (city !== "") {

@@ -29,7 +29,7 @@
             </div>
 
             <!-- Header -->
-            <%@ include file="/static/visitor_header.jsp"%>
+            <%@ include file="/static/customer_header.jsp"%>
 
             <!-- Start main-content -->
             <div class="main-content">
@@ -56,7 +56,7 @@
                                             <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
                                                 <i class="pe-7s-user"></i>
                                             </a>
-                                            <h4 class="text-gray pt-10 mt-0 mb-30">Edit Your Account Details</h4>
+                                            <h4 class="text-gray pt-10 mt-0 mb-30">Edit your account details</h4>
                                             <hr>
                                         </div>
                                         <%ResultSet rs = getCon().createStatement().executeQuery("Select * from customer where customer_id='" + id + "'");
