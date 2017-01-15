@@ -28,7 +28,7 @@ public class EmailSendingServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      
+
         String recipient_email = request.getParameter("recipient");
         String status = request.getParameter("status");
 
@@ -41,6 +41,21 @@ public class EmailSendingServlet extends HttpServlet {
         String recipient_name = null;
         String type = null;
 
+        if (status.equals("visitor_message")) {
+
+            try {
+                String name=request.getParameter("name");
+                subject = request.getParameter("subject");
+                content = "Name: "+name+"\n\n"+request.getParameter("content");
+               
+                EmailUtility.sendEmail(host, port, user, pass, recipient_email, subject, content);
+                out.print("sent");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                out.print("error");
+            }
+
+        }
         if (status.equals("customer_verification")) {
 
             try {

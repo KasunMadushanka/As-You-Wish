@@ -442,7 +442,7 @@
                                     <div class="form-group text-center">
                                         <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
                                         <button type="button" class="btn btn-dark btn-theme-colored btn-flat mr-5" onclick="send_email($('#email_content').html(), 'customer_message')">Send your message</button>
-                                        <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Reset</button>
+                                        <button type="reset" class="btn btn-dark btn-theme-colored btn-flat mr-5">Reset</button>
                                     </div>
                                 </form>
                             </div>

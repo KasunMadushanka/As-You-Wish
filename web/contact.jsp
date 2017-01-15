@@ -4,11 +4,13 @@
 
     <head>
         <%@ include file="/static/head.jsp" %>
+        
+        <script src="myjs/email.js"></script>   
     </head>
 
     <body class="">
         <div id="wrapper" class="clearfix">
-            <!-- preloader -->
+           
             <div id="preloader">
                 <div id="spinner">
                     <div class="heart-preloader">
@@ -18,26 +20,8 @@
             </div>
 
             <!-- Header -->
-            <header id="header" class="header">
-                <div class="header-nav navbar-fixed-top header-dark navbar-white navbar-transparent navbar-sticky-animated animated-active">
-                    <div class="header-nav-wrapper">
-                        <div class="container">
-                            <nav>
-                                <div id="menuzord-right" class="menuzord red"> <a class="menuzord-brand pull-left flip font-playball text-theme-colored font-32" href="javascript:void(0)">As You <i class="fa fa-heart-o font-25"></i> Wish</a>              
-                                    <ul class="menuzord-menu">
-                                        <li><a href="index.jsp">Home</a></li>
-                                        <li><a href="vendor_list.jsp">Vendors</a></li>
-                                        <li><a href="event_list.jsp">Events</a></li>
-                                        <li><a href="store.jsp">Online Store</a></li>
-                                        <li><a href="contact.jsp">Contact</a></li>                                   
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
+            <%@ include file="/static/visitor_header.jsp"%>
+            
             <!-- Start main-content -->
             <div class="main-content">
                 <!-- Section: inner-header -->
@@ -59,35 +43,28 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <form id="contact_form" name="contact_form" class="form-transparent" action="" method="post">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label for="form_name">Name <small>*</small></label>
-                                                <input id="form_name" name="form_name" class="form-control" type="text" placeholder="Enter Name" required="">
-                                            </div>
-                                        </div>
-                                    </div>
+                                 
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label for="form_email">Email <small>*</small></label>
-                                                <input id="form_email" name="form_email" class="form-control required email" type="email" placeholder="Enter Email">
+                                                <label for="name">Name <small>*</small></label>
+                                                <input id="name" name="name" class="form-control required" type="text" placeholder="Enter Name">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label for="form_name">Subject <small>*</small></label>
-                                                <input id="form_subject" name="form_subject" class="form-control required" type="text" placeholder="Enter Subject">
+                                                <label for="subject">Subject <small>*</small></label>
+                                                <input id="subject" name="subject" class="form-control required" type="text" placeholder="Enter Subject">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="form_name">Message</label>
-                                        <textarea id="form_message" name="form_message" class="form-control required" rows="5" placeholder="Enter Message"></textarea>
+                                        <label for="message">Message</label>
+                                        <textarea id="message" name="message" class="form-control required" rows="5" placeholder="Enter Message"></textarea>
                                     </div>
                                     <div class="form-group text-center">
                                         <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
-                                        <button type="submit" class="btn btn-dark btn-theme-colored btn-flat mr-5" data-loading-text="Please wait...">Send your message</button>
+                                        <button type="button" class="btn btn-dark btn-theme-colored btn-flat mr-5" onclick="send_email('asyouwish077@gmail.com', 'visitor_message')">Send your message</button>
                                         <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Reset</button>
                                     </div>
                                 </form>
@@ -104,11 +81,9 @@
             </footer>
             <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
         </div>
-        <!-- end wrapper -->
-
-        <!-- Footer Scripts -->
-        <!-- JS | Custom script for all pages -->
+       
         <script src="js/custom.js"></script>
+         <script src="js/jquery.rustaMsgBox.js"></script>
 
     </body>
 
