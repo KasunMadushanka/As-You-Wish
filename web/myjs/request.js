@@ -74,7 +74,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "post",
-            url: "controllers/event.jsp",
+            url: "controllers/request.jsp",
             data: "tradition=" + tradition + "&date=" + date + "&time=" + time + "&duration=" + duration + "&no_of_guests=" + no_of_guests + "&theme=" + theme + "&additional_details" + additional_details,
             success: function (msg) {
                 window.location.href = "request_results.jsp?data=" + data;
@@ -83,7 +83,6 @@ $(document).ready(function () {
                 $.rustaMsgBox({'mode': 'error', 'content': 'An error occured while saving data', 'fadeOut': true});
             }
         });
-
 
     });
 });

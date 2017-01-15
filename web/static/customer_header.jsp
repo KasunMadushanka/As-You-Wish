@@ -13,9 +13,9 @@
                             <li><a href="customer_gallery.jsp">Gallery</a></li>
                             <li><a href="vendor_list.jsp?service_id=1&service=Reception Halls">Vendors</a></li>
                             <li><a href="budget_planning.jsp">Budget Planning</a></li>
-                            <li><a href="event_list.jsp">Events</a></li>
+                            <li><a href="blog_list.jsp">Events</a></li>
                             <li><a href="store.jsp">Online Store</a></li>
-                                       <li><a href="#"><img id="bell" src="images/bell.png" style="position: relative;top: -5px;margin-left:8px;margin-right: 8px;" width="25" height="25"></a>
+                                       <li><a href="#"><img id="bell" src="images/bell1.png" style="position: relative;top: -5px;margin-left:8px;margin-right: 8px;" width="25" height="25"></a>
                                 <ul id="notification" class="dropdown">    
                                 </ul>
                                 <script>
@@ -26,11 +26,11 @@
                                             url: "controllers/check_notifications.jsp",
                                             data: "id=" + '<%=session.getAttribute("id")%>' + "&type=" + '<%=session.getAttribute("type")%>',
                                             success: function (msg) {
-                                                //$("#bell").attr("src","");
+                                                $("#bell").attr("src","images/bell2.png");
                                                 $('#notification').append(msg);
                                             },
                                             error: function (error) {
-                                                alert('dd');
+                                                
                                             }
 
                                         });

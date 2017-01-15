@@ -13,11 +13,11 @@
     String theme = request.getParameter("theme");
     String additional_details = request.getParameter("additional_details");
 
-    ResultSet rs = getCon().createStatement().executeQuery("Select customer_id from event where customer_id='" + id + "'");
+    ResultSet rs = getCon().createStatement().executeQuery("Select customer_id from request_registry where customer_id='" + id + "'");
     if (rs.first()) {
-        getCon().createStatement().executeUpdate("Update event set tradition='" + tradition + "',date='" + date + "',time='" + time + "',duration='" + duration + "',no_of_guests='" + no_of_guests + "',theme='" + theme + "',additional_details='" + additional_details + "' where customer_id='"+id+"'");
+        getCon().createStatement().executeUpdate("Update request_registry set tradition='" + tradition + "',date='" + date + "',time='" + time + "',duration='" + duration + "',no_of_guests='" + no_of_guests + "',theme='" + theme + "',additional_details='" + additional_details + "' where customer_id='"+id+"'");
     }else{ 
-         getCon().createStatement().executeUpdate("Insert into event values('" + id + "','" + tradition + "','"+ date+ " ','"+ time+ " ','"+ duration+ " ','"+ no_of_guests+ " ','"+ theme+ " ','"+ additional_details+ "')");
+         getCon().createStatement().executeUpdate("Insert into request_registry values('" + id + "','" + tradition + "','"+ date+ " ','"+ time+ " ','"+ duration+ " ','"+ no_of_guests+ " ','"+ theme+ " ','"+ additional_details+ "')");
     }
  
 %>

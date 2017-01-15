@@ -74,7 +74,7 @@
                             </li>
                             <li><a href="#"><img src="<%=session.getAttribute("image_url")%>" class="img-circle" style="position: relative;top: -10px;margin-left:4px;margin-right: 8px;" width="40" height="40"></a>
                                 <ul class="dropdown">                             
-                                    <li><a href="customer_account.jsp">My Account</a></li>
+                                    <li><a href="vendor_account.jsp">My Account</a></li>
                                     <li><a href="" onclick="logout();
                                             return false;">Sign Out</a></li>
                                 </ul>
