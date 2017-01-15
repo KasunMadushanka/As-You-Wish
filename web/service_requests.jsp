@@ -18,7 +18,7 @@
         service_name = rs.getString("name");
     }
     
-getCon().createStatement().executeQuery("Update service_request set status  service where service_id='" + service + "'");
+getCon().createStatement().executeUpdate("Update service_request set status='2' where vendor_id='" + id + "' and status='1'");
 
 %>
 

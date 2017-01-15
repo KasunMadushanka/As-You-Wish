@@ -80,16 +80,7 @@
                 </div>
 
                 <div id="about_form" style="display:none">
-                    <div class="modal-body">
-                        <label for="about_text">About Us:</label>
-                        <textarea id="about_text" name="about_text" class="form-control" rows="10" placeholder=""></textarea>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="form-group text-center">
-                            <button type="button" onclick="update_about()" class="btn btn-dark btn-theme-colored btn-flat mr-5">Apply Changes</button>
-                            <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Reset</button>
-                        </div>
-                    </div>
+                   
                 </div>
 
                 <div id="vision_form" style="display: none;">

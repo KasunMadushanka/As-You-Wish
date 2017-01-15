@@ -1,6 +1,8 @@
 <%@ include file="../config/sessionCheckAdmin.jsp" %>
 
-<%    ResultSet rs;
+<%
+
+    ResultSet rs;
     rs = getCon().createStatement().executeQuery("SELECT `id`,`fname`, `lname`, `street`, `city`, `pro`, `postal`, list.itemId ,  price "
             + "FROM `checkout` inner join list on checkout.id = list.refCheck inner join payment on checkout.id = payment.refCheck group by  checkout.id");
 
@@ -26,8 +28,9 @@
             <!-- end #header -->
 
             <!-- begin #sidebar -->
-            <%                String pageTitle = "store";
-                String subPage = "checkouts";
+            <%
+                    String pageTitle = "store";
+                    String subPage = "checkouts";
             %>
             <%@ include file="static/navbar.jsp" %>
             <!-- end #sidebar -->

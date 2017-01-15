@@ -109,7 +109,7 @@
                                                     <p class="desc">
                                                         Here you can get overall sale progress for a specific item.
                                                         <div class="form-group">
-                                                            <label class="col-md-4 control-label">Contest:</label>
+                                                            <label class="col-md-4 control-label">Item:</label>
                                                             <div class="input-group">
                                                                 <select class="form-control" name="conID">
                                                                     <%
@@ -153,6 +153,111 @@
                                                 </div>
                                                 </form>
                                             </form>
+                                        </li>
+                                        <li>
+                                            <div class="col-md-2 result-image">
+                                                <a href="javascript:;"><img src="assets/img/reports/pur.png" alt="" height="225" /></a>
+                                                </div>
+                                            <form method="get" action="overallPurchase.jsp">
+                                                <div class="col-md-5">
+                                                    <h4 class="title">
+                                                        <br>
+                                                        <a >Purchase Order Chart</a></h4>
+                                                    <p class="desc">
+                                                        Here you can get overall purchase order details for a specific item.
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 control-label">Items:</label>
+                                                            <div class="input-group">
+                                                                <select class="form-control" name="conID">
+                                                                    <%
+                                                                        ResultSet rs5;
+                                                                        rs5 = getCon().createStatement().executeQuery("SELECT `itemId`,`itemName` FROM `items`");
+                                                                        
+                                                                        while(rs5.next()){ %>
+                                                                        <option value="<%= rs5.getString("itemId") %>"><%= rs5.getString("itemName") %></option>
+
+                                                                      <%  }
+                                                                    
+                                                                    %>
+                                                                    
+                                                                </select>
+                                                            </div>
+                                                            <br>
+                                                            <button class="btn btn-inverse btn-block" type="submit">Get Chart</button>
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                                </form>
+                                                                    <form method="get" action="PoReport.jsp" target="_blank">
+                                                <div class="col-md-4" style="border-left:1px solid #000;">
+                                                    <h4 class="title">
+                                                        <br>
+                                                        <a >Purchase Order Reports</a></h4>
+                                                    <p class="desc">
+                                                        Specific duration you can get all purchase orders.
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 control-label">Time Period:</label>
+                                                            <div class="input-group input-daterange">
+                                                                    <input type="text" class="form-control" name="start" placeholder="Date Start" />
+                                                                    <span class="input-group-addon">to</span>
+                                                                    <input type="text" class="form-control" name="end" placeholder="Date End" />
+                                                                </div>
+                                                            <br>
+                                                            <button class="btn btn-inverse btn-block" type="submit">Get Report</button>
+                                                            <br><br>
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                                </form>
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <div class="col-md-2 result-image">
+                                                <a href="javascript:;"><img src="assets/img/reports/item.png" alt=""  height="225" /></a>
+                                                </div>
+                                            <form method="get" action="itemDetailsReport.jsp">
+                                                <div class="col-md-5">
+                                                    <h4 class="title">
+                                                        <br>
+                                                        <a >Item Report</a></h4>
+                                                    <p class="desc">
+                                                        Get all details about specific item, supplier details, stock status, price, views and other important details.
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 control-label">Items:</label>
+                                                            <div class="input-group">
+                                                                <select class="form-control" name="conID">
+                                                                    <%
+                                                                        ResultSet rs6;
+                                                                        rs6 = getCon().createStatement().executeQuery("SELECT `itemId`,`itemName` FROM `items`");
+                                                                        
+                                                                        while(rs6.next()){ %>
+                                                                        <option value="<%= rs6.getString("itemId") %>"><%= rs6.getString("itemName") %></option>
+
+                                                                      <%  }
+                                                                    
+                                                                    %>
+                                                                    
+                                                                </select>
+                                                            </div>
+                                                            <br>
+                                                            
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                               
+                                                                    
+                                                <div class="col-md-4" style="border-left:1px solid #000;">
+                                                   
+                                                    <div class="form-group">
+                                                            
+                                                            <br><br><br><br><br>
+                                                            <button class="btn btn-inverse btn-block" type="submit">Get Report</button>
+                                                            <br><br><br><br><br>
+                                                        </div>
+                                                    
+                                                </div>
+                                                </form>
+
                                         </li>
                                         
                                 </ul>

@@ -3,8 +3,11 @@
 <%
     
     ResultSet rs;
-    rs = getCon().createStatement().executeQuery("SELECT c.first_name,c.last_name,sr.request_id,v.first_name,v.last_name,v.company_name,vp.title,vp.price from customer c inner join "
-            + "service_request sr on c.customer_id=sr.customer_id inner join vendor v on sr.vendor_id=v.vendor_id inner join vendor_pricing vp on sr.pricing_id=vp.pricing_id where sr.status='completed' order by sr.request_id desc");
+    rs = getCon().createStatement().executeQuery("SELECT c.first_name,c.last_name,sr.request_id,v.first_name,v.last_name,"
+            + "v.company_name,vp.title,vp.price from customer c inner join "
+            + "service_request sr on c.customer_id=sr.customer_id inner join vendor v on "
+            + "sr.vendor_id=v.vendor_id inner join vendor_pricing vp on sr.pricing_id=vp.pricing_id "
+            + "where sr.status='6' order by sr.request_id desc");
 
     String id = request.getParameter("txt");
     //String 
@@ -30,8 +33,9 @@
             <!-- end #header -->
 
             <!-- begin #sidebar -->
-            <%                String pageTitle = "store";
-                String subPage = "checkouts";
+            <%  
+                String pageTitle = "customer";
+                String subPage = "request";
             %>
             <%@ include file="static/navbar.jsp" %>
 
@@ -80,8 +84,8 @@
                                             <td><%= rs.getString("vp.title")%></td>
                                             <td><%= rs.getString("vp.price")%></td>
                                             <td> 
-                                                <form  method="get" action="" target="_blank">
-                                                    <input type="hidden" id="txt" name="txt" value="<%= rs.getString("request_id")%>">
+                                                <form  method="get" action="WeddingReport.jsp" target="_blank">
+                                                    <input type="hidden" id="txt" name="id" value="<%= rs.getString("request_id")%>">
                                                     <button type="submit" class="btn btn-primary btn-sm" ><i class="fa fa-pencil-square-o"></i> View Invoice </button>                                                         
                                                 </form>
                                             </td>

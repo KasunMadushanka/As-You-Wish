@@ -5,6 +5,29 @@
     ResultSet rs;
     rs = getCon().createStatement().executeQuery("SELECT ads.*, SUBSTRING_INDEX(`payment_date`, ' ', 1) AS date , company_name FROM `ads` inner join vendor on vendor_id = vendorId");
     
+    ResultSet rsCheckAddStatus;
+    rsCheckAddStatus = getCon().createStatement().executeQuery("SELECT `status` FROM `ads` group by `status`");
+    
+    
+    String btnStatus = "checked";
+    String TextStatus = "Advertisements: Visible";
+    String Status = "";
+    int count =0;
+    
+    
+    while (rsCheckAddStatus.next()) {
+        ++count;
+        Status = rsCheckAddStatus.getString("status");
+        // Get data from the current row and use it
+    }
+
+    if (count == 1 && Status.equals("off")) {
+        btnStatus = "";
+        TextStatus = "Advertisements: Hidden";
+    }
+    
+    
+    
     
     
   
@@ -46,6 +69,8 @@
     <link href="assets/plugins/bootstrap-calendar/css/bootstrap_calendar.css" rel="stylesheet" />
     <link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
     <link href="assets/plugins/morris/morris.css" rel="stylesheet" />
+    <link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
+	<link href="assets/plugins/powerange/powerange.min.css" rel="stylesheet" />
 	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
@@ -99,25 +124,53 @@
                             <h4 class="panel-title"> &nbsp;</h4>
                         </div>
                         <div class="panel-body">
-                            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal2"><i class="fa fa-plus"></i>  Add Advertisement</button><br><br>
                             
+                            <div class="col-md-2" style="float:right">
+                                <center>
+                                    <label style="float:left" id="adsStatusText" ><%= TextStatus %></label> 
+                                    <input style="float:right" id="adsStatus" name="display_votes" type="checkbox" <%= btnStatus %> data-render="switchery" data-theme="default" style="position: relative;left:100px;" />
+                            
+                                </center>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal2" style="float:left"><i class="fa fa-plus"></i>  Add Advertisement</button><br><br>
+                            <br>
                             <table id="data-table" class="table table-striped table-bordered">
+                                
                                 <thead>
                                     <tr>
                                         <th>Vendor Name</th>
                                         <th>Payment</th>
                                         <th>Payment Date</th>
+                                        <th>Status</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <%
-                                        
-                                        while(rs.next()){ %>
+                                        String btn = "";
+                                        String changeStat = "";
+                                        while(rs.next()){ 
+                                            String Statuus = rs.getString("status");
+                                            if(Statuus.equals("on") ){
+                                                btn = "<button type='submit'  name='editCat' class='btn btn-danger btn-sm' ><i class='fa fa-close'></i> Deactivate </button>";
+                                                changeStat = "off"; 
+                                            }
+                                            else{
+                                                btn = "<button type='submit'  name='editCat' class='btn btn-success btn-sm' ><i class='fa fa-check'></i> Activate </button>";
+                                                changeStat = "on";
+                                            }
+                                            %>
                                             <tr class="odd gradeX">
                                                 <td><%= rs.getString("company_name") %></td>
                                                 <td><%= rs.getString("payment") %></td>
                                                 <td><%= rs.getString("date") %></td>
+                                                <td> 
+                                                    <form  method="get">
+                                                        <input type="hidden" id="txt" name="txt" value="<%= rs.getString("id") %>">
+                                                        <input type="hidden" id="type" name="type" value="<%= changeStat %>">
+                                                        <%= btn  %>
+                                                    </form>
+                                                </td>
                                                 <td> 
                                                     <form  method="get">
                                                         <input type="hidden" id="vId" name="vId" value="<%= rs.getString("vendorId") %>">
@@ -145,6 +198,31 @@
             <!-- end row -->
 		</div>
 		<!-- end #content -->
+                
+                
+                
+                
+<%
+        
+        String Vid = request.getParameter("txt");
+        String Type = request.getParameter("type");
+        
+        if(request.getParameter("editCat") != null){ 
+            
+            Statement stx= getCon().createStatement();
+            int i2=stx.executeUpdate("update ads set status = '"+Type+"' where id = '"+ Vid +"'");
+            
+            if(i2 == 1){
+                out.print("<script>swal({  title: 'Done!', text: '', type: 'success', confirmButtonText: 'Done!'}, function(){ window.location.href='vendorAds.jsp'; });</script>");
+
+            }
+            else{
+                response.sendRedirect( "../admin/error.jsp");
+            }
+            
+        }
+
+%>
                 
 <!-- ###############################################          Model     ###################################################################################################################-->         
             <div class="modal fade" id="myModal2" role="dialog">
@@ -376,6 +454,9 @@
 	<script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
 	<script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
 	<script src="assets/js/table-manage-default.demo.min.js"></script>
+        <script src="assets/plugins/switchery/switchery.min.js"></script>
+	<script src="assets/plugins/powerange/powerange.min.js"></script>
+	<script src="assets/js/form-slider-switcher.demo.min.js"></script>
 	<script src="assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
@@ -383,6 +464,7 @@
 		$(document).ready(function() {
 			App.init();
 			TableManageDefault.init();
+                        FormSliderSwitcher.init();
 		});
                 $('#myModal1').modal({
                     show: true
@@ -426,11 +508,45 @@
 
 
                     }
+                    
+                    
+           $("#adsStatus").change(function() {
+               var sss = "";
+                if(this.checked) {
+                    sss = "on";
+;                    $.ajax({
+                            type: "post",
+                            url: "controllers/adsStatus.jsp", 
+                            data: {'sss': sss},
+                            success: function (msg) {
+                                   location.reload();
+                            },
+                            error: function (error) {
+                               window.location = 'error.jsp';
+
+                            }
+                        });
+                }
+                else{
+                    sss = "off";
+;                    $.ajax({
+                            type: "post",
+                            url: "controllers/adsStatus.jsp", 
+                            data: {'sss': sss},
+                            success: function (msg) {
+                                  location.reload();
+                            },
+                            error: function (error) {
+                                window.location = 'error.jsp';
+
+                            }
+                        });
+                }
+            })
         
     </script>
     
 </body>
 
-<!-- Mirrored from seantheme.com/color-admin-v1.9/admin/html/table_manage.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2015 11:23:32 GMT -->
 </html>
 

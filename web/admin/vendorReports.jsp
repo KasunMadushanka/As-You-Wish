@@ -128,6 +128,138 @@
                                             </form>
                                         </li>
                                         
+                                        <li>
+                                            <form method="get" action="vendorDetailsReport.jsp" target="_blank">
+                                                <div class="col-md-2 result-image">
+                                                    <a href="javascript:;"><img src="assets/img/reports/vendor.png" alt=""  height="225" /></a>
+                                                </div>
+                                                <div class="col-md-7 result-info">
+                                                    <h4 class="title">
+                                                        <br>
+                                                        <a >Vendor Details</a></h4>
+                                                    <p class="desc">
+                                                        Get all details about a specific vendor.
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 control-label">Vendor Company Name:</label>
+                                                            <div class="input-group">
+                                                                <input list="VName" name="VName" required class="form-control" data-size="10" data-live-search="true" placeholder="Hotel Hilton">
+								<datalist id="VName">
+                                                                    <%
+									String sqlcoun = "SELECT `company_name` FROM `vendor`";
+                                                                        ResultSet rscust;
+                                                                        rscust = getCon().createStatement().executeQuery(sqlcoun);
+                                                                        //first_name	last_name
+                                                                        while(rscust.next()){ //cFName	cLName
+										%>
+                                                                                <option value="<%= rscust.getString("company_name") %>" ><%= rscust.getString("company_name") %></option>            
+
+									<%  
+                                                                                }
+                                                                         %>
+                                                                </datalist>
+
+                                                        
+                                                                </div>
+
+                                                        </div>
+                                                        
+                                                    </p>
+                                                </div>
+                                                <div class="result-price col-md-3" >
+                                                    <button class="btn btn-inverse btn-block" name="btn" value="custList" type="submit">Get Report</button>
+                                                    <br><br><br>
+                                                </div>
+                                            </form>
+                                        </li>
+                                        
+                                        <li>
+                                            <form method="get" action="vendorBlogReport.jsp" target="_blank">
+                                                <div class="col-md-2 result-image">
+                                                    <a href="javascript:;"><img src="assets/img/reports/vBlog.png" alt=""  height="225" /></a>
+                                                </div>
+                                                <div class="col-md-7 result-info">
+                                                    <h4 class="title">
+                                                        <br>
+                                                        <a >Vendor's Blog Details</a></h4>
+                                                    <p class="desc">
+                                                        Get specific vendor's blog details like post title, likes and comments.
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 control-label">Vendor Company Name:</label>
+                                                            <div class="input-group">
+                                                                <input list="dName" name="name" required class="form-control" data-size="10" data-live-search="true" placeholder="Hotel Hilton">
+								<datalist id="dName">
+                                                                    <%
+									String sql1 = "SELECT `company_name` FROM `vendor`";
+                                                                        ResultSet rscust1;
+                                                                        rscust1 = getCon().createStatement().executeQuery(sql1);
+                                                                        //first_name	last_name
+                                                                        while(rscust1.next()){ //cFName	cLName
+										%>
+                                                                                <option value="<%= rscust1.getString("company_name") %>" ><%= rscust1.getString("company_name") %></option>            
+
+									<%  
+                                                                                }
+                                                                         %>
+                                                                </datalist>
+
+                                                        
+                                                                </div>
+
+                                                        </div>
+                                                        
+                                                    </p>
+                                                </div>
+                                                <div class="result-price col-md-3" >
+                                                    <button class="btn btn-inverse btn-block" name="btn" value="custList" type="submit">Get Report</button>
+                                                    <br><br><br>
+                                                </div>
+                                            </form>
+                                        </li>
+                                        
+                                        <li>
+                                            <form method="get" action="vendorAdsReport.jsp" target="_blank">
+                                                <div class="col-md-2 result-image">
+                                                    <a href="javascript:;"><img src="assets/img/reports/adver-c.jpg" alt=""  height="225" /></a>
+                                                </div>
+                                                <div class="col-md-7 result-info">
+                                                    <h4 class="title">
+                                                        <br>
+                                                        <a >Vendor Advertisement payment Details</a></h4>
+                                                    <p class="desc">
+                                                        Get specific vendor's purchase details about advertisement.
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 control-label">Vendor Company Name:</label>
+                                                            <div class="input-group">
+                                                                <input list="dName" name="name" required class="form-control" data-size="10" data-live-search="true" placeholder="Hotel Hilton">
+								<datalist id="dName">
+                                                                    <%
+									String sql2 = "SELECT `company_name` FROM `vendor`";
+                                                                        ResultSet rscust2;
+                                                                        rscust2 = getCon().createStatement().executeQuery(sql2);
+                                                                        //first_name	last_name
+                                                                        while(rscust2.next()){ //cFName	cLName
+										%>
+                                                                                <option value="<%= rscust2.getString("company_name") %>" ><%= rscust2.getString("company_name") %></option>            
+
+									<%  
+                                                                                }
+                                                                         %>
+                                                                </datalist>
+
+                                                        
+                                                                </div>
+
+                                                        </div>
+                                                        
+                                                    </p>
+                                                </div>
+                                                <div class="result-price col-md-3" >
+                                                    <button class="btn btn-inverse btn-block" name="btn" value="custList" type="submit">Get Report</button>
+                                                    <br><br><br>
+                                                </div>
+                                            </form>
+                                        </li>
+                                        
                                         
                                 </ul>
                         

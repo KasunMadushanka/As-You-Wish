@@ -174,6 +174,67 @@
                                                 </div>
                                             </form>
                                         </li>
+                                        <li>
+                                            <form method="get" action="custBlogReport.jsp" target="_blank">
+                                                <div class="col-md-2 result-image">
+                                                    <a href="javascript:;"><img src="assets/img/reports/blog.jpg" alt=""  height="225" /></a>
+                                                </div>
+                                                <div class="col-md-7 result-info">
+                                                    <h4 class="title">
+                                                        <br>
+                                                        <a >Customer's Blog</a></h4>
+                                                    <p class="desc">
+                                                        Get specific customer's all blog posts, likes and comments.
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 control-label">Customer Name:</label>
+                                                            <div class="input-group">
+                                                                <input list="dName1" name="name" required class="form-control" data-size="10" data-live-search="true" placeholder="John Reese">
+								<datalist id="dName1">
+                                                                    <%
+									String sqlcoun1 = "select * from `customer`";
+                                                                        ResultSet rscust1;
+                                                                        rscust1 = getCon().createStatement().executeQuery(sqlcoun1);
+                                                                        //first_name	last_name
+                                                                        while(rscust1.next()){ //cFName	cLName
+										%>
+                                                                                <option value="<%= rscust1.getString("first_name")+" "+rscust1.getString("last_name") %>" ><%= rscust1.getString("first_name")+" "+rscust1.getString("last_name") %></option>            
+
+									<%  
+                                                                                }
+                                                                         %>
+                                                                </datalist>
+
+                                                        
+                                                                </div>
+
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                                <div class="result-price col-md-3" >
+                                                    <button class="btn btn-inverse btn-block" name="btn" value="custList" type="submit">Get Report</button>
+                                                    <br><br><br>
+                                                </div>
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <form method="get" action="visitorList.jsp" target="_blank">
+                                                <div class="col-md-2 result-image">
+                                                    <a href="javascript:;"><img src="assets/img/reports/visitor.png" alt=""  height="225" /></a>
+                                                </div>
+                                                <div class="col-md-7 result-info">
+                                                    <h4 class="title">
+                                                        <br>
+                                                        <a >Visitor Details</a></h4>
+                                                    <p class="desc">
+                                                        Get all details about visitors.
+                                                    </p>
+                                                </div>
+                                                <div class="result-price col-md-3" >
+                                                    <button class="btn btn-inverse btn-block" name="btn" value="custList" type="submit">Get Report</button>
+                                                    <br><br><br>
+                                                </div>
+                                            </form>
+                                        </li>
                                         
                                         
                                         

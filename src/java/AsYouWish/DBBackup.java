@@ -64,7 +64,7 @@ public class DBBackup {
                 String mysqlPort = "3306";
                 String dbUser = "root";
                 String dbPassword = "1234";
-                String database = "db";
+                String database = "world";
                 DBBackup dbBackup = new DBBackup();
                 try {
                     DateFormat dayFormat = new SimpleDateFormat("dd");
@@ -99,7 +99,7 @@ public class DBBackup {
             String mysqlPort = "3306";
             String dbUser = "root";
             String dbPassword = "1234";
-            String database = "db";
+            String database = "world";
             DBBackup dbBackup = new DBBackup();
             try {
                 DateFormat dayFormat = new SimpleDateFormat("dd");

@@ -27,15 +27,16 @@
         </li>
         <li class="has-sub <% out.print(pageTitle == "customer" ? "active" : ""); %>"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-users"></i><span>Customer</span></a>
             <ul class="sub-menu">
-                <li class="<% out.print(subPage == "allcust" ? "active" : ""); %>"><a href="customers.jsp">All Customers</a></li>
-             <li class="<% out.print(subPage == "requests" ? "active" : ""); %>"><a href="service_requests.jsp">Service Requests</a></li>
+                <li class="<% out.print(subPage == "allcust" ? "active" : ""); %>"><a href="customers.jsp">All Customer</a></li>
+                <li class="<% out.print(subPage == "allvis" ? "active" : ""); %>"><a href="visitor.jsp">All Visitors</a></li>
+                <li class="<% out.print(subPage == "request" ? "active" : ""); %>"><a href="service_requests.jsp">Service Requests</a></li>
             </ul>
         </li>
         <li class="has-sub <% out.print(pageTitle == "frontend" ? "active" : ""); %>"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-star"></i><span>Front End</span> </a>
             <ul class="sub-menu">
                 <li class="<% out.print(subPage == "terms" ? "active" : ""); %>"><a href="terms.jsp">Terms and Regulations</a></li>
                 <li class="<% out.print(subPage == "legal" ? "active" : ""); %>"><a href="legal.jsp">Legal Information</a></li>
-                <li class="<% out.print(subPage == "vendor" ? "active" : ""); %>"><a href="ui_modal_notification.html">Images</a></li>
+                <li class="<% out.print(subPage == "priv" ? "active" : ""); %>"><a href="PrivacyPolicy.jsp">Privacy Policy</a></li>
 			</ul>
         </li>
         <li class="has-sub <% out.print(pageTitle == "store" ? "active" : ""); %>"><a href="javascript:;"><b class="caret pull-right"></b> <i class="fa fa-shopping-cart"></i><span>Online Store</span></a>
@@ -55,11 +56,12 @@
             </ul>
         </li>
         <li class="<% out.print(pageTitle == "blog" ? "active" : ""); %>"><a href="news_blog.jsp "><i class="fa fa-pencil"></i> <span>News Blog</span></a></li>
-        <li class="<% out.print(pageTitle == "chat" ? "active" : ""); %>"><a href="chat.jsp"><i class="fa fa-weixin" aria-hidden="true"></i> <span>Chat Room</span><span class="badge pull-right">10</span></a></li>
+        <li class="<% out.print(pageTitle == "chat" ? "active" : ""); %>"><a href="chat.jsp"><i class="fa fa-weixin" aria-hidden="true"></i> <span>Chat Room</span></a></li>
 	<li class="has-sub <% out.print(pageTitle == "video" ? "active" : ""); %>"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-file-movie-o"></i><span>Thanking Video</span></a>
             <ul class="sub-menu">
                 <li class="<% out.print(subPage == "pre" ? "active" : ""); %>"><a href="video_preview.jsp">Preview</a></li>
-                <li class="<% out.print(subPage == "setting_video" ? "active" : ""); %>"><a href="video_settings.jsp">Settings</a></li>
+                <li class="<% out.print(subPage == "setting_video" ? "active" : ""); %>"><a href="weddings.jsp">Settings</a></li>
+                <li class="<% out.print(subPage == "links" ? "active" : ""); %>"><a href="videos.jsp">Videos</a></li>
             </ul>
         </li>
         <li class="has-sub <% out.print(pageTitle == "report" ? "active" : ""); %>"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-file-pdf-o"></i><span>Reports</span></a>

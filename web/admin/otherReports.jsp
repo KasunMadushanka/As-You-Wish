@@ -101,7 +101,7 @@
                                         
                                         <li>
                                             <div class="col-md-2 result-image">
-                                                    <a href="javascript:;"><img src="assets/img/reports/contest.jpg" alt=""  height="225" /></a>
+                                                <a href="javascript:;"><img src="assets/img/reports/pie-chart-bar-graph-illustration-design-23695005.jpg" alt=""  height="225" /></a>
                                                 </div>
                                                 <form method="get" action="VoteReport.jsp">
                                                 <div class="col-md-5">
@@ -153,6 +153,7 @@
                                                 </form>
 
                                         </li>
+                                        
                                         <li>
                                             <div class="col-md-2 result-image">
                                                     <a href="javascript:;"><img src="assets/img/reports/contest.jpg" alt=""  height="225" /></a>
@@ -188,6 +189,36 @@
                                                 </div>
                                                 </form>
                                                 
+                                        </li>
+                                        
+                                        <li>
+                                            <div class="col-md-2 result-image">
+                                                <a href="javascript:;"><img src="assets/img/reports/blog.jpg" alt=""  height="225" /></a>
+                                                </div>
+                                                <form method="get" action="VoteReport.jsp">
+                                                <div class="col-md-5">
+                                                    <h4 class="title">
+                                                        <br>
+                                                        <a >News Blog Details</a></h4>
+                                                    <p class="desc">
+                                                        Get all details about News blogs views,likes and comments.
+                                                        
+                                                    </p>
+                                                </div>
+                                                </form>
+                                            <form method="get" target="_blank" action="newsBlogReport.jsp">
+                                                <div class="col-md-4" style="border-left:1px solid #000;">
+                                                   
+                                                    <div class="form-group">
+                                                            
+                                                            <br><br><br><br><br>
+                                                            <button class="btn btn-inverse btn-block" type="submit">Get Report</button>
+                                                            <br><br><br><br><br>
+                                                        </div>
+                                                    
+                                                </div>
+                                                </form>
+
                                         </li>
                                         
                                         

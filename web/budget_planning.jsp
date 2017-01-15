@@ -109,7 +109,7 @@
                                             <div class="col-xs-6 col-md-4">
                                                 <div class="card effect__click">
                                                     <div class="card__front bg-theme-colored">
-                                                        <img src="images/services/reception_halls.jpg" width="280" height="300">
+                                                        <img src="images/services/1.jpg" width="280" height="300">
                                                         <div class="card__text">
                                                             <div class="display-table-parent">
                                                                 <div class="display-table">
@@ -203,7 +203,7 @@
                                             <div class="col-xs-6 col-md-4">
                                                 <div class="card effect__click">
                                                     <div class="card__front bg-theme-colored">
-                                                        <img src="images/services/cake_designers.jpg" width="280" height="300">
+                                                        <img src="images/services/2.jpg" width="280" height="300">
                                                         <div class="card__text">
                                                             <div class="display-table-parent">
                                                                 <div class="display-table">
@@ -290,7 +290,7 @@
                                             <div class="col-xs-6 col-md-4">
                                                 <div class="card effect__click">
                                                     <div class="card__front bg-theme-colored">
-                                                        <img src="images/services/beauticians.jpg" width="280" height="300">
+                                                        <img src="images/services/3.jpg" width="280" height="300">
                                                         <div class="card__text">
                                                             <div class="display-table-parent">
                                                                 <div class="display-table">
@@ -374,7 +374,7 @@
                                             <div class="col-xs-6 col-md-4">
                                                 <div class="card effect__click">
                                                     <div class="card__front bg-theme-colored">
-                                                        <img src="images/services/bridal_dresses.jpg" width="280" height="300">
+                                                        <img src="images/services/4.jpg" width="280" height="300">
                                                         <div class="card__text">
                                                             <div class="display-table-parent">
                                                                 <div class="display-table">
@@ -462,7 +462,7 @@
                                             <div class="col-xs-6 col-md-4">
                                                 <div class="card effect__click">
                                                     <div class="card__front bg-theme-colored">
-                                                        <img src="images/services/groom_suits.jpg" width="280" height="300">
+                                                        <img src="images/services/5.jpg" width="280" height="300">
                                                         <div class="card__text">
                                                             <div class="display-table-parent">
                                                                 <div class="display-table">
@@ -547,7 +547,7 @@
                                             <div class="col-xs-6 col-md-4">
                                                 <div class="card effect__click">
                                                     <div class="card__front bg-theme-colored">
-                                                        <img src="images/services/photography.jpg" width="280" height="300">
+                                                        <img src="images/services/6.jpg" width="280" height="300">
                                                         <div class="card__text">
                                                             <div class="display-table-parent">
                                                                 <div class="display-table">
@@ -637,7 +637,7 @@
                                             <div class="col-xs-6 col-md-4">
                                                 <div class="card effect__click">
                                                     <div class="card__front bg-theme-colored">
-                                                        <img src="images/services/poruwa.jpg" width="280" height="300">
+                                                        <img src="images/services/7.jpg" width="280" height="300">
                                                         <div class="card__text">
                                                             <div class="display-table-parent">
                                                                 <div class="display-table">
@@ -721,7 +721,7 @@
                                             <div class="col-xs-6 col-md-4">
                                                 <div class="card effect__click">
                                                     <div class="card__front bg-theme-colored">
-                                                        <img src="images/services/entertainment_groups.jpg" width="280" height="300">
+                                                        <img src="images/services/8.jpg" width="280" height="300">
                                                         <div class="card__text">
                                                             <div class="display-table-parent">
                                                                 <div class="display-table">
@@ -806,7 +806,7 @@
                                             <div class="col-xs-6 col-md-4">
                                                 <div class="card effect__click">
                                                     <div class="card__front bg-theme-colored">
-                                                        <img src="images/services/wedding_cars.jpg" width="280" height="300">
+                                                        <img src="images/services/9.jpg" width="280" height="300">
                                                         <div class="card__text">
                                                             <div class="display-table-parent">
                                                                 <div class="display-table">

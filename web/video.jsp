@@ -50,7 +50,7 @@
                     <div class="container pt-80">
                         <div class="template">
                             <div class="template-wrap clear">
-                                <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="450px" width="1366px" style="position:relative;top:178px;"></canvas>
+                                <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="452px" width="1920px" style="position:relative;top:178px;"></canvas>
                                 <br>
                                 <div class="logo"></div>
                             </div>
@@ -60,9 +60,9 @@
                                     TOTAL_MEMORY: 268435456,
                                     errorhandler: null,
                                     compatibilitycheck: null,
-                                    dataUrl: "video_data/Video.data",
-                                    codeUrl: "video_data/Video.js",
-                                    memUrl: "video_data/Video.mem",
+                                    dataUrl: "video_data/video.data",
+                                    codeUrl: "video_data/video.js",
+                                    memUrl: "video_data/video.mem",
                                 };
                             </script>
                             <script src="video_data/UnityLoader.js"></script>

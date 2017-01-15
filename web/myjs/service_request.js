@@ -46,12 +46,16 @@ function process_request(request_id, status) {
         content: 'Are you sure?!',
         confirm: function () {
 
-            $.ajax({
+            $.ajax({ 
                 type: "post",
                 url: "controllers/service_request/process_request.jsp",
                 data: "request_id=" + request_id + "&status=" + status,
                 success: function (msg) {
-                    $.rustaMsgBox({'mode': 'info', 'content': 'Request '+status, 'fadeOut': true});
+                    if(status==='3'){
+                    $.rustaMsgBox({'mode': 'info', 'content': 'Request accepted', 'fadeOut': true});
+                }else if(status==='4'){
+                       $.rustaMsgBox({'mode': 'info', 'content': 'Request discarded', 'fadeOut': true});
+                }
                 },
                 error: function (error) {
                     $.rustaMsgBox({'mode': 'error', 'content': 'Error occured', 'fadeOut': true});

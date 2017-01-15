@@ -71,8 +71,8 @@
 <div class="modal-footer">
     <div class="form-group text-center">
         <div class="row">                               
-            <button type="button" class="btn btn-dark btn-theme-colored btn-flat" onclick="process_request(<%=request_id%>,'accepted')">Accept</button>
-            <button type="button" class="btn btn-dark btn-theme-colored btn-flat" onclick="process_request(<%=request_id%>,'discarded')">Discard</button>
+            <button type="button" class="btn btn-dark btn-theme-colored btn-flat" onclick="process_request(<%=request_id%>,'3')">Accept</button>
+            <button type="button" class="btn btn-dark btn-theme-colored btn-flat" onclick="process_request(<%=request_id%>,'4')">Discard</button>
         </div>
     </div>
 </div>

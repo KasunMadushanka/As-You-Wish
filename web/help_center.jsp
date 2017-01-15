@@ -51,9 +51,28 @@
 
                 <section class="divider bg-lightest">
                     <div class="container">
-
-                            <div class="row">
-                                <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <center>
+                                    
+                                        <strong style="font-size: 25px;">
+                                            What is "As You Wish" ?
+                                        </strong>
+                                    <ol type="a">                            
+                                        <p>
+                                           Learn it here.
+                                          </p>
+                                    </ol>
+                                    
+                                    <br>
+                                    
+                                    <video width="650"  controls="controls">  
+                                        <source src="videoTut/AYW Video.f4v" />   
+                                        Nav doesn't support html5 video
+                                    </video>
+                                </center>
+                            </div>
+                            <div class="col-md-4">
 
                                     <center>
                                         <strong style="font-size: 25px;">
@@ -70,7 +89,10 @@
                                         given many more features to access through out the time you spend with As You Wish.
                                     </p>
                                 </div>
-                                <div class="col-md-4">
+                        </div>
+                            <div class="row">
+                                <br>
+                                <div class="col-md-3">
 
                                     <center>
                                         <strong style="font-size: 25px;">
@@ -106,10 +128,7 @@
                                         </li>
                                     </ol>
                                 </div>
-                            </div>
-                        <div class="row" style="padding-top: 30px;">
-                                
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <center>
                                         <strong style="font-size: 25px;">
                                             Messaging
@@ -125,22 +144,13 @@
                                     </p>
 
                                 </div>
+                            </div>
                             
-                            <div class="col-md-6">
-
-                                    <center>
-                                        <strong style="font-size: 25px;">
-                                            Troubleshooting
-                                        </strong>
-                                    </center>      
-                                    <br>
-                                    <center><img src="images/help_center/pages.png" width="320" height="220"></center>
-                                    <br>
-                                    <p>
-                                       If you experience any technical or any other issue on this web site please contact
-                                       us and we are here to help you to resolve them at any time.
-                                    </p>
-                                </div>
+                        <div class="row" style="padding-top: 30px;">
+                                
+                                
+                            
+                            
                             </div>
 
                             </section>

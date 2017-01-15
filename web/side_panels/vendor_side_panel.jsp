@@ -20,7 +20,7 @@
                         <li><a class="tree-toggler nav-header" href="#">Edit<i class="fa fa-angle-down"></i></a>
                             <ul class="nav nav-list tree">
                                 <li><a id="sliding_images" href="#">Sliding Images</a></li>
-                                <li><a id="about" href="#">About Us</a></li>
+                                <li><a id="about" href="#" onclick="load_about(); return false;">About Us</a></li>
                                  <li><a id="vision" href="#">Vision</a></li>
                                 <li><a id="location" href="#">Location</a></li>
                                 <li><a id="contact" href="#">Contact</a></li>

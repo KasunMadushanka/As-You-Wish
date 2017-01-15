@@ -47,7 +47,7 @@ $(function () {
         current = "slider_form";
     });
 
-    $('#about').click(function () {
+    window.load_about = function () {
         divForms.css("height", 333);
         if (current_form === null) {
             if (current !== null) {
@@ -63,7 +63,7 @@ $(function () {
         }
         current_form = about_form;
         current = "about_form";
-    });
+    };
 
     $('#vision').click(function () {
         divForms.css("height", 233);
@@ -204,7 +204,7 @@ $(function () {
         current = "comment_form";
     };
 
-    window.visitor_sign_up= function () {
+    window.visitor_sign_up = function () {
         if (current_form === null) {
             if (current !== null) {
                 document.getElementById(current).style.display = "none";
@@ -219,8 +219,8 @@ $(function () {
         current_form = visitor_sign_up_form;
         current = "visitor_sign_up_form";
     };
-    
-     window.load_request= function () {
+
+    window.load_request = function () {
         if (current_form === null) {
             if (current !== null) {
                 document.getElementById(current).style.display = "none";
