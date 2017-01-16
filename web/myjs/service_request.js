@@ -11,10 +11,11 @@ function send_request(vendor_id, pricing_id) {
                 url: "controllers/service_request/send_request.jsp",
                 data: "vendor_id=" + vendor_id + "&pricing_id=" + pricing_id,
                 success: function (msg) {
-                    $.rustaMsgBox({'mode': 'info', 'content': 'Request sent', 'fadeOut': true});
+                   swal({title: 'Request Sent!', text: '', type: 'success', confirmButtonText: 'OK'});
+               
                 },
                 error: function (error) {
-                    $.rustaMsgBox({'mode': 'error', 'content': 'Cannot delete', 'fadeOut': true});
+                    $.rustaMsgBox({'mode': 'error', 'content': 'Cannot send', 'fadeOut': true});
                 }
             });
         }

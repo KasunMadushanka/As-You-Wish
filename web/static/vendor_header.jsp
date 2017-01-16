@@ -29,14 +29,6 @@
                                         <%}%>
                                 </ul>
                             </li>
-                            <li><a href="#">Calendar</a>
-                                <ul class="dropdown">
-                                    <%for (int i = 0; i < services.size(); i++) {
-                                            String[] values = (String[]) services.get(i);%>
-                                    <li><a href="calendar.jsp?id=<%=(String) session.getAttribute("id")%>&service=<%=values[0]%>"><%=values[1]%></a></li>
-                                        <%}%>
-                                </ul>
-                            </li>
                             <li><a href="#">Storefront</a>
                                 <ul class="dropdown">
                                     <%for (int i = 0; i < services.size(); i++) {
@@ -57,7 +49,7 @@
                                             data: "id=" + '<%=session.getAttribute("id")%>' + "&type=" + '<%=session.getAttribute("type")%>',
                                             success: function (msg) {
                                                 if (msg !== "") {
-                                                    $("#bell1").attr("src", "images/bell2.png");
+                                                    $("#bell").attr("src", "images/bell2.png");
                                                      $('#notification').append(msg);
                                                 }else{
                                                    $('ul').not(':has(li)').remove();
@@ -65,7 +57,7 @@
                                                
                                             },
                                             error: function (error) {
-                                                alert('dd');
+                                                
                                             }
 
                                         });

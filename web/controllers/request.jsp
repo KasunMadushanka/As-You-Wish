@@ -78,8 +78,10 @@
             ArrayList address_list = new ArrayList();
             ArrayList contact_list = new ArrayList();
             ArrayList image_list = new ArrayList();
-
-            ResultSet rs = getCon().createStatement().executeQuery("Select* from service_registry where service_id='" + (i + 1) + "'");
+            String SqlQ = "Select* from service_registry where service_id='" + (i + 1) + "'";
+            
+            ResultSet rs = getCon().createStatement().executeQuery(SqlQ);
+            out.println(SqlQ);
             while (rs.next()) {
 
                 ResultSet rs1 = getCon().createStatement().executeQuery("Select* from vendor where vendor_id='" + rs.getInt("vendor_id") + "' ");

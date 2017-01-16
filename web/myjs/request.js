@@ -72,17 +72,7 @@ $(document).ready(function () {
 
         data = [service1, type1, city1, budget1, budget_option1, service2, type2, city2, budget2, budget_option2, service3, type3, city3, budget3, budget_option3, service4, type4, city4, budget4, budget_option4, service5, type5, city5, budget5, budget_option5, service6, type6, city6, budget6, budget_option6, service7, type7, city7, budget7, budget_option7, service8, type8, city8, budget8, budget_option8, service9, type9, city9, budget9, budget_option9];
 
-        $.ajax({
-            type: "post",
-            url: "controllers/request.jsp",
-            data: "tradition=" + tradition + "&date=" + date + "&time=" + time + "&duration=" + duration + "&no_of_guests=" + no_of_guests + "&theme=" + theme + "&additional_details" + additional_details,
-            success: function (msg) {
-                window.location.href = "request_results.jsp?data=" + data;
-            },
-            error: function (error) {
-                $.rustaMsgBox({'mode': 'error', 'content': 'An error occured while saving data', 'fadeOut': true});
-            }
-        });
+        window.location.href = "request_results.jsp?data=" + data;
 
     });
 });

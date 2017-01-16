@@ -142,14 +142,14 @@
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">Video Title</label>
                                     <div class="col-md-9">
-                                        <input id="title" name="title" type="text" class="form-control" placeholder="Our Journey Together" />
+                                        <input id="title" name="title" type="text" class="form-control" value="Our Journey Together" />
                                         <input type="hidden" name="ID" value="<%= cus_id  %>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">Greeting Text</label>
                                     <div class="col-md-9">
-                                        <input id="greeting" name="greeting" type="text" class="form-control" placeholder="Happy Wedded Life" />
+                                        <input id="greeting" name="greeting" type="text" class="form-control" value="Happy Wedded Life" />
                                     </div>
                                 </div>
                                 <div class="form-group">

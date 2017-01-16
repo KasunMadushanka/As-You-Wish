@@ -14,6 +14,7 @@
     String comments ="";
     String sales ="";
     String tot ="";
+    String noItems = "";
     
     
      
@@ -38,11 +39,12 @@
     
     // items
     ResultSet rsItems;
-    String sql2 = "SELECT count(`itemId`) as x FROM `items`";
+    String sql2 = "SELECT `itemName` as y, `reviews` as x FROM `items` order by `reviews` desc LIMIT 1";
     rsItems = getCon().createStatement().executeQuery(sql2);
     
     while(rsItems.next()){
-        items = rsItems.getString("x");
+        items = rsItems.getString("y");
+        noItems = rsItems.getString("x");
     }
     
     // votes
@@ -230,8 +232,8 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="widget widget-stats bg-purple-lighter">
                             <div class="stats-icon stats-icon-lg"><i class="fa fa-shopping-cart fa-fw"></i></div>
-                            <div class="stats-title">Total Store Items</div>
-                            <div class="stats-number"><%= items %></div>
+                            <div class="stats-number"><small>Popular Item:</small> <%= items %></div>
+                            <div class="stats-title">No Of Views: <b><%= noItems %> </b></div>
                             <div class="stats-progress progress">
                                 <div class="progress-bar" style="width: 52.3%;"></div>
                             </div>
@@ -293,7 +295,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="widget widget-stats bg-aqua-darker">
                             <div class="stats-icon stats-icon-lg"><i class="fa fa-usd fa-fw"></i></div>
-                            <div class="stats-title">Total Revenue</div>
+                            <div class="stats-title">Total Revenue (Advertisements)</div>
                             <div class="stats-number"><small>LKR.</small> <%= tot %></div>
                             <div class="stats-progress progress">
                                 <div class="progress-bar" style="width: 86.9%;"></div>

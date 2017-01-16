@@ -6,7 +6,7 @@
     <div class="side-panel-wrap">
         <div id="side-panel-trigger-close" class="side-panel-trigger"><a href="#"><i class="icon_close font-30"></i></a></div>
         <div>
-           <a class="menuzord-brand pull-left flip font-playball text-white font-22 pt-30 pb-30" href="javascript:void(0)"><i class="fa fa-heart-o font-25"></i> As You Wish <i class="fa fa-heart-o font-25"></i></a>
+            <a class="menuzord-brand pull-left flip font-playball text-white font-22 pt-30 pb-30" href="javascript:void(0)"><i class="fa fa-heart-o font-25"></i> As You Wish <i class="fa fa-heart-o font-25"></i></a>
         </div>
         <div class="side-panel-nav mt-30">
             <div class="widget no-border">
@@ -17,22 +17,7 @@
                             <%} else if (current_page.equals("gallery")) {%>
                         <li><a id="add_images" href="#">Add Images</a></li>
                             <%}%>
-                        <li><a href="#">Invitations</a></li>
-                        <li><a href="#">Reviews</a></li>
-                        <li><a class="tree-toggler nav-header" href="#">Messages<i class="fa fa-angle-down"></i></a>
-                            <ul class="nav nav-list tree">
-                                <li><a id="new_post" href="#">New Message</a></li>
-                                <li><a id="new_post" href="#">Received</a></li>
-                                <li><a id="new_post" href="#">Sent</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="tree-toggler nav-header" href="#">Contact<i class="fa fa-angle-down"></i></a>
-                            <ul class="nav nav-list tree">
-                                <li><a href="#">Vendor</a></li>
-                                <li><a href="#">Friend</a></li>
-                                <li><a href="#">Admin</a></li>
-                            </ul>
-                        </li>
+                        <li><a id="messages" href="chat.jsp">Messages</a></li>
                     </ul>
                 </nav>
             </div>

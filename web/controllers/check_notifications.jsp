@@ -13,10 +13,10 @@
     <%}
         }
     } else if (type.equals("vendor")) {
-        ResultSet rs = getCon().createStatement().executeQuery("Select count(*) as x from service_request where vendor_id='" + id + "' and status='3'");
+        ResultSet rs = getCon().createStatement().executeQuery("Select count(*) as x from service_request where vendor_id='" + id + "' and status='1'");
         if (rs.first()) {
             if (Integer.parseInt(rs.getString("x")) != 0) {%>
-<li><a href="service_requests.jsp?"><%=rs.getString("x")%> New Requests</a></li>
+<li><a href="service_requests.jsp"><%=rs.getString("x")%> New Requests</a></li>
     <%
                 }
             }

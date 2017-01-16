@@ -89,7 +89,7 @@
     <head>
         <%@ include file="/static/head.jsp" %>
 
-         <script src="myjs/edit_storefront.js"></script>
+         <script src="myjs/load_storefront.js"></script>
         <script src="myjs/update_storefront.js"></script>
         <script src="myjs/upload.js"></script>
         <script src="myjs/email.js"></script>   

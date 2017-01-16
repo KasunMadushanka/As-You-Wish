@@ -18,7 +18,7 @@
         service_name = rs.getString("name");
     }
     
-getCon().createStatement().executeUpdate("Update service_request set status='2' where vendor_id='" + id + "' and status='1'");
+//getCon().createStatement().executeUpdate("Update service_request set status='2' where vendor_id='" + id + "' and status='1'");
 
 %>
 
@@ -66,7 +66,7 @@ getCon().createStatement().executeUpdate("Update service_request set status='2' 
                         <div class="section-content pt-0">
                             <div class="row"> 
                                 <div class="col-md-12">
-                                    <h3 class="title text-white"><%=service_name + " - " + "Requests"%></h3>
+                                    <h3 class="title text-white">Service Requests</h3>
                                 </div>
                             </div>
                         </div>
@@ -81,11 +81,11 @@ getCon().createStatement().executeUpdate("Update service_request set status='2' 
                                 <th width="350">Customer</th>
                                 <th width="200">Pricing Plan</th>
                                 <th width="100">Price (LKR)</th>
-                                <th width="100">Contact</th>
+                                <th width="100"></th>
 
                                 </thead>
                                 <tbody>                         
-                                    <%ResultSet rs1 = getCon().createStatement().executeQuery("Select c.customer_id,c.first_name,c.last_name,c.image_url,sr.*,vp.price,vp.title from customer c inner join service_request sr on c.customer_id=sr.customer_id inner join vendor_pricing vp on sr.pricing_id=vp.pricing_id");
+                                    <%ResultSet rs1 = getCon().createStatement().executeQuery("Select c.customer_id,c.first_name,c.last_name,c.image_url,sr.*,vp.price,vp.title from customer c inner join service_request sr on c.customer_id=sr.customer_id inner join vendor_pricing vp on sr.pricing_id=vp.pricing_id where sr.status='1'");
                                         while (rs1.next()) {
                                     %>
                                     <tr>

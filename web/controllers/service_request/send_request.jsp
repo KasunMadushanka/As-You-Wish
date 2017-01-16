@@ -6,6 +6,6 @@
     String vendor_id = request.getParameter("vendor_id");
     String pricing_id = request.getParameter("pricing_id");
 
-    getCon().createStatement().executeUpdate("Insert into service_request (customer_id,vendor_id,pricing_id,status) values ('"+id+"','"+vendor_id+"','"+pricing_id+"','"+"pending"+"')");
+    getCon().createStatement().executeUpdate("Insert into service_request (customer_id,vendor_id,pricing_id,status) values ('"+id+"','"+vendor_id+"','"+pricing_id+"','0')");
     
 %>

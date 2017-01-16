@@ -23,13 +23,6 @@
                 </div>
             </div>
 
-            <!-- Header -->
-            <%if (session.getAttribute("type") != null) {%>
-            <%@ include file="/static/customer_header.jsp"%>
-            <%} else {%>
-            <%@ include file="/static/visitor_header.jsp"%>
-            <%}%>
-
             <!-- Start main-content -->
             <div class="main-content">
                 <!-- Section: inner-header -->
@@ -50,7 +43,7 @@
                     <div class="container pt-80">
                         <div class="template">
                             <div class="template-wrap clear">
-                                <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="452px" width="1920px" style="position:relative;top:178px;"></canvas>
+                                <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="460px" width="1920px" style="position:relative;top:178px;"></canvas>
                                 <br>
                                 <div class="logo"></div>
                             </div>

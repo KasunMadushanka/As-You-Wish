@@ -53,13 +53,9 @@
 %>
 
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
 
-	
-	
+<html lang="en">
+
 <head>
 	<meta charset="utf-8" />
 	<title>As You Wish | Admin Panel</title>

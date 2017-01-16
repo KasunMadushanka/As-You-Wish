@@ -70,41 +70,43 @@
                     </div>
                     <div class="panel-body panel-form">
                         <form class="form-horizontal form-bordered">
+                            <%ResultSet rs=getCon().createStatement().executeQuery("Select * from contest_settings");
+                            if(rs.first()){%>
                             <div class="form-group" style="padding-top: 30px;">                              
                                 <label class="control-label col-md-2">Contest Title</label>
                                 <div class="col-md-4">
-                                    <input id="contest_title" name="contest_title" type="text" class="form-control" />
+                                    <input id="contest_title" name="contest_title" type="text" class="form-control" value="<%=rs.getString("contest_title")%>"/>
                                 </div>
                                 <label class="control-label col-md-2">Schedule</label>            
                                 <div class="col-md-2">
-                                    <input type="text" class="form-control"  id="datetimepicker3" placeholder="Min Date" />
+                                    <input type="text" class="form-control"  id="datetimepicker3" placeholder="Min Date" value="<%=rs.getString("scheduled_from")%>"/>
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="text" class="form-control"  id="datetimepicker4" placeholder="Max Date" />
+                                    <input type="text" class="form-control"  id="datetimepicker4" placeholder="Max Date" value="<%=rs.getString("scheduled_to")%>"/>
                                 </div>                             
                             </div>           
                             <div class="form-group">
                                 <label class="control-label col-md-2">Applications Accepting</label>
                                 <div class="col-md-4">
                                     <div class="input-group input-daterange">
-                                        <input id="applications_from" name="start" type="text" class="form-control" placeholder="Date Start" />
+                                        <input id="applications_from" name="start" type="text" class="form-control" placeholder="Date Start" value="<%=rs.getString("applications_from")%>"/>
                                         <span class="input-group-addon">to</span>
-                                        <input id="applications_to" name="end" type="text" class="form-control" placeholder="Date End" />
+                                        <input id="applications_to" name="end" type="text" class="form-control" placeholder="Date End" value="<%=rs.getString("applications_to")%>"/>
                                     </div>
                                 </div>
                                 <label class="control-label col-md-2">Limit of Contestants</label>
                                 <div class="col-md-4">
-                                    <input id="limit_of_contestants" name="limit_of_contestants" type="number" value="" class="form-control"/>
+                                    <input id="limit_of_contestants" name="limit_of_contestants" type="number" class="form-control"  value="<%=rs.getInt("limit_of_contestants")%>" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2">Maximum No of Votes<br>(One Account)</label>
                                 <div class="col-md-4">
-                                    <input id="max_votes" name="max_votes" type="number" value="" class="form-control"/>
+                                    <input id="max_votes" name="max_votes" type="number" class="form-control" value="<%=rs.getInt("max_votes")%>"/>
                                 </div>
                                 <label class="control-label col-md-2">Votes per Contestant<br>(One Account)</label>
                                 <div class="col-md-4">
-                                    <input id="votes_per_contestant" name="votes_per_contestant" type="number" value="" class="form-control"/>
+                                    <input id="votes_per_contestant" name="votes_per_contestant" type="number" class="form-control" value="<%=rs.getInt("votes_per_contestant")%>"/>
                                 </div>
                             </div>  
                             <div class="form-group">
@@ -122,7 +124,7 @@
                                     <button type="button" class="btn btn-sm btn-success" onclick="discard_contest()">Discard Contest</button>
                                 </div>
                             </div> 
-
+<%}%>
                         </form>
                     </div>
 

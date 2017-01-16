@@ -21,7 +21,7 @@
                         Perhaps, there pages will help find what you're looking for.
                     </div>
                     <div>
-                        <a href="index.html" class="btn btn-success">Go Back to Home Page</a>
+                        <a href="index.jsp" class="btn btn-success">Go Back to Home Page</a>
                     </div>
                 </div>
             </div>

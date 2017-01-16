@@ -59,7 +59,6 @@
         <li class="<% out.print(pageTitle == "chat" ? "active" : ""); %>"><a href="chat.jsp"><i class="fa fa-weixin" aria-hidden="true"></i> <span>Chat Room</span></a></li>
 	<li class="has-sub <% out.print(pageTitle == "video" ? "active" : ""); %>"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-file-movie-o"></i><span>Thanking Video</span></a>
             <ul class="sub-menu">
-                <li class="<% out.print(subPage == "pre" ? "active" : ""); %>"><a href="video_preview.jsp">Preview</a></li>
                 <li class="<% out.print(subPage == "setting_video" ? "active" : ""); %>"><a href="weddings.jsp">Settings</a></li>
                 <li class="<% out.print(subPage == "links" ? "active" : ""); %>"><a href="videos.jsp">Videos</a></li>
             </ul>

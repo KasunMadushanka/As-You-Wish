@@ -20,7 +20,7 @@ function update_contest_settings() {
             $.rustaMsgBox({'mode': 'info', 'content': 'Changes Applied Successfully', 'fadeOut': true});
         },
         error: function (error) {
-            $.rustaMsgBox({'mode': 'error', 'content': 'Cannot Apply', 'fadeOut': true});
+            $.rustaMsgBox({'mode': 'error', 'content': 'Please check your input', 'fadeOut': true});
         }
     });
 

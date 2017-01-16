@@ -1,6 +1,6 @@
 <%    
     
-  String filename = "test.sql";   
+  String filename = "db.sql";   
   String filepath = "E:\\backup\\";   
   response.setContentType("APPLICATION/OCTET-STREAM");   
   response.setHeader("Content-Disposition","attachment; filename=\"" + filename + "\"");   

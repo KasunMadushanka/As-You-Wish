@@ -1,5 +1,5 @@
 function send_email(email, status) {
-    alert('ss');
+  
     data = "recipient=" + email + "&status=" + status;
 
     if (status === "visitor_message") {

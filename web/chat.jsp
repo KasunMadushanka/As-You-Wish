@@ -52,7 +52,14 @@
         <%@ include file="/static/head.jsp" %>
     </head>
 
-    <body class="">
+    <body class="has-side-panel side-panel-left fullwidth-page">
+        
+        <% if (session.getAttribute("type").equals("customer")) {%>
+        <%@ include file="/side_panels/customer_side_panel.jsp"%>
+        <%} else if (session.getAttribute("type").equals("vendor")) {%>
+        <%@ include file="/side_panels/vendor_side_panel.jsp"%>
+        <%}%> 
+        
         <div id="wrapper">
 
             <div id="preloader">
@@ -64,28 +71,13 @@
             </div>
 
             <!-- Header -->
-            <header id="header" class="header">
-                <div class="header-nav navbar-fixed-top header-dark navbar-white navbar-transparent navbar-sticky-animated animated-active">
-                    <div class="header-nav-wrapper">
-                        <div class="container">
-                            <nav>
-                                <div id="menuzord-right" class="menuzord red"> <a class="menuzord-brand pull-left flip font-playball text-theme-colored font-32" href="javascript:void(0)"><i class="fa fa-heart-o font-25"></i> As You Wish <i class="fa fa-heart-o font-25"></i></a>
-                                    <ul class="menuzord-menu">
-                                        <li><a href="index.jsp">Home</a></li>
-                                        <li><a href="#features">Features</a></li>
-                                        <li><a href="#vendors">Vendors</a></li>
-                                        <li><a href="#events">Events</a></li>
-                                        <li><a href="#blog">Blog</a></li>
-                                        <li><a href="#about_us">About Us</a></li>
-                                        <li><a href="contact.jsp">Contact</a></li>
-                                        <li><a href="#" data-toggle="modal" data-target="#login-modal">Sign In</a></li>
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </header>
+             <%if (session.getAttribute("type").equals("customer")) {%>
+            <%@ include file="/static/customer_header.jsp"%>
+            <%} else if (session.getAttribute("type").equals("vendor")) {%>
+            <%@ include file="/static/vendor_header.jsp"%>
+            <%} else if (session.getAttribute("type").equals("visitor")) {%>
+            <%@ include file="/static/visitor_header.jsp"%>
+            <%}%>
 
             <!-- Start main-content -->
             <div class="main-content">
@@ -161,7 +153,7 @@
                                             %>
 
                                             <article class="post media-post clearfix pb-0 mb-10">
-                                                <a class="post-thumb" href="#"><img src="<%= img%>" width="50" height="50" alt=""></a>
+                                                <a class="post-thumb" href="#"><img class="img-circle" src="<%= img%>" width="50" height="50" alt=""></a>
                                                 <div class="post-right">
                                                     <h5 class="post-title mt-0" ><a href="chat.jsp?id=<%= vId%>&&type=1&&name=<%= VName%>&&#tab" style="vertical-align:text-bottom"><%= VName%></a></h5>
 
@@ -186,7 +178,7 @@
                                             %>
 
                                             <article class="post media-post clearfix pb-0 mb-10">
-                                                <a class="post-thumb"><img src="<%= img%>" width="50" height="50" alt=""></a>
+                                                <a class="post-thumb"><img class="img-circle" src="<%= img%>" width="50" height="50" alt=""></a>
                                                 <div class="post-right">
                                                     <h5 class="post-title mt-0" ><a href="chat.jsp?id=<%= vId%>&&type=2&&name=<%= VName%>&&#tab" style="vertical-align:text-bottom"><%= VName%></a></h5>
                                                 </div>
@@ -203,7 +195,7 @@
                                             %>
 
                                             <article class="post media-post clearfix pb-0 mb-10">
-                                                <a class="post-thumb" href="#"><img src="<%= img%>" alt=""></a>
+                                                <a class="post-thumb" href="#"><img class="img-circle" src="<%= img%>" alt=""></a>
                                                 <div class="post-right">
                                                     <h5 class="post-title mt-0" ><a href="chat.jsp?id=<%= vId%>&&type=0&&name=<%= VName%>&&#tab" style="vertical-align:text-bottom"><%= VName%></a></h5>
 

@@ -49,9 +49,11 @@ page import="java.servlet.*,
     
     String ServiceID = request.getParameter("id");
 
+    //vendor_id, first_name, last_name, mobile, email, address1, address2, city, postal_code, company_name, company_contact_no, company_email, company_website_url, company_fb_page, company_address1, company_address2, company_city, company_postal_code, password, title, status, image_url, pricing, payment
+    
     String Sqladdress = "select s.*, c.`first_name`, c.`last_name`, c.`address1`,"
-            + " c.`address2`, c.`city`, c.`postal_code`, v.`address1`, "
-            + "v.`address2`, v.`city`, v.`postal_code`, v.`company_name` "
+            + " c.`address2`, c.`city`, c.`postal_code`, v.`company_address1`, "
+            + "v.`company_address2`, v.`company_city`, v.`company_postal_code`, v.`company_name` "
             + "from  service_request as s "
             + "inner join customer as c on c.customer_id = s.customer_id "
             + "inner join vendor as v on v.vendor_id = s.vendor_id "
@@ -63,7 +65,7 @@ page import="java.servlet.*,
         C_name = rs.getString("c.first_name")+" "+rs.getString("c.last_name");
         V_name = rs.getString("company_name");
         Cadd = rs.getString("c.address1")+",\n"+rs.getString("c.address2")+",\n"+rs.getString("c.city")+",\n"+rs.getString("c.postal_code")+".";
-        Vadd = rs.getString("v.address1")+",\n"+rs.getString("v.address2")+",\n"+rs.getString("v.city")+",\n"+rs.getString("v.postal_code")+".";
+        Vadd = rs.getString("v.company_address1")+",\n"+rs.getString("v.company_address2")+",\n"+rs.getString("v.company_city")+",\n"+rs.getString("v.company_postal_code")+".";
         PrID = rs.getString("pricing_id");
     }    
         
@@ -78,7 +80,7 @@ page import="java.servlet.*,
         PdfWriter.getInstance(document, buffer);
         document.open();
         
-        Image img = Image.getInstance("F:/Project/AsYouWish/web/admin/assets/img/login-bg/logo.png");
+        Image img = Image.getInstance("D:/Group Project/Project/AsYouWish/web/admin/assets/img/login-bg/logo.png");
         img.scaleAbsolute(250f, 150f);
         //document.add(img);
         

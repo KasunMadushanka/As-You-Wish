@@ -47,7 +47,7 @@ $(function () {
         current = "slider_form";
     });
 
-    window.load_about = function () {
+    window.load_about_form = function () {
         divForms.css("height", 333);
         if (current_form === null) {
             if (current !== null) {
@@ -65,7 +65,7 @@ $(function () {
         current = "about_form";
     };
 
-    $('#vision').click(function () {
+    window.load_vision_form = function () {
         divForms.css("height", 233);
         if (current_form === null) {
             if (current !== null) {
@@ -80,9 +80,9 @@ $(function () {
         }
         current_form = vision_form;
         current = "vision_form";
-    });
+    };
 
-    $('#location').click(function () {
+    window.load_location_form = function () {
         divForms.css("height", 267);
         if (current_form === null) {
             if (current !== null) {
@@ -97,9 +97,9 @@ $(function () {
         }
         current_form = location_form;
         current = "location_form";
-    });
+    };
 
-    $('#contact').click(function () {
+    window.load_contact_form = function () {
         divForms.css("height", 443);
         if (current_form === null) {
             if (current !== null) {
@@ -114,9 +114,9 @@ $(function () {
         }
         current_form = contact_form;
         current = "contact_form";
-    });
+    };
 
-    $('#pricing').click(function () {
+    window.load_pricing_form = function () {
         divForms.css("height", 428);
         if (current_form === null) {
             if (current !== null) {
@@ -131,39 +131,7 @@ $(function () {
         }
         current_form = pricing_form;
         current = "pricing_form";
-    });
-
-    $('#calendar').click(function () {
-        if (current_form === null) {
-            if (current !== null) {
-                document.getElementById(current).style.display = "none";
-            }
-            document.getElementById("calendar_form").style.display = "";
-            $('#login-modal').modal({
-                show: 'true'
-            });
-        } else {
-            modalAnimate(current_form, calendar_form);
-        }
-        current_form = calendar_form;
-        current = "calendar_form";
-    });
-
-    $('#gallery').click(function () {
-        if (current_form === null) {
-            if (current !== null) {
-                document.getElementById(current).style.display = "none";
-            }
-            document.getElementById("gallery_form").style.display = "";
-            $('#login-modal').modal({
-                show: 'true'
-            });
-        } else {
-            modalAnimate(current_form, gallery_form);
-        }
-        current_form = gallery_form;
-        current = "gallery_form";
-    });
+    };
 
     window.post = function (status) {
 

@@ -79,7 +79,7 @@
 
                 </div>
 
-                <div id="about_form" style="display:none">
+                <div id="about_form" style="display:none;">
                    
                 </div>
 
@@ -97,87 +97,12 @@
                 </div>
 
                 <form id="location_form" style="display: none;">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="latitude">Latitude:</label>
-                                <input id="latitude" name="latitude" class="form-control" type="text">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="longitude">Longitude:</label>
-                                <input id="longitude" name="longitude" class="form-control" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="zoom_level">Zoom Level:</label>
-                                <input id="zoom_level" name="zoom_level" class="form-control" type="text">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="map_type">Map Type:</label>
-                                <select class="form-control" id="map_type" name="map_type">
-                                    <option value="1" >Road Map</option>
-                                    <option value="2" >Satellite</option>
-                                    <option value="3" >Hybrid</option>
-                                    <option value="4" >Terrain</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="form-group text-center">
-                            <button type="button" onclick="update_location()" class="btn btn-dark btn-theme-colored btn-flat mr-5">Apply Changes</button>
-                            <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Reset</button>
-                        </div>
-                    </div>
+                   
                 </form>
 
-                <form id="contact_form" style="display: none;">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="contact_no">Contact No:</label>
-                                <input id="contact_no" name="contact_no" class="form-control" type="text">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="email">Email:</label>
-                                <input id="email" name="email" class="form-control" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="website_url">Website URL:</label>
-                                <input id="website_url" name="website_url" class="form-control" type="text">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="working_hours">Working Hours:</label>
-                                <input id="working_hours" name="working_hours" class="form-control" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="address1">Address Line 1:</label>
-                                <input id="address1" name="address1" class="form-control" type="text">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="address2">Address Line 2:</label>
-                                <input id="address2" name="address2" class="form-control" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-12">
-                                <label for="city">City:</label>
-                                <input id="city" name="city" class="form-control" type="text">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="form-group text-center">
-                            <button type="button" onclick="update_contact()" class="btn btn-dark btn-theme-colored btn-flat mr-5">Apply Changes</button>
-                            <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Reset</button>
-                        </div>
-                    </div>
-                </form>
+                <div id="contact_form" style="display: none;">
+          
+                </div>
 
                 <%if (current_page.equals("storefront")) {
 

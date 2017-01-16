@@ -2,13 +2,13 @@
 <%@include file= "../../config/db_connection.jsp" %>
 <%
     String vendor_id = (String) session.getAttribute("id");
-    String service_id = request.getParameter("service_id");
+    String service_id = (String)session.getAttribute("service_id");
 
     ResultSet rs = getCon().createStatement().executeQuery("Select about from service_registry where vendor_id='" + vendor_id + "' and service_id='" + service_id + "'");
     if (rs.first()) {%>
 <div class="modal-body">
     <label for="about_text">About Us:</label>
-    <textarea id="about_text" name="about_text" class="form-control" rows="10" placeholder="" value="<%=rs.getString("about")%>"></textarea>
+    <textarea id="about_text" name="about_text" class="form-control" rows="10" placeholder=""><%=rs.getString("about")%></textarea>
 </div>
 <div class="modal-footer">
     <div class="form-group text-center">
