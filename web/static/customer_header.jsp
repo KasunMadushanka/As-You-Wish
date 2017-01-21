@@ -92,7 +92,6 @@
     });
 
     function ad() {
-        alert('uvfy');
         $("#adver").toggle();
         $('#imgAd').load('controllers/ads.jsp');
         interval = setInterval(startTime, 5000);

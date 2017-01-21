@@ -16,7 +16,7 @@
     String qty = "0";
     
     String item = request.getParameter("itemId");
-    String cust = (String)session.getAttribute("id");
+    String cust = "1";
     qty = request.getParameter("quantity");
     
     

@@ -51,7 +51,7 @@ function load_location() {
 
 
 function load_contact() {
-alert('d');
+
     $.ajax({
         type: "post",
         url: "controllers/storefront/load_contact.jsp",
@@ -68,19 +68,8 @@ alert('d');
 
 function load_pricing() {
 
-    $.ajax({
-        type: "post",
-        url: "controllers/storefront/update_about.jsp",
-        data: "about=" + about,
-        success: function (msg) {
-           $('#pricing_form').html(msg);
             load_pricing_form();
-        },
-        error: function (error) {
-           $.rustaMsgBox({'mode': 'error', 'content': 'Cannot open', 'fadeOut': true});
-
-        }
-    });
+   
 }
 
 

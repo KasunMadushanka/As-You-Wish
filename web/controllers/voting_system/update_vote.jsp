@@ -15,6 +15,8 @@
             getCon().createStatement().executeUpdate("Update voter set votes=votes+1 where user_id='" + id + "' and type='" + type + "'");
             getCon().createStatement().executeUpdate("Insert into vote_registry values ('" + id + "','" + type + "','" +contestant_id + "')");
             getCon().createStatement().executeUpdate("Update contest set votes=votes+1 where customer_id='" + contestant_id + "'");
+        }else{
+        
         }
     } else {
         getCon().createStatement().executeUpdate("Insert into voter values ('" + id + "','" + type + "','" + email + "',1)");

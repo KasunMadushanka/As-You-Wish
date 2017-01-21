@@ -33,7 +33,7 @@ function host_contest(){
         url: "controllers/switch_contest.jsp",
         data: "status="+"active",
         success: function (msg) {
-            $.rustaMsgBox({'mode': 'info', 'content': 'New Contest Started', 'fadeOut': true});
+              swal({title: 'New Contest Started!', text: '', type: 'success', confirmButtonText: 'OK'});
         },
         error: function (error) {
             $.rustaMsgBox({'mode': 'error', 'content': 'Cannot host', 'fadeOut': true});

@@ -32,7 +32,7 @@
                         <div class="section-content pt-0">
                             <div class="row"> 
                                 <div class="col-md-12">
-                                    <h3 class="title text-white">Select your monthly pricing plan</h3>                           
+                                    <h3 class="title text-white">Monthly Pricing Plans</h3>                           
                                 </div>
                             </div>
                         </div>

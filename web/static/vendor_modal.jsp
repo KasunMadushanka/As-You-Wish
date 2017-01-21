@@ -80,7 +80,7 @@
                 </div>
 
                 <div id="about_form" style="display:none;">
-                   
+
                 </div>
 
                 <div id="vision_form" style="display: none;">
@@ -97,11 +97,11 @@
                 </div>
 
                 <form id="location_form" style="display: none;">
-                   
+
                 </form>
 
                 <div id="contact_form" style="display: none;">
-          
+
                 </div>
 
                 <%if (current_page.equals("storefront")) {
@@ -111,9 +111,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="form-group col-md-9">
-                                <select class="form-control" id="packages">
 
-                                </select>  
                                 <script>
                                     $(document).on('change', '#packages', function () {
 
@@ -155,7 +153,12 @@
                         <div class="row">
                             <div class="form-group col-md-9">
                                 <select class="form-control" id="pricing_plans">
-
+                              
+                                    <option value="1" >Bronze</option>
+                                    <option value="2" >Silver</option>
+                                    <option value="3" >Gold</option>
+                                    <option value="4" >Platinum</option>
+                                
                                 </select>    
                                 <script>
                                     $(document).on('change', '#pricing_plans', function () {
@@ -189,7 +192,7 @@
                         </div>
                         <div class="form-group">
                             <label for="features"><b>Features:</b></label>
-                            <textarea id="features" name="features" class="form-control" rows="8" placeholder="Add New Features"></textarea>
+                            <textarea id="features" name="features" class="form-control" rows="8" placeholder="Add New Features">Basmathi Chicken Fried Rice/nBasmathi Steamed Rice/Vegetable Fried Noodles/Chicken Curry/Fish ambulthiyal/Mix Vegetable Chopsuey/Potato Tempered/Cashew Curry/Watalappan/Ice Cream</textarea>
 
                         </div>
 
@@ -319,7 +322,7 @@
                 </div>
 
                 <div id="service_request_form" style="display: none;">
-                    
+
                 </div>
 
             </div>

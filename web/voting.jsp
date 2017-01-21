@@ -25,7 +25,7 @@
 
     ArrayList contestants = new ArrayList();
 
-    ResultSet rs = getCon().createStatement().executeQuery("Select cus.customer_id,cus.first_name,cus.partner_first_name,cus.image_url from customer cus inner join contestant cnt on cus.customer_id=cnt.customer_id inner join contest cn on cnt.contest_id=cn.contest_id");
+    ResultSet rs = getCon().createStatement().executeQuery("Select cus.customer_id,cus.first_name,cus.partner_first_name,cnt.couple_image from customer cus inner join contestant cnt on cus.customer_id=cnt.customer_id inner join contest cn on cnt.contest_id=cn.contest_id where cn.contest_id='2'");
     while (rs.next()) {
 
         String[] details = new String[4];
@@ -33,7 +33,7 @@
         details[0] = rs.getString("cus.customer_id");
         details[1] = rs.getString("cus.first_name");
         details[2] = rs.getString("cus.partner_first_name");
-        details[3] = rs.getString("cus.image_url");
+        details[3] = rs.getString("cnt.couple_image");
 
         contestants.add(details);
     }
@@ -59,7 +59,7 @@
         <script src="myjs/email.js"></script>
         <script src="myjs/voting.js"></script>	
         <script src="js/flipclock.js"></script>
-     
+
         <script>
             var clock;
             $(document).ready(function () {
@@ -109,7 +109,7 @@
             </div>
 
             <!-- Header -->
-            <%if ((String) session.getAttribute("id") != null) {%>
+            <%if ((String) session.getAttribute("id") != null && ((String) session.getAttribute("id")).equals("customer")) {%>
             <%@ include file="/static/customer_header.jsp"%>
             <%} else {%>
             <%@ include file="/static/visitor_header.jsp"%>
@@ -136,8 +136,8 @@
                     <div class="container">
                         <div class="clock" style="padding-top:0.5em;padding-left: 30em;padding-bottom: 1em;"></div>
                         <%if (id == null) {%>
-                            <center><button id="sign_in_button" class="btn btn-theme-colored" type="button" onclick="visitor_sign_in()">Sign In to Vote</button></center>
-                        <%}%>
+                        <center><button id="sign_in_button" class="btn btn-theme-colored" type="button" onclick="visitor_sign_in()">Sign In to Vote</button></center>
+                            <%}%>
                         <div class="widget pt-50">
                             <div class="search-form">
                                 <form>
@@ -158,7 +158,7 @@
                                         <th width="100"><font size="4">Couple</font></th>
                                         <th width="500"></th>
                                         <th width="75"></th>
-                                        <%--<th width="100"><font size="4">#Votes</font></th>--%>
+                                            <%--<th width="100"><font size="4">#Votes</font></th>--%>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -166,19 +166,24 @@
                                             String[] data = (String[]) contestants.get(i);%>
                                     <tr>
                                         <td style="padding-top: 1.5em;"><font size="3"><%=(i + 1)%></font></td>
-                                        <td><img src="<%=data[3]%>" class="img-circle" width="75" height="50"></td>
+                                        <td><img src="<%=data[3]%>" class="img-circle" width="50" height="50"></td>
                                         <td style="padding-top: 1.5em;"><font size="3"><%=data[1] + " & "%><%=data[2]%></font></td>
-                                        <td style="padding-top: 1em;"><button id="button<%=data[0]%>" class="btn btn-theme-colored" onclick="vote(<%=data[0]%>)">Vote</button></td>
-                                        <%if ((String) session.getAttribute("id") == null) {%>
+                                        <td style="padding-top: 1em;"><button id="button<%=data[0]%>" class="btn btn-theme-colored" onclick="vote()">Vote</button></td>
                                 <script>
-                                        $('#button' + '<%=data[0]%>').prop("disabled", true);
+                                    function vote(){
+                                    swal({title: 'Your Vote Added!', text: '', type: 'success', confirmButtonText: 'OK'});
+                                }
+                                </script>
+                                <%if ((String) session.getAttribute("id") == null) {%>
+                                <script>
+                                    $('#button' + '<%=data[0]%>').prop("disabled", true);
                                 </script>
                                 <%}%>
-                               <%--<td style="padding-top: 1.5em;"><div id="<%=data[0]%>" style="font-size: 16px;">000</div></td>--%>
+                                <%--<td style="padding-top: 1.5em;"><div id="<%=data[0]%>" style="font-size: 16px;">000</div></td>--%>
                                 </tr>
                                 <%}%>
                                 </tbody>
-                            
+
                             </table>
                         </div>
                     </div>

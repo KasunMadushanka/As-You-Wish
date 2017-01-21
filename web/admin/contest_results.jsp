@@ -4,7 +4,7 @@
     
 
     ResultSet rs = getCon().createStatement().executeQuery(""
-            + "Select cnt.contest_id,c.first_name,c.partner_first_name,CONCAT(cn.year, '-',cn.month) as mon,cnt.votes "
+            + "Select cnt.contest_id,cnt.customer_id,c.first_name,c.partner_first_name,CONCAT(cn.year, '-',cn.month) as mon,cnt.votes "
             + "from customer c "
             + "inner join contestant cnt on c.customer_id=cnt.customer_id "
             + "inner join contest cn on cnt.contest_id=cn.contest_id "
@@ -96,7 +96,7 @@
                                             <td><%= rs.getString("cnt.votes")%></td>
                                             <td><%=Math.round(Double.parseDouble(rs.getString("cnt.votes"))/Double.parseDouble(Tot)*100)+"%"%></td>
                                             <td>                                                                      
-                                                <button type="button" class="btn btn-primary btn-sm" > Contact </button>                                                                                          
+                                                <a href="chat.jsp?id=<%= rs.getString("cnt.customer_id") %>&&type=2"><button type="button" class="btn btn-primary btn-sm" ><i class="fa fa-pencil-square-o"></i> Contact </button>  </a>                                                                                        
                                             </td>
                                         </tr>
                                         <%

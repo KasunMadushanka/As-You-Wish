@@ -4,7 +4,7 @@
 
 <%
     // need set affter user registartion
-    String custId = (String) session.getAttribute("id");
+    String custId = "1";
 
     if (custId == null) {
         response.sendRedirect("store.jsp");

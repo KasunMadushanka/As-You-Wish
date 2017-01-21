@@ -2,6 +2,12 @@
 <%@include file="config/db_connection.jsp"%>
 <%
     String pricing = request.getParameter("pricing");
+
+    ResultSet rs = getCon().createStatement().executeQuery("Select title from pricing where package_id='" + pricing + "'");
+    if(rs.first()) {
+        pricing = rs.getString("title");
+    }
+
 %>
 
 <!DOCTYPE html>
@@ -208,7 +214,7 @@
                                         <div class="row">
                                             <div class="col-xs-6 col-md-4">
                                                 <a class="thumbnail">
-                                                    <img src="images/event/10.jpg" alt="">
+                                                    <img src="images/services/1.jpg" alt="">
                                                     <label for="reception_hall_checkbox"><b>
                                                             <input id="reception_hall_checkbox" name="reception_hall_checkbox"  onchange="check(this, this.id)" type="checkbox">
                                                             Reception Hall</b>
@@ -217,7 +223,7 @@
                                             </div>
                                             <div class="col-xs-6 col-md-4">
                                                 <a class="thumbnail">
-                                                    <img src="images/event/9.jpg" alt="">
+                                                    <img src="images/services/2.jpg" alt="">
                                                     <label for="cake_designers_checkbox"><b>
                                                             <input id="cake_designers_checkbox" name="cake_designers_checkbox" onchange="check(this, this.id)" type="checkbox"/>
                                                             Cake Designers</b>
@@ -226,7 +232,7 @@
                                             </div>
                                             <div class="col-xs-6 col-md-4">
                                                 <a class="thumbnail">
-                                                    <img src="images/event/2.jpg" alt="">
+                                                    <img src="images/services/3.jpg" alt="">
                                                     <label for="beauticians_checkbox"><b>
                                                             <input id="beauticians_checkbox" name="beauticians_checkbox" onchange="check(this, this.id)" type="checkbox">
                                                             Beauticians</b>
@@ -237,7 +243,7 @@
                                         <div class="row">
                                             <div class="col-xs-6 col-md-4">
                                                 <a class="thumbnail">
-                                                    <img src="images/event/1.jpg" alt="">
+                                                    <img src="images/services/4.jpg" alt="">
                                                     <label for="bridal_dresses_checkbox"><b>
                                                             <input id="bridal_dresses_checkbox" name="bridal_dresses_checkbox" onchange="check(this, this.id)" type="checkbox">
                                                             Bridal Dresses</b>
@@ -246,7 +252,7 @@
                                             </div>
                                             <div class="col-xs-6 col-md-4">
                                                 <a class="thumbnail">
-                                                    <img src="images/event/4.jpg" alt="">
+                                                    <img src="images/services/5.jpg" alt="">
                                                     <label for="groom_suits_checkbox"><b>
                                                             <input id="groom_suits_checkbox" name="groom_suits_checkbox" onchange="check(this, this.id)" type="checkbox">
                                                             Groom Suits</b>
@@ -255,7 +261,7 @@
                                             </div>
                                             <div class="col-xs-6 col-md-4">
                                                 <a class="thumbnail">
-                                                    <img src="images/event/5.jpg" alt="">
+                                                    <img src="images/services/6.jpg" alt="">
                                                     <label for="photography_checkbox"><b>
                                                             <input id="photography_checkbox" name="photography_checkbox" onchange="check(this, this.id)" type="checkbox">
                                                             Photography</b>
@@ -267,7 +273,7 @@
                                         <div class="row">
                                             <div class="col-xs-6 col-md-4">
                                                 <a class="thumbnail">
-                                                    <img src="images/event/8.jpg" alt="">
+                                                    <img src="images/services/7.jpg" alt="">
                                                     <label for="decorations_checkbox"><b>
                                                             <input id="decorations_checkbox" name="decorations_checkbox" onchange="check(this, this.id)" type="checkbox">
                                                             Poruwa & Decorations</b>
@@ -276,7 +282,7 @@
                                             </div>
                                             <div class="col-xs-6 col-md-4">
                                                 <a class="thumbnail">
-                                                    <img src="images/event/7.jpg" alt="">
+                                                    <img src="images/services/8.jpg" alt="">
                                                     <label for="ent_groups_checkbox"><b>
                                                             <input id="ent_groups_checkbox" name="ent_groups_checkbox" onchange="check(this, this.id)" type="checkbox">
                                                             Entertainment Groups</b>
@@ -285,7 +291,7 @@
                                             </div>
                                             <div class="col-xs-6 col-md-4">
                                                 <a class="thumbnail">
-                                                    <img src="images/event/6.jpg" alt="">
+                                                    <img src="images/services/9.jpg" alt="">
                                                     <label for="wedding_cars_checkbox"><b>
                                                             <input id="wedding_cars_checkbox" name="wedding_cars_checkbox" onchange="check(this, this.id)" type="checkbox">
                                                             Wedding Cars<br></b>

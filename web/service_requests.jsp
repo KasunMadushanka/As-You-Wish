@@ -17,7 +17,7 @@
     if (rs.first()) {
         service_name = rs.getString("name");
     }
-    
+
 //getCon().createStatement().executeUpdate("Update service_request set status='2' where vendor_id='" + id + "' and status='1'");
 
 %>
@@ -66,7 +66,7 @@
                         <div class="section-content pt-0">
                             <div class="row"> 
                                 <div class="col-md-12">
-                                    <h3 class="title text-white">Service Requests</h3>
+                                    <h3 class="title text-white">Reception Halls Requests</h3>
                                 </div>
                             </div>
                         </div>
@@ -92,12 +92,15 @@
                                         <td class="product-thumbnail"><a href="#"><img class="img-circle" width="50" height="50" src="<%=rs1.getString("c.image_url")%>"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><%=rs1.getString("c.first_name")%> <%=rs1.getString("c.last_name")%></a></td>
                                         <td><%=rs1.getString("vp.title")%></td>
                                         <td><%=rs1.getString("vp.price")%></td>
-                                        <td><button class="btn btn-theme-colored" onclick="load_service_request(<%=rs1.getString("sr.request_id")%>,<%=rs1.getString("c.customer_id")%>)">Show Request</button></td>
+                                        <td><button class="btn btn-theme-colored" onclick="load_service_request(<%=rs1.getString("sr.customer_id")%>,<%=rs1.getString("c.customer_id")%>)">Show Request</button></td>
 
                                     </tr>
+
                                     <%}%>                              
                                 </tbody>
+
                             </table></center>
+
                     </div>                
                 </section>
             </div>

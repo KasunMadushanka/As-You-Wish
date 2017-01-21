@@ -38,8 +38,7 @@
                         <li><a id="messages" href="chat.jsp">Messages</a></li>
                         <li><a id="reviews" href="#">Reviews</a></li>
                         <li><a id="reports" href="#">Reports</a></li>
-                        <li><a id="subscription" href="#">Subscription</a></li>
-                        <li><a class="tree-toggler nav-header" href="#">Email<i class="fa fa-angle-down"></i></a>
+                        <li><a class="tree-toggler nav-header" href="#">Mailbox<i class="fa fa-angle-down"></i></a>
                             <ul class="nav nav-list tree">
                                 <li><a id="contact_customer" href="contact.jsp">Admin</a></li>
                                 <li><a id="contact_admin" href="contact.jsp">Customer</a></li>

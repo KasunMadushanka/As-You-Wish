@@ -81,7 +81,7 @@
                         <div class="section-content pt-0">
                             <div class="row"> 
                                 <div class="col-md-12">
-                                    <h3 class="title text-white">Checkout</h3>
+                                    <h3 class="title text-white">Service Payment</h3>
                                 </div>
                             </div>
                         </div>
@@ -280,7 +280,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="text-right"> <input type="submit"  class="btn btn-lg btn-success" value="Place Order"> </div>
+                                        <div class="text-right"> <input type="submit"  class="btn btn-lg btn-success" value="Pay Online"> </div>
                                     </div>
                                 </form>
                             </div>

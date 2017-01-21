@@ -168,17 +168,17 @@
                                 <div class="image-carousel">
                                     <div class="item">
                                         <div class="thumb">
-                                            <img src="images/vendor/slider/1/1/1.jpg" height="350">
+                                            <img src="images/vendor/slider/1/1/4.jpg" height="350">
                                         </div>
                                     </div>
                                     <div class="item">
                                         <div class="thumb">
-                                            <img src="images/vendor/slider/1/1/2.jpg" height="350">
+                                            <img src="images/vendor/slider/1/1/5.jpg" height="350">
                                         </div>
                                     </div>
                                     <div class="item">
                                         <div class="thumb">
-                                            <img src="images/vendor/slider/1/1/3.jpg" height="350">
+                                            <img src="images/vendor/slider/1/1/6.jpg" height="350">
                                         </div>
                                     </div>
                                 </div>
@@ -226,25 +226,20 @@
                                     <h3 class="title text-white">+94 <%=contact_no%></h3>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-6 col-md-2 wow fadeInUp animation-delay2">
+                            <div class="col-xs-12 col-sm-6 col-md-3 wow fadeInUp animation-delay2">
                                 <div class="funfact text-center mb-sm-30">
                                     <h4 class="title text-white">Email</h4>
                                     <h3 class="title text-white"><%=email%></h3>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-6 col-md-2 wow fadeInUp animation-delay3">
-                                <div class="funfact text-center mb-sm-30">
-                                    <h4 class="title text-white">Chat Online</h4>
-                                    <h3 ><a class="title text-white" href="chat.jsp?id=1&type=vendor">Start</a></h3>
-                                </div>
-                            </div>
+                         
                             <div class="col-xs-12 col-sm-6 col-md-3 wow fadeInUp animation-delay3">
                                 <div class="funfact text-center mb-sm-30">
                                     <h4 class="title text-white">Address</h4>
                                     <h3 class="title text-white"><%=address1%>, <%=address2%>, <%=city%></h3>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-6 col-md-2 wow fadeInUp animation-delay4">
+                            <div class="col-xs-12 col-sm-6 col-md-3 wow fadeInUp animation-delay4">
                                 <div class="funfact text-center mb-sm-30">
                                     <h4 class="title text-white">Working Hours</h4>
                                     <h3 class="title text-white"><%=working_hours%></h3>
@@ -356,7 +351,7 @@
                             <div class="col-md-6 col-md-offset-3 text-center wow fadeInUp animation-delay1">
                                 <h2 class="title pattern-bottom">News Blog</h2>
                                 <img src="images/section-title-after.png" alt="">
-                                <p>So while it might seem impossible to sum up your ridiculously amazing, complicated, and fantastic wedding</p>
+                             
                             </div>
                         </div>
                     </div>

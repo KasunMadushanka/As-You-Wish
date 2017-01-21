@@ -11,7 +11,7 @@
     
     //Select first_name,partner_first_name,mobile,email,event_date from customer where customer_id in (Select customer_id from contest)
     ResultSet rs = getCon().createStatement().executeQuery(""
-            + "Select first_name,partner_first_name,mobile,email,event_date "
+            + "Select customer_id,first_name,partner_first_name,mobile,email,event_date "
             + "from customer "
             + "where customer_id in "
             + "(Select customer_id from contestant where `contest_id` = (SELECT `contest_id` FROM `contest` WHERE `status` = 'active'))");
@@ -88,8 +88,9 @@
                                             <td><%= rs.getString("event_date")%></td>
                                             <td><%="+94"+rs.getString("mobile")%></td>
                                             <td><%= rs.getString("email")%></td>
-                                            <td>                                                                      
-                                                <button type="button" class="btn btn-primary btn-sm" ><i class="fa fa-pencil-square-o"></i> Contact </button>                                                                                          
+                                            <td>
+                                                
+                                                <a href="chat.jsp?id=<%= rs.getString("customer_id") %>&&type=2"><button type="button" class="btn btn-primary btn-sm" ><i class="fa fa-pencil-square-o"></i> Contact </button>  </a>                                                                                        
                                             </td>
                                         </tr>
                                         <%

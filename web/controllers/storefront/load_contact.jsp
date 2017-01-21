@@ -4,7 +4,7 @@
     String vendor_id = (String) session.getAttribute("id");
     String service_id = (String) session.getAttribute("service_id");
 
-    ResultSet rs = getCon().createStatement().executeQuery("Select contact_no,email,website_url,working_ hours,address1,address2,city from service_registry where vendor_id='" + vendor_id + "' and service_id='" + service_id + "'");
+    ResultSet rs = getCon().createStatement().executeQuery("Select contact_no,email,website_url,working_hours,address1,address2,city from service_registry where vendor_id='" + vendor_id + "' and service_id='" + service_id + "'");
     if (rs.first()) {%>
 <div class="modal-body">
     <div class="row">
@@ -14,13 +14,13 @@
         </div>
         <div class="form-group col-md-6">
             <label for="email">Email:</label>
-            <input id="email" name="email" class="form-control" type="text" value="<%=rs.getString("contact_no")%>">
+            <input id="email" name="email" class="form-control" type="text" value="<%=rs.getString("email")%>">
         </div>
     </div>
     <div class="row">
         <div class="form-group col-md-6">
             <label for="website_url">Website URL:</label>
-            <input id="website_url" name="website_url" class="form-control" type="text" value="<%=rs.getString("contact_no")%>">
+            <input id="website_url" name="website_url" class="form-control" type="text" value="<%=rs.getString("website_url")%>">
         </div>
         <div class="form-group col-md-6">
             <label for="working_hours">Working Hours:</label>

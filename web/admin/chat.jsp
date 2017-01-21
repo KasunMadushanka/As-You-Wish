@@ -2,8 +2,8 @@
 <%
     
     String id = "x";
-    String type = "0";
-    String UserId = "0";
+    String type = "2";
+    String UserId = "1";
     String UName = "";
     String uImg = "";
     

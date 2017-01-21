@@ -41,7 +41,7 @@
     <head>
         <%@ include file="/static/head.jsp" %>
 
-        <script src="myjs/update_post.js"></script>
+       
 
     </head>
 
@@ -104,15 +104,7 @@
                                                             if (!fields[5].equals("")) {%>
                                                         <div class="post-thumb"> <img id="image<%=fields[0]%>" alt="" src="admin/<%=fields[5]%>" class="img-fullwidth img-responsive"> </div>
                                                             <%}%>
-                                                        <div class="dropdown">
-                                                            <a class="dropdown-toggle" data-toggle="dropdown">
-                                                                <span class="caret"></span></a>
-                                                            <ul class="dropdown-menu">
-                                                                <li><a href="" onclick="edit_post(<%=fields[0]%>); return false;">Edit Post</a></li>
-                                                                <li><a href="" onclick="delete_post(<%=fields[0]%>, 'customer'); return false;">Delete Post</a></li>
-                                                                <li><a href="#">Hide Post</a></li>
-                                                            </ul>
-                                                        </div>
+                                                        
                                                         <h3 id="title<%=fields[0]%>" class="entry-title sm-inline-block mt-0 mt-sm-30 mt-xs-0 pt-0"><%=fields[3]%></h3>
                                                         <ul class="list-inline font-12 mb-20 mt-10">
                                                             <li>posted by <a href="#" class="text-theme-colored"><%=fields[8]%></a></li>

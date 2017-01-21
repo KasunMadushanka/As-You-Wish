@@ -98,7 +98,6 @@
                                         <li><a href="#events">Events</a></li>
                                         <li><a href="#blog">Blog</a></li>
                                         <li><a href="#contests">Contests</a></li>
-                                        <li><a href="#about_us">About Us</a></li>
                                         <li><a href="contact.jsp">Contact</a></li>
                                         <li><a href="#" data-toggle="modal" data-target="#login-modal">Sign In</a></li>
                                     </ul>
@@ -129,7 +128,7 @@
                                         <%if (status) {%>
                                         <img src="images/logo3.png" alt="" style="position: relative; top:60px; ">
                                         <div class="clock" style="position: relative;left: 135px; top: -20px"></div>
-                                        <a class="btn btn-theme-colored" href="voting.jsp" style="position: relative;top: -20px; width: 450px; height: 50px; font-size: 20px;">Most Popular Couple October 2016</a>
+                                        <a class="btn btn-theme-colored" href="voting.jsp" style="position: relative;top: -20px; width: 450px; height: 50px; font-size: 20px;">Most Popular Couple January 2017</a>
                                         <%} else {%>
                                         <img src="images/logo3.png" style="position: relative; top:220px; padding-bottom: 180px;">
                                         <%}%>
@@ -540,19 +539,19 @@
 
                                         <div> <br><br><center><img src="<%=images.get(1)%>" style="vertical-align: bottom" class="img-circle" width="250" height="250"></center>
                                         </div>
-                                        <h3 style="position: relative;text-align:center;">1<sup>st</sup> Runners Up</h3>
+                                        <h3 style="position: relative;text-align:center;">1<sup>st</sup> Runner Up</h3>
                                     </div>
                                     <div class="col-sm-6 col-md-4 col-lg-4 mb-30">                                     
                                         <div><center> <img alt="" src="<%=images.get(0)%>" class="img-circle" width="350" height="350"></center>
 
                                         </div>
-                                        <h3 style="position: relative;left: 130px;">Winners</h3>
+                                        <h3 style="position: relative;left: 130px;">Winner</h3>
                                     </div>
                                     <div class="col-sm-6 col-md-4 col-lg-4 mb-30">                                 
                                         <div> <br><br><center><img alt="" src="<%=images.get(2)%>" class="img-circle" width="250" height="250"></center>
 
                                         </div>
-                                        <h3 style="position: relative;left: 100px;">2<sup>nd</sup> Runners Up</h3>
+                                        <h3 style="position: relative;left: 100px;">2<sup>nd</sup> Runner Up</h3>
                                     </div>
                                 </div>               
                             </div>

@@ -3,6 +3,18 @@ $(document).ready(function () {
     {
         tradition = $('#tradition').val();
         date = $('#date').val();
+        
+        var d = new Date();
+        
+        var m = d.getMonth()+1;
+        var date = d.getDate();
+        
+        var outDate = (m<10 ? '0' : '' )+m + "/"+ (date<10?'0' : '' )+"/"+d.getFullYear();
+        
+        
+        
+        
+        //
         time = $('#time').val();
         duration = $('#duration').val();
         no_of_guests = $('#no_of_guests').val();
@@ -71,8 +83,19 @@ $(document).ready(function () {
         type1 += "/" + no_of_guests + "/" + decoration;
 
         data = [service1, type1, city1, budget1, budget_option1, service2, type2, city2, budget2, budget_option2, service3, type3, city3, budget3, budget_option3, service4, type4, city4, budget4, budget_option4, service5, type5, city5, budget5, budget_option5, service6, type6, city6, budget6, budget_option6, service7, type7, city7, budget7, budget_option7, service8, type8, city8, budget8, budget_option8, service9, type9, city9, budget9, budget_option9];
-
-        window.location.href = "request_results.jsp?data=" + data;
+        
+//        if(outDate > date ){
+//            
+            window.location.href = "request_results.jsp?data=" + data;
+//            
+//            
+//        }
+//        else{
+//            
+//            $.rustaMsgBox({'mode': 'error', 'content': 'Please Check the wedding date', 'fadeOut': true});
+//        }
+        
+//        window.location.href = "request_results.jsp?data=" + data;
 
     });
 });

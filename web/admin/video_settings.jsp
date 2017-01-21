@@ -168,7 +168,7 @@
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">No.of Images</label>
                                     <div class="col-md-4">
-                                        <input id="image_count" name="image_count" type="text" class="form-control" placeholder="20" />
+                                        <input id="image_count" name="image_count" type="text" class="form-control" placeholder="10" />
                                     </div>
                                 </div>
                                 

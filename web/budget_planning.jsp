@@ -70,7 +70,7 @@
                                             <div class="form-group col-md-6">
                                                 <div class="form-group mb-10">
                                                     <label for="date"><b>Date</b></label>
-                                                    <input id="date" name="date" class="form-control required date-picker" type="text" placeholder="Wedding Date" aria-required="true">
+                                                    <input id="date" name="date" class="form-control required date-picker" type="text" placeholder="DD/MM/YYYY" aria-required="true">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">

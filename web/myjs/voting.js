@@ -5,7 +5,10 @@ function vote(contestant_id) {
         url: "controllers/voting_system/update_vote.jsp",
         data: "contestant_id=" + contestant_id,
         success: function (msg) {
-            check_status();
+            if(msg==="0"){
+                
+            }
+            $.rustaMsgBox({'mode': 'info', 'content': 'Vote added', 'fadeOut': true});
         },
         error: function (error) {
             alert(error);
@@ -32,6 +35,7 @@ function check_status() {
                     $('#button' + msg[i]).attr('disabled', true);
                 }
             }
+         
         },
         error: function (error) {
             alert(error);
